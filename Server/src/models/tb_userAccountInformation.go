@@ -129,7 +129,6 @@ func UpdateLastLoginTime(userId int64) (err error){
 // 通过用户账户信息(手机or邮箱字段) 获取 用户id
 func GetUserId(userAccountInformation common.UserAccountInformation) (userId int64, err error){
 
-
 	// 执行sql语句，通过用户的邮箱或手机获取用户的信息
 	rows,err := db.Query("select userId from tb_userAccountInformation where userPassword=$1 and userPhone=$2 or userPassword=$1 and userEmail=$3",
 		userAccountInformation.UserPassword,

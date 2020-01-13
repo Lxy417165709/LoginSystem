@@ -33,10 +33,12 @@ func LoadConf(confPath string) error {
 }
 
 type Configure struct {
+	// 通用信息
 	Common struct {
 		Version string `json:"version" remark:"软件发布版本，对应仓库tag版本"`
 		Creator string `json:"creator" remark:"创建者"`
 	}
+	// 数据库信息
 	Db struct {
 		Host     string `json:"host" remark:"数据库主机"`
 		Port     int    `json:"port" remark:"数据库端口"`
@@ -45,6 +47,7 @@ type Configure struct {
 		Dbname   string `json:"dbname" remark:"数据库名"`
 		Sslmode  string `json:"sslmode" remark:"ssl模式"`
 	}
+	// 服务器信息
 	Server struct {
 		Port     int    `json:"port" remark:"服务器监听端口"`
 		Filepath string `json:"filepath" remark:"服务器默认文件路径"`
