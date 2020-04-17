@@ -2,25 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c031c404-5e38-4332-b08a-c13b14ebe4db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Doc/前后端响应.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/前端.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/前端/前端.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/后端/conf(1).go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/后端/handle.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/后端/jwt.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/后端/log.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/后端/t_user.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/后端/后端models.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/后端/接口反射.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/接口反射.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/数据库/数据库.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/记录.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Doc/项目结构.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/ansicolor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/ansicolor_ansi.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/ansicolor_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/ansicolor_windows.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/ansicolor_windows_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/example_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/github.com/shiena/ansicolor/export_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Register.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Register.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env/Conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/env/Conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/tb_userAccountInformation.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/tb_userAccountInformation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/github.com/astaxie/beego" beforeDir="false" afterPath="$PROJECT_DIR$/src/github.com/astaxie/beego" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/github.com/astaxie/beego/logs/console.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/github.com/astaxie/beego/logs/console.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/.idea/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/close.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/correct.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/exit.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/gopher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/home.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/incorrect.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/assets/img/she.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/conf.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/common/Cookies.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/common/Logs.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/common/Objects.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/common/Parse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/common/Response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/common/Token.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/common/Tool.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/controllers/InformationGetting.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/controllers/InformationSetting.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/controllers/Login.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/controllers/Register.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/controllers/upload.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/env/Conf.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/github.com/astaxie/beego" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/github.com/dgrijalva/jwt-go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/github.com/go-ini/ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/github.com/lib/pq" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/github.com/shiena/ansicolor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/models/Initdb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/models/tb_userAccountInformation.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/go_server/src/models/tb_userPersonalInformation.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/close.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/correct.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/exit.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/false.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/gopher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/home.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/incorrect.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/she.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/timg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/assets/img/true.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/es2015-polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/es2015-polyfills.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/main-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/main-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/main-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/main-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/main.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/polyfills-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/polyfills-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/polyfills-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/polyfills-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/polyfills.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/runtime-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/runtime-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/runtime-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/runtime-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/runtime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/runtime.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/styles-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/styles-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/styles-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/styles-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/styles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/styles.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/vendor-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/vendor-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/vendor-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/vendor-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/Client/vendor.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/nginx/conf.d/myconf.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../远程部署 (最好不要中文名)/postgres/init_db/createTables.sql" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,61 +116,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/Login.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3036">
-              <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+            <state relative-caret-position="1815">
+              <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+              <folding>
+                <element signature="e#14#125#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/env/Conf.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1485">
+              <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+              <folding>
+                <element signature="e#13#110#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/github.com/astaxie/beego/logs/console.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="759">
+              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Language/Go/src/net/http/server.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80124">
+              <caret line="2453" selection-start-line="2453" selection-end-line="2453" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/InformationGetting.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="e#21#103#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/Tool.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding>
-                <element signature="e#16#65#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/Parse.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-              <folding>
-                <element signature="e#16#68#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/Response.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-              <folding>
-                <element signature="e#16#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/common/Token.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#16#79#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,8 +185,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            <state relative-caret-position="165">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -163,9 +240,16 @@
       <find>shiena</find>
     </findStrings>
   </component>
-  <component name="GOROOT" path="C:\Golang\Go" />
+  <component name="GOROOT" path="C:\Language\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="urls">
+      <list>
+        <option value="file://$PROJECT_DIR$" />
+      </list>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -198,14 +282,15 @@
         <option value="$PROJECT_DIR$/src/models/tb_userAccountInformation.go" />
         <option value="$PROJECT_DIR$/src/controllers/Register.go" />
         <option value="$PROJECT_DIR$/src/env/Conf.go" />
+        <option value="$PROJECT_DIR$/src/github.com/astaxie/beego/logs/console.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="y" value="49" />
+    <option name="x" value="-10" />
+    <option name="y" value="30" />
     <option name="width" value="1932" />
-    <option name="height" value="978" />
+    <option name="height" value="988" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -235,17 +320,7 @@
               <item name="Server" type="b2602c69:ProjectViewProjectNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -269,6 +344,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\github.com\shiena" />
+      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\github.com" />
       <recent name="C:\Users\hasee\Desktop\个人项目\loginSystem\Server" />
       <recent name="C:\Users\hasee\Desktop\个人项目\loginSystem\Server\src" />
     </key>
@@ -319,15 +396,15 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="49" width="1932" height="978" extended-state="0" />
+    <frame x="-10" y="30" width="1932" height="988" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4964455" visible="true" weight="0.26121795" />
-      <window_info id="Structure" order="1" sideWeight="0.5035545" side_tool="true" visible="true" weight="0.26121795" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8363636" visible="true" weight="0.27510685" />
+      <window_info id="Structure" order="1" sideWeight="0.16363636" side_tool="true" visible="true" weight="0.27510685" />
       <window_info id="Favorites" order="2" sideWeight="0.5005931" side_tool="true" weight="0.23521027" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22993493" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35357916" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -335,7 +412,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3559719" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -369,13 +446,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/conf.go" />
-    <entry file="file://C:/Golang/Go/src/reflect/type.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="1018" selection-start-line="1018" selection-end-line="1018" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/Golang/Go/src/reflect/type.go" />
     <entry file="file://$PROJECT_DIR$/../Doc/conf.go" />
     <entry file="file://$USER_HOME$/BigItem/Flea/Server/src/Modellers/Modeller1.go" />
     <entry file="file://$USER_HOME$/暑假项目学习/远程部署/go_server/main.go" />
@@ -385,13 +456,7 @@
     <entry file="file://$PROJECT_DIR$/log/log.log" />
     <entry file="file://$PROJECT_DIR$/../Doc/后端/t_user.go" />
     <entry file="file://$PROJECT_DIR$/src/controllers/Test.go" />
-    <entry file="file://C:/Golang/Go/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="1725" selection-start-line="1725" selection-end-line="1725" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/Golang/Go/src/net/http/server.go" />
     <entry file="file://$USER_HOME$/BigItem/Flea/Server/main.go" />
     <entry file="file://$USER_HOME$/BigItem/Flea/Server/src/Controllers/Controller1.go" />
     <entry file="file://$PROJECT_DIR$/../Doc/后端/handle.go" />
@@ -402,27 +467,9 @@
     <entry file="file://$PROJECT_DIR$/assets/img/1573645593880.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-298">
-          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go" />
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/parser.go" />
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go" />
     <entry file="file://$PROJECT_DIR$/src/common/Cookies.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -493,23 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/InformationGetting.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1716">
-          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
-          <folding>
-            <element signature="e#21#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/tb_userAccountInformation.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1551">
@@ -525,12 +555,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/env/Conf.go">
+    <entry file="file://$PROJECT_DIR$/src/common/Tool.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1419">
-          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+        <state relative-caret-position="198">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding>
-            <element signature="e#13#110#0" expanded="true" />
+            <element signature="e#16#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -545,16 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/Tool.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="e#16#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/common/Parse.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -565,12 +585,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/Token.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1023">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#16#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/common/Response.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
           <folding>
             <element signature="e#16#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/shiena/ansicolor/main.go" />
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="64" column="51" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+          <folding>
+            <element signature="e#14#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/env/Conf.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+          <folding>
+            <element signature="e#13#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/astaxie/beego/logs/console.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Language/Go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80124">
+          <caret line="2453" selection-start-line="2453" selection-end-line="2453" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/InformationGetting.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#21#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -587,8 +662,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        <state relative-caret-position="165">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -617,16 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
           <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/Token.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#16#79#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

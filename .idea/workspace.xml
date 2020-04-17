@@ -2,27 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c77242d-aa64-4e95-a1ec-1d34107faf18" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/前后端响应.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/前端.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/前端/前端.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/后端/conf(1).go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/后端/handle.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/后端/jwt.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/后端/log.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/后端/t_user.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/后端/后端models.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/后端/接口反射.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/接口反射.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/数据库/数据库.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/记录.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc/项目结构.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/controllers/Register.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/controllers/Register.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/env/Conf.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/env/Conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/close.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/correct.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/exit.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/gopher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/home.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/incorrect.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/she.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/conf.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Cookies.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Logs.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Objects.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Parse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Token.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Tool.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/InformationGetting.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/InformationSetting.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/Login.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/Register.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/upload.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/env/Conf.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/astaxie/beego" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/dgrijalva/jwt-go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/go-ini/ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/lib/pq" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/shiena/ansicolor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/models/Initdb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/models/tb_userAccountInformation.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/models/tb_userPersonalInformation.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/close.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/correct.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/exit.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/false.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/gopher.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/home.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/incorrect.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/she.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/timg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/true.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/es2015-polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/es2015-polyfills.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es2015.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es2015.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/conf.d/myconf.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/postgres/init_db/createTables.sql" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,39 +101,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/src/common/Cookies.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/main.go">
+        <entry file="file://$PROJECT_DIR$/Server/src/common/Token.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-264">
-              <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
-              <folding>
-                <element signature="n#!!block;n#test#0" />
-              </folding>
+            <state relative-caret-position="563">
+              <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/controllers/Login.go">
+        <entry file="file://$PROJECT_DIR$/Server/src/controllers/InformationGetting.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+            <state relative-caret-position="429">
+              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/common/Logs.go">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="827">
+              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/parser.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2343">
+              <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/signing_method.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/env/Conf.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2489">
-              <caret line="119" column="10" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
+            <state relative-caret-position="2607">
+              <caret line="120" column="1" selection-start-line="9" selection-end-line="120" selection-end-column="1" />
               <folding>
                 <element signature="e#13#110#0" expanded="true" />
+                <element signature="n#!!block;n#LoadConf#0" />
+                <element signature="e#591#1242#0" />
               </folding>
             </state>
           </provider>
@@ -74,14 +182,18 @@
         <entry file="file://$PROJECT_DIR$/Server/conf.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+              <caret line="17" column="4" selection-end-line="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -111,10 +223,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="228" />
-    <option name="y" value="46" />
-    <option name="width" value="1932" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="141" />
+    <option name="y" value="66" />
+    <option name="width" value="1575" />
     <option name="height" value="978" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -160,13 +272,6 @@
               <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="env" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoginSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -179,12 +284,14 @@
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="editor.config.ad.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="ts.external.directory.path" value="C:\Users\hasee\Desktop\LoginSystem\Client\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -223,10 +330,10 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="141" y="66" width="1575" height="978" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20396039" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -241,6 +348,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -259,54 +367,186 @@
     <entry file="file://$PROJECT_DIR$/Doc/handle.go" />
     <entry file="file://$PROJECT_DIR$/Doc/后端/conf(1).go" />
     <entry file="file://$PROJECT_DIR$/Doc/后端/handle.go" />
-    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Register.go">
+    <entry file="file://$PROJECT_DIR$/Doc/后端/jwt.go" />
+    <entry file="file://$PROJECT_DIR$/Client/src/app/login/login.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="19" />
+        <state relative-caret-position="1188">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding>
-            <element signature="e#21#76#0" expanded="true" />
+            <element signature="n#!!block;n#test#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Doc/后端/jwt.go" />
-    <entry file="file://$PROJECT_DIR$/Server/src/common/Logs.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Login.go">
+    <entry file="file://$PROJECT_DIR$/Client/src/app/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+        <state relative-caret-position="1452">
+          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go">
+    <entry file="file://$PROJECT_DIR$/Client/src/app/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3168">
+          <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/存在问题.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/conf.ini">
+    <entry file="file://$PROJECT_DIR$/Server/src/models/Initdb.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="990">
+          <caret line="30" column="5" selection-end-line="44" />
+          <folding>
+            <element signature="e#16#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sql/createUserAccountInformationTable.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sql/createUserPersonalInformationTable - 副本.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Doc/接口设计文档.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Objects.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="14" selection-start-line="14" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Register.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Golang/Go/src/encoding/json/decode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5214">
+          <caret line="170" column="22" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/src/app/login/login.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Login.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Logs.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Parse.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <element signature="e#16#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Cookies.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/controllers/InformationGetting.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2343">
+          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/signing_method.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/src/env/Conf.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2489">
-          <caret line="119" column="10" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
+        <state relative-caret-position="2607">
+          <caret line="120" column="1" selection-start-line="9" selection-end-line="120" selection-end-column="1" />
           <folding>
             <element signature="e#13#110#0" expanded="true" />
+            <element signature="n#!!block;n#LoadConf#0" />
+            <element signature="e#591#1242#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/main.go">
+    <entry file="file://$PROJECT_DIR$/Server/conf.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!block;n#test#0" />
-          </folding>
+        <state relative-caret-position="561">
+          <caret line="17" column="4" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Token.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="25" />
         </state>
       </provider>
     </entry>
