@@ -7,17 +7,10 @@
     <!-- <button nz-button [nzType]="'primary'">测试按钮</button> -->
     <div class='imgItem'>
         <div class='imgUnit'>
-            <!-- 头像这还是有问题的，因为这只是巧合(存储在服务器的路径和Angular的路径是一样的) -->
-            <img [src]="common.userPersonalInformation.userPhotoUrl===undefined?'assets/img/default.jpg':common.userPersonalInformation.userPhotoUrl"  alt="" (click)='openSelectPictureWindow()'>
+            <img [src]="common.getImgSrcPhoto()"  alt="" (click)='openSelectPictureWindow()'>
         </div>
     </div>
     
-    <!-- /*
-    <div class='inputUnit'>
-      <input type="text" placeholder="账号" class="inputUsername" [(ngModel)]='loginForm.loginUsername'/>
-      <img [src]="common.getIcoUrl(common.checkUsername(loginForm.loginUsername))" alt="">
-    </div>
-    */ -->
     <div class='item'>
       <div class='tip'>用户名:</div>
       <input type="text" class='name' [(ngModel)]='common.userPersonalInformation.userName' placeholder="用户名">
@@ -25,8 +18,10 @@
     </div>
     <div class='item'>
       <div class='tip'>性别:</div>
-      <input type="text" class='sex' [(ngModel)]='common.userPersonalInformation.userSex'  placeholder="性别" >
-      <img [src]='common.getIcoUrl(common.checkPersonalSex(common.userPersonalInformation.userSex))' alt="">
+      <!-- <input type="text" class='sex' [(ngModel)]='common.userPersonalInformation.userSex'  placeholder="性别" > -->
+      <!-- <img [src]='common.getIcoUrl(common.checkPersonalSex(common.userPersonalInformation.userSex))' alt=""> -->
+      <label><input type="radio" name="sex" (click)="changeUserSex(0)" [checked]="common.userPersonalInformation.userSex === 0" [value]="0">男生</label>
+      <label><input type="radio" name="sex" (click)="changeUserSex(1)" [checked]="common.userPersonalInformation.userSex === 1">女生</label>
     </div>
     <div class='item'>
       <div class='tip'>生日:</div>

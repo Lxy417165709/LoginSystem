@@ -3,7 +3,8 @@
       <img src="assets/img/close.ico" alt="">
     </div>
     <div class='imgUnit'>
-        <img [src]="tmpUrl===undefined|| tmpUrl==='' ||tmpUrl===null?'assets/img/default.jpg':tmpUrl"  alt="">
+        <!-- <img [src]="common.getImgSrcPhoto()"  alt="" (click)='openSelectPictureWindow()'> -->
+        <img [src]="tmpUrl"  alt="">
     </div>
     <div class='inputUnit'>
         <input type="file" ng2FileSelect [uploader]="uploader" (change)="listenFileChanged($event)" /> 

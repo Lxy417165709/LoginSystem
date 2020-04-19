@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+ 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,7 +13,6 @@ import { PictureUploadToolComponent } from './picture-upload-tool/picture-upload
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
-// import { FileUploadModule } from 'ng2-file-upload';
 import { CommonService } from './common.service';
 import { FileUploadModule } from 'ng2-file-upload';
 @NgModule({

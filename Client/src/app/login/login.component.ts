@@ -11,8 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   loginForm = {
-    loginUsername: '',
-    loginPassword: '',
+    email: '',
+    password: '',
   };
   constructor(
     private http: HttpClient,
@@ -36,17 +36,18 @@ export class LoginComponent implements OnInit {
     // 清空用户信息
     this.common.clearUserInformation();
     this.loginForm = {
-      loginUsername: '',
-      loginPassword: '',
+      email: '',
+      password: '',
     };
   }
 
   // 返回登录表单校验码，0表示正确
   loginFormIsOK() {
-    if (!this.common.checkUsername(this.loginForm.loginUsername)) {
+    console.log(this.loginForm);
+    if (!this.common.checkUsername(this.loginForm.email)) {
       return -1;
     }
-    if (!this.common.checkPassword(this.loginForm.loginPassword)) {
+    if (!this.common.checkPassword(this.loginForm.password)) {
       return -2;
     }
     return 0;
@@ -87,14 +88,7 @@ export class LoginComponent implements OnInit {
 
     // 请求协议 (请求体)
     this.common.reqProto = {
-      action: 'POST',                   // 请求类型GET/POST/PUT/DELETE
-      data: {
-        loginPhone: this.loginForm.loginUsername,
-        loginEmail: this.loginForm.loginUsername,
-        loginPassword: this.loginForm.loginPassword,
-      },      // 请求数据
-      // ---- 下面的字段都没用到
-      sets: [],
+      data: this.loginForm,      // 请求数据
       orderBy: '',  // 排序要求
       filter: '',   // 筛选条件
       page: 0,      // 分页
@@ -102,24 +96,22 @@ export class LoginComponent implements OnInit {
     };
 
     this.http.post('/server/login', this.common.reqProto, requestHead).subscribe((res: any) => {
-      // 返回逻辑还没写
       this.common.replyProto = res;
-      // console.log(this.common.replyProto);
-
       // 根据登录结果相应操作
-      if (this.common.replyProto.status === 0) {
-
-        // 存储用户账户信息
-        this.common.storeUserAccountInformation(this.common.replyProto.data);
-        this.toast.success('登录成功!', '登录提示', {positionClass: 'toast-bottom-right'});
-        // 路由到主页
-        this.router.navigate(['home']);
-        // this.toastr.success('Hello world!', 'Toastr fun!', {timeOut: 3000});
-      } else {
+        // 状态码为0表示失败
+      if (res.status === 0) {
         // 登录失败时的提示
         this.toast.warning(res.msg, '登录提示');
+        return;
       }
 
+      // 存储用户账户信息
+      // this.common.storeUserAccountInformation(this.common.replyProto.data);
+      this.toast.success('登录成功!', '登录提示', {positionClass: 'toast-bottom-right'});
+      // 路由到主页
+      this.router.navigate(['home']);
+      // this.toastr.success('Hello world!', 'Toastr fun!', {timeOut: 3000});
     });
+
   }
 }

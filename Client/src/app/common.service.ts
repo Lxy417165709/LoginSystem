@@ -11,18 +11,11 @@ export class CommonService {
     status: 0,
     Msg: '',
     data: {},
-    API: '',
-    method: '',
-    rowCount: 0,
-    time: 0,
-    checkTime: 0,
   };
 
   // 前端请求数据通信协议
   reqProto = {
-    action: '', // 请求类型GET/POST/PUT/DELETE
     data: {},   // 请求数据
-    sets: [],
     orderBy: '',  // 排序要求
     filter: '',   // 筛选条件
     page: 0,      // 分页
@@ -32,7 +25,6 @@ export class CommonService {
   // 用户账户信息结构
   userAccountInformation = {
     userId: -1,
-    userPhone: '',
     userEmail: '',
     userPassword: '',
   };
@@ -40,6 +32,7 @@ export class CommonService {
   // 用户个人信息结构
   userPersonalInformation = {
     userId: -1,
+    photoData: '',
     userPhoto: '',
     userName: '',
     userSex: '',
@@ -79,7 +72,13 @@ export class CommonService {
 
   // 检查用户名格式是否合法
   checkUsername(username: string): boolean {
-    return this.checkPhone(username) || this.checkEmail(username);
+    return this.checkEmail(username);
+  }
+
+  // 检查验证码格式是否合法
+  checkVrc(vrc: string): boolean {
+    const vrcReg = /^[0-9]{6}$/;
+    return vrcReg.test(vrc);
   }
 
   // 检查登录密码格式是否合法
@@ -95,7 +94,7 @@ export class CommonService {
   }
 
   // 检查注册邮箱格式是否满足要求
-  checkEmail(email: string) {
+  checkEmail(email: string): boolean {
     const EmailReg = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
     return EmailReg.test(email) && email.length <= 30;
   }
@@ -145,37 +144,29 @@ export class CommonService {
     return information;
   }
 
+
   // 从session storage中解析中用户个人信息 (包括了头像的安全链接获取)
   getUserPersonalInformation() {
-    let information = JSON.parse(sessionStorage.getItem('userPersonalInformation'));
-
-    // 判断information是否为null,为null则返回一个空信息
-    if (information === null) {
-      information =  {
-        userId: -1,
-        userPhoto: '',
-        userName: '',
-        userSex: '',
-        userContactPhone: '',
-        userContactEmail: '',
-        userBirthday: 0,
-        userPhotoUrl: undefined, // 与后端相比多了这个字段，用于存放用户头像url
-      };
-      return information;
-    }
-    // 构建安全链接
-    if (information.userPhotoUrl === undefined) {
-      information.userPhotoUrl = 'assets/img/default.jpg';
-    } else {
-      const urlKey = 'changingThisBreaksApplicationSecurity';
-      information.userPhotoUrl = this.sanitizer.bypassSecurityTrustUrl(information.userPhotoUrl[urlKey]);
-    }
+    const information = JSON.parse(sessionStorage.getItem('userPersonalInformation'));
+    // console.log(this.dataURLtoBlob(information.photoData));
     return information;
   }
 
+  getImgSrcPhoto() {
+    if (this.userPersonalInformation.photoData === '') {
+      return 'assets/img/default.jpg';
+    }
+    return 'data:image/jpg;base64,' + this.userPersonalInformation.photoData;
+  }
+  getPureBase64(base64: string) {
+    return base64.substr(base64.indexOf(',') + 1);
+  }
   // 将用户账户信息存储到session storage中
   storeUserAccountInformation(userAccountInformation) {
     sessionStorage.setItem('userAccountInformation', JSON.stringify(userAccountInformation));
+  }
+  storeUserPersonalInformation(userPersonalInformation) {
+    sessionStorage.setItem('userPersonalInformation', JSON.stringify(userPersonalInformation));
   }
 
   // 删除用户信息 (包括用户个人信息和用户账户信息)
@@ -183,7 +174,7 @@ export class CommonService {
     sessionStorage.clear();
   }
 
-  // 将时间戳转换为对应的时间字符串 (单位 unixnano)
+  // 将时间戳转换为对应的时间字符串 (单位 unix *1e3)
   timestampToTimeString(transTime: number) {
     const date = new Date(transTime);
     const year = date.getFullYear();

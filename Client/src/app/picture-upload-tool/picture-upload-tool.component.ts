@@ -4,6 +4,7 @@ import { FileUploader } from 'ng2-file-upload';
 import { EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-picture-upload-tool',
@@ -13,7 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 export class PictureUploadToolComponent implements OnInit {
 
   // 临时url,用于展示用户选择的图片
-  tmpUrl: any;
+  tmpUrl: string;
+
   // 一个传值器，用于通知父组件关闭该子组件
   @Output() emitter = new EventEmitter();
 
@@ -29,15 +31,19 @@ export class PictureUploadToolComponent implements OnInit {
     private common: CommonService,
     private sanitizer: DomSanitizer,
     private toast: ToastrService,
+    private http: HttpClient,
   ) { }
 
   ngOnInit() {
     // this.userPersonalInformation 在这里现在好像没啥用
     this.common.userAccountInformation = this.common.getUserAccountInformation();
     this.common.userPersonalInformation = this.common.getUserPersonalInformation();
-    this.tmpUrl = this.common.userPersonalInformation.userPhotoUrl;
+    this.tmpUrl = this.getImgSrcPhoto();
+    // this.common.userPersonalInformation.photoData;
   }
-
+  getImgSrcPhoto() {
+    return 'data:image/jpg;base64,' + this.common.userPersonalInformation.photoData;
+  }
   // 向父组件传值，通知父组件关闭该子组件 (传送0: 表示关闭该子组件)
   callFatherExecClose() {
     this.emitter.emit({
@@ -86,11 +92,17 @@ export class PictureUploadToolComponent implements OnInit {
     const size = e.target.files[0].size;
     if (size > 0.6 * 1024 * 1024) {
       this.selectError('图片大小只能在500KB(0.5MB)范围内!', e.target);
+      this.tmpUrl = this.getImgSrcPhoto();
       return ;
     }
-
-    const url = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(e.target.files[0]));
-    this.tmpUrl = url;
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = (en) => {
+      console.log(en.target.result);
+      this.tmpUrl = en.target.result.toString();
+      // this.tmpUrl = en.target.result.toString();
+    };
     this.toast.success('新头像载入成功!', '提示');
   }
 
@@ -103,35 +115,61 @@ export class PictureUploadToolComponent implements OnInit {
       this.toast.error('您还没有选择任何新头像!', '提示');
       return;
     }
-    // 设置上传文件名字 (规定是时间戳)
-    this.uploader.queue[0].file.name = new Date().getTime() + '_' + this.common.userAccountInformation.userId
-     + '.' + this.common.getFileSuffix(this.uploader.queue[0].file);
 
-    // 开始上传
-    this.uploader.queue[0].upload();
+    const header = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    });
+    const requestHead = { headers: header };
 
-    // 成功回调
-    this.uploader.queue[0].onSuccess = (res: any) => {
-      this.common.replyProto = JSON.parse(res); // 把返回结果存在this.common.replyProto中
-
-      // 这里表示成功了
-      if (this.common.replyProto.status === 0) {
-        this.toast.success('头像上传成功,即将更改个人信息!', '提示');
-        // 修改头像名
-        this.common.userPersonalInformation.userPhoto = this.uploader.queue[0].file.name;
-
-        // 清空队列
-        this.uploader.queue = [];
-
-        // 通知父组件修改用户个人信息
-        this.callFatherExecChange();
-
-        // 通知父组件关闭该子组件
-        this.callFatherExecClose();
-      } else {
-        // 上传失败提醒
-        this.toast.warning('头像上传失败, 请重试!', '提示');
-      }
+    this.common.reqProto = {
+      data: {
+        photoBase64: this.common.getPureBase64(this.tmpUrl),
+      },   // 请求数据
+      orderBy: '',  // 排序要求
+      filter: '',   // 筛选条件
+      page: 0,      // 分页
+      pageSize: 0,  // 分页大小
     };
+
+
+    // 发送注册请求
+    this.http.post('/server/updatePhoto', this.common.reqProto, requestHead).subscribe((res: any) => {
+      // 成功了！ 但是这的业务逻辑还有好多
+      this.common.replyProto = res;
+      console.log(res);
+      // 状态码为0表示失败
+      if (res.status === 0) {
+        // 输出响应信息字段
+        this.toast.warning(res.msg, '提示');
+        return;
+      }
+
+      this.toast.success('头像修改成功!', '提示', {timeOut: 4000});
+      this.common.userPersonalInformation.photoData = this.common.getPureBase64(this.tmpUrl);
+    });
+
+    // // 成功回调
+    // this.uploader.queue[0].onSuccess = (res: any) => {
+    //   this.common.replyProto = JSON.parse(res); // 把返回结果存在this.common.replyProto中
+
+    //   // 这里表示成功了
+    //   if (this.common.replyProto.status === 0) {
+    //     this.toast.success('头像上传成功,即将更改个人信息!', '提示');
+    //     // 修改头像名
+    //     this.common.userPersonalInformation.userPhoto = this.uploader.queue[0].file.name;
+
+    //     // 清空队列
+    //     this.uploader.queue = [];
+
+    //     // 通知父组件修改用户个人信息
+    //     this.callFatherExecChange();
+
+    //     // 通知父组件关闭该子组件
+    //     this.callFatherExecClose();
+    //   } else {
+    //     // 上传失败提醒
+    //     this.toast.warning('头像上传失败, 请重试!', '提示');
+    //   }
+    // };
   }
 }

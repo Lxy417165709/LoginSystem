@@ -1,72 +1,56 @@
 package main
 
 import (
-	"common"
-	"controllers"
-	"env"
+	"0_common/commonConst"
+	"1_env"
+	"3_transition"
+	"4_controls"
 	"fmt"
 	"github.com/astaxie/beego/logs"
-	"log"
-	"models"
 	"net/http"
 )
 
-// 服务器测试接口
-func test(w http.ResponseWriter, r *http.Request) {
-	_, err := w.Write([]byte("You have been connecting!"))
+func AllInit() error {
+	// 初始化日志器
+	logs.SetLogFuncCallDepth(3)
+	logs.EnableFuncCallDepth(true)
 
-	if err != nil {
-		log.Fatal(err)
+	// 初始化配置文件
+	if err := env.LoadConf(commonConst.ConfPath); err != nil {
+		return err
 	}
-}
-
-// 测试代码 (测试成功)
-func testSql(){
-	logs.Info(models.GetUserAccountInformation(1))
-}
-
-// 系统初始化
-func systemInitial() error {
-	// 环境初始化
-	err := env.LoadConf("conf.ini")
-	if err != nil {
+	// 初始化数据库、校验器
+	if err := transition.Init(); err != nil {
 		return err
 	}
 
-	// 数据库初始化
-	err = models.Initdb()
-	if err != nil {
-		return err
-	}
-
-	// 日志初始化
-	err = common.InitLogs()
-	if err != nil {
-		return err
-	}
 	return nil
 }
 
 func main() {
-	err := systemInitial()
-	if err != nil {
-		log.Fatal(err)
+	if err := AllInit(); err != nil {
+		logs.Error(err)
 		return
 	}
-	logs.Info("Init Success!")
 
-	// 服务器设置
-	http.HandleFunc("/server/test", test)
-	http.HandleFunc("/server/register", controllers.Register)
-	http.HandleFunc("/server/login", controllers.Login)
-	http.HandleFunc("/server/getPersonalInformation", controllers.GetPersonalInformation)
-	http.HandleFunc("/server/updateUserPersonalInformation",controllers.UpdateUserPersonalInformation)
-	http.HandleFunc("/server/uploadPhoto",controllers.UploadPhoto)
-	addr := fmt.Sprintf(": %d", env.Conf.Server.Port)		// 监听地址
-	err = http.ListenAndServe(addr, nil)
+	logs.Info("init successfully!!!")
+	http.HandleFunc("/server/test", controls.Test)
+	http.HandleFunc("/server/login", controls.Login)
+	http.HandleFunc("/server/register", controls.Register)
+	http.HandleFunc("/server/updateUserPersonalInformation", controls.UpdateUpi)
+	http.HandleFunc("/server/updatePhoto", controls.UpdatePhoto)
 
-	if err != nil {
-		logs.Alert(err)
+	http.HandleFunc("/server/getPhoto", controls.GetPhoto)
+	http.HandleFunc("/server/getUai", controls.GetUai)
+	http.HandleFunc("/server/getUpi", controls.GetUpi)
+	//http.HandleFunc("/server/getSelfPhoto", controls.GetSelfPhoto)
+
+	http.HandleFunc("/server/registerVrc/send", controls.SendRegisterVrc)
+	http.HandleFunc("/server/changePasswordLink/send", controls.SendChangePasswordLink)
+	http.HandleFunc("/server/changePasswordLink/visit", controls.ChangePasswordLinkVisit)
+
+	if err := http.ListenAndServe(fmt.Sprintf(":%d", env.Conf.Server.Port), nil); err != nil {
+		logs.Error(err.Error())
+		return
 	}
-
 }

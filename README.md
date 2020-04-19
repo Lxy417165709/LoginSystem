@@ -3,6 +3,7 @@
 
 技术栈: Angular + Go + postgresSQL。
 
+部分细节：
 - [ ] 使用邮箱验证实现注册功能。
 - [ ] 通过 dgrijalva/jwt 工具，实现 Token 的生成，用以保持用户状态。
 - [ ] 使用 AES 对 jwt 进行加密，提高 Token 安全性。

@@ -20,6 +20,13 @@
     
 
 }
+/* .registerWindow .inputUnit .vrc{
+    display: flex;
+    height: 12%;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+} */
 
 .registerWindow .inputUnit{
     display: flex;
@@ -43,13 +50,23 @@
 }
 
 
-
-.registerWindow .inputUnit .inputPhone{
+.registerWindow .inputUnit .inputEmail{
     border-radius: 10px 10px 0 0;
     border-bottom: none;
 }
+.registerWindow .inputUnit .inputVrc{
+    height: 100%;
+    border-bottom: none;
+}
 
-.registerWindow .inputUnit .inputEmail{
+
+.registerWindow .inputUnit .sendVrc{
+    height: 100%;
+    border-bottom: none;
+}
+
+
+.registerWindow .inputUnit .sendVrc{
     border-bottom: none;
 }
 

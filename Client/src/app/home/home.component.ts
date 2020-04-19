@@ -21,20 +21,73 @@ export class HomeComponent implements OnInit {
     private toast: ToastrService,
   ) { }
 
+
+  getUpi() {
+    const header = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    });
+
+    const requestHead = { headers: header };
+
+    // 通过token 获取用户信息
+    this.http.post('/server/getUpi', this.common.reqProto, requestHead).subscribe((res: any) => {
+      console.log(res);
+      this.common.replyProto = res;
+
+      // 根据登录结果相应操作
+      // 状态码为0表示失败
+      if (res.status === 0) {
+        this.toast.warning(res.msg, '提示');
+        this.router.navigate(['login']);
+        return;
+      }
+
+      // 存储用户账户信息
+      this.common.storeUserPersonalInformation(this.common.replyProto.data);
+      this.common.userPersonalInformation = this.common.getUserPersonalInformation();
+      console.log(this.common.userPersonalInformation);
+      this.toast.success('个人信息获取成功!', '提示', {positionClass: 'toast-bottom-right'});
+    });
+  }
+  getUai() {
+
+    const header = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    });
+
+    const requestHead = { headers: header };
+
+    // 通过token 获取用户信息
+    this.http.post('/server/getUai', this.common.reqProto, requestHead).subscribe((res: any) => {
+      this.common.replyProto = res;
+      console.log(res);
+      // 根据登录结果相应操作
+        // 状态码为0表示失败
+      if (res.status === 0) {
+        // 登录失败时的提示
+        this.toast.warning(res.msg, '提示');
+        this.router.navigate(['login']);
+        return;
+      }
+
+      // 存储用户账户信息
+      this.common.storeUserAccountInformation(this.common.replyProto.data);
+      this.toast.success('账号信息获取成功!', '提示', {positionClass: 'toast-bottom-right'});
+
+      // // 检测登录状态
+      // if (this.common.loginStateDetection() === false) {
+      //   this.toast.error('您还没登录', '提示');
+      //   this.router.navigate(['login']);
+      //   return;
+      // }
+    });
+  }
+
+
+
   ngOnInit() {
-
-    // 检测登录状态
-    if (this.common.loginStateDetection() === false) {
-      this.toast.error('您还没登录', '提示');
-      this.router.navigate(['login']);
-      return;
-    }
-
-    // 用户账户信息更新
-    this.common.userAccountInformation = this.common.getUserAccountInformation();
-
-    // 这样异步也能修改用户个人信息了
-    this.askForPersonalInformation();
+    this.getUai();
+    this.getUpi();
   }
 
   // 退出
@@ -55,12 +108,10 @@ export class HomeComponent implements OnInit {
 
     // 请求协议 (请求体)
     this.common.reqProto = {
-      action: 'POST',
       data: {
         userId: this.common.userAccountInformation.userId // 请求数据只需要用户id
       },
       // ---- 下面的字段都没用到
-      sets: [],
       orderBy: '',  // 排序要求
       filter: '',   // 筛选条件
       page: 0,      // 分页

@@ -12,15 +12,21 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent implements OnInit {
   registerInformation = {
-    registerPhone: '',
     registerEmail: '',
     registerPassword: '',
     registerRepeatPassword: '',
-    registerType: 0,
-    registerTime: 0,
-    lastLoginTime: 0,
+    vrc: '',
+  };
+  emailData = {
+    email: '',
   };
 
+
+  registerForm = {
+    email: '',
+    password: '',
+    vrc: ''   // 记得写Vrc
+  };
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -33,9 +39,9 @@ export class RegisterComponent implements OnInit {
 
   // 返回注册表校验码，0表示正确
   registerFormIsOK() {
-    if (!this.common.checkPhone(this.registerInformation.registerPhone)) {
-      return -1;
-    }
+    // if (!this.common.checkPhone(this.registerInformation.registerPhone)) {
+    //   return -1;
+    // }
     if (!this.common.checkEmail(this.registerInformation.registerEmail)) {
       return -2;
     }
@@ -57,9 +63,9 @@ export class RegisterComponent implements OnInit {
     if (resultFlag === 0) {
       tipStr = '';  // 表示没有错误
     }
-    if (resultFlag === -1) {
-      tipStr = '您输入的手机格式有误!';
-    }
+    // if (resultFlag === -1) {
+    //   tipStr = '您输入的手机格式有误!';
+    // }
     if (resultFlag === -2) {
       tipStr = '您输入的邮箱格式有误!';
     }
@@ -73,6 +79,39 @@ export class RegisterComponent implements OnInit {
       tipStr = '您两次输入的密码不一致';
     }
     return tipStr;
+  }
+
+
+  sendVrc() {
+    const header = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    });
+    // 请求头
+    const requestHead = { headers: header };
+    this.emailData = {
+      email: this.registerInformation.registerEmail,
+    };
+    this.common.reqProto = {
+      data: this.emailData,   // 请求数据
+      orderBy: '',  // 排序要求
+      filter: '',   // 筛选条件
+      page: 0,      // 分页
+      pageSize: 0,  // 分页大小
+    };
+
+
+    // 发送邮箱验证码请求
+    this.http.post('/server/registerVrc/send', this.common.reqProto, requestHead).subscribe((res: any) => {
+      this.common.replyProto = res;
+      // 状态码为0表示失败
+      if (res.status === 0) {
+        // 输出响应信息字段
+        this.toast.warning(res.msg, '提示');
+        return;
+      }
+
+      this.toast.success('验证码发送成功!', '提示', {timeOut: 4000});
+    });
   }
 
 
@@ -93,35 +132,38 @@ export class RegisterComponent implements OnInit {
 
     // 请求协议
     const nowTime =  new Date().getTime();  // nowTime是13位的
-    this.registerInformation.lastLoginTime = nowTime;
-    this.registerInformation.registerTime = nowTime;
+
+    this.registerForm = {
+      email: this.registerInformation.registerEmail,
+      password: this.registerInformation.registerPassword,
+      vrc: this.registerInformation.vrc,
+    };
     this.common.reqProto = {
-      action: 'POST',                   // 请求类型GET/POST/PUT/DELETE
-      data: this.registerInformation,   // 请求数据
-      // ---- 下面的字段都没用到
-      sets: [],
+      data: this.registerForm,   // 请求数据
       orderBy: '',  // 排序要求
       filter: '',   // 筛选条件
       page: 0,      // 分页
       pageSize: 0,  // 分页大小
     };
 
+
     // 发送注册请求
     this.http.post('/server/register', this.common.reqProto, requestHead).subscribe((res: any) => {
       // 成功了！ 但是这的业务逻辑还有好多
       this.common.replyProto = res;
 
-      // 状态码为0表示成功
+      // 状态码为0表示失败
       if (res.status === 0) {
-        this.toast.success('注册成功!', '提示', {timeOut: 4000});
-        this.common.storeUserAccountInformation(this.common.replyProto.data);
-
-        // 页面跳转
-        this.router.navigate(['registerResponse']);
-      } else {
         // 输出响应信息字段
         this.toast.warning(res.msg, '提示');
+        return;
       }
+
+      this.toast.success('注册成功!', '提示', {timeOut: 4000});
+      this.common.storeUserAccountInformation(this.common.replyProto.data);
+
+      // 页面跳转
+      this.router.navigate(['registerResponse']);
     });
   }
 }

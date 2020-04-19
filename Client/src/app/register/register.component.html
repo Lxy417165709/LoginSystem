@@ -1,11 +1,12 @@
 <div class="registerWindow">
     <div class='inputUnit'>
-      <input type="text" class="inputPhone" placeholder="手机" [(ngModel)]='registerInformation.registerPhone' >
-      <img [src]="common.getIcoUrl(common.checkPhone(registerInformation.registerPhone))" alt="">
-    </div>
-    <div class='inputUnit'>
       <input type="text" class="inputEmail" placeholder="邮箱" [(ngModel)]='registerInformation.registerEmail' >
       <img [src]="common.getIcoUrl(common.checkEmail(registerInformation.registerEmail))" alt="">
+    </div>
+    <div class='inputUnit'>
+      <input type="text" class="inputVrc" placeholder="验证码" [(ngModel)]='registerInformation.vrc' >
+      <button class="sendVrc" (click)='sendVrc()'>验证码发送</button>
+      <img [src]="common.getIcoUrl(common.checkVrc(registerInformation.vrc))" alt="">
     </div>
     <div class='inputUnit'>
       <input type="password" class="inputPassword" placeholder="密码" [(ngModel)]='registerInformation.registerPassword' >

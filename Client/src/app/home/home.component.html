@@ -5,7 +5,7 @@
   <div class='left'></div>
   <div class='right'>
     <div class='selfInfo'>
-        <img [src] = "common.userPersonalInformation.userPhotoUrl===undefined?'assets/img/default.jpg':common.userPersonalInformation.userPhotoUrl" alt="" class='picture' routerLink="/personalInformation">
+        <img [src] = "common.getImgSrcPhoto()" alt="" class='picture' routerLink="/personalInformation">
         <span class='name'>{{common.userPersonalInformation.userName}}</span>
     </div>
     <div class='option'>
