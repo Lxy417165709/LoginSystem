@@ -20,8 +20,8 @@
       <div class='tip'>性别:</div>
       <!-- <input type="text" class='sex' [(ngModel)]='common.userPersonalInformation.userSex'  placeholder="性别" > -->
       <!-- <img [src]='common.getIcoUrl(common.checkPersonalSex(common.userPersonalInformation.userSex))' alt=""> -->
-      <label><input type="radio" name="sex" (click)="changeUserSex(0)" [checked]="common.userPersonalInformation.userSex === 0" [value]="0">男生</label>
-      <label><input type="radio" name="sex" (click)="changeUserSex(1)" [checked]="common.userPersonalInformation.userSex === 1">女生</label>
+      <label><input type="radio" name="sex" (click)="changeUserSex(1)" [checked]="common.userPersonalInformation.userSex === 1" [value]="0">男生</label>
+      <label><input type="radio" name="sex" (click)="changeUserSex(2)" [checked]="common.userPersonalInformation.userSex === 2">女生</label>
     </div>
     <div class='item'>
       <div class='tip'>生日:</div>

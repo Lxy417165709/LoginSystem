@@ -99,9 +99,10 @@ export class PictureUploadToolComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = (en) => {
-      console.log(en.target.result);
-      this.tmpUrl = en.target.result.toString();
-      // this.tmpUrl = en.target.result.toString();
+      // console.log(en.target.result);
+      // this.tmpUrl = (en.target as any).result.toString();
+
+      this.tmpUrl = (en.target as any).result.toString();
     };
     this.toast.success('新头像载入成功!', '提示');
   }

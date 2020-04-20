@@ -9,13 +9,13 @@ const (
 	QuerySuccessFlag       = 1
 	EmailSendSuccessFlag   = 1
 	EmailVerifySuccessFlag = 1
-	UpiUpdateSuccessFlag	= 1
+	UpiUpdateSuccessFlag   = 1
 	PhotoUploadSuccessFlag = 1
 	GetPhotoSuccessFlag    = 1
 	LinkValidFlag          = 1
 	PasswordChangeFlag     = 1
-	UaiGetSuccessFlag	   = 1
-	UpiGetSuccessFlag	   = 1
+	UaiGetSuccessFlag      = 1
+	UpiGetSuccessFlag      = 1
 
 	AESKey   = "ajwiskdlg129/452"
 	TokenKey = "woshilixueyue"
@@ -36,6 +36,7 @@ const (
 	DefaultUserSex   = Man
 	SmallUser        = 1
 	DefaultUserPhone = "18946910438"
+	BirthDayRato     = 1000
 )
 
 // 盐值相关
@@ -56,23 +57,26 @@ const (
 	EmailRegexp    = `^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$`
 	PasswordRegexp = `^[_.a-zA-Z0-9]{8,15}$`
 	Base64Regexp   = ``
+	PhoneRegexp    = `^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$`
+	PhotoRegexp    = `^image/.+`
 )
 
 // 单位相关
 const (
 	_  = iota
 	KB = 1 << (iota * 10)
-	MB = 1 << (iota * 10)
+	MB
 )
 
-type sex = int
+//type sex = int
 const (
-	Man  sex = iota
+	_ int = iota
+	Man
 	Woman
 )
 
-// 校验器相关
-const (
-	RegisterVerificationFlag       = "register"
-	ChangePasswordVerificationFlag = "changePassword"
-)
+//// 校验器相关
+//const (
+//	RegisterVerificationFlag       = "register"
+//	ChangePasswordVerificationFlag = "changePassword"
+//)

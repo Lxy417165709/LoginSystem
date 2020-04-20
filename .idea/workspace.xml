@@ -2,96 +2,392 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c77242d-aa64-4e95-a1ec-1d34107faf18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonFunction/验证码相关.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonStruct/Error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonStruct/表单结构.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter_base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/checker/base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/checker/base_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/checker/格式校验.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/checker/表单校验.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/.github/ISSUE_TEMPLATE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/admin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/admin_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/adminui.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/beego.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/cache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/cache_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/conv.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/conv_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/memcache/memcache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/memcache/memcache_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/memory.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/redis/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/redis/redis_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/ssdb/ssdb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/cache/ssdb/ssdb_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/config_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/env/env.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/env/env_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/fake.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/ini.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/ini_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/json.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/json_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/xml/xml.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/xml/xml_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/yaml/yaml.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config/yaml/yaml_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/config_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/acceptencoder.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/acceptencoder_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/context.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/context_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/input.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/input_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/output.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/param/conv.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/param/methodparams.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/param/options.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/param/parsers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/param/parsers_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/renderer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/context/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/controller_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/error_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/filter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/filter_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/flash.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/flash_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/fs.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/grace/grace.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/grace/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/hooks.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/httplib/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/httplib/httplib.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/httplib/httplib_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/log.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/accesslog.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/alils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/log.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/log_config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/log_project.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/log_store.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/machine_group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/alils/signature.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/conn.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/conn_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/console.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/console_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/es/es.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/file_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/jianliao.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/log.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/logger_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/multifile.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/multifile_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/slack.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/smtp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/logs/smtp_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/migration/ddl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/migration/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/migration/migration.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/mime.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/namespace.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/namespace_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/cmd.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/cmd_utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_alias.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_mysql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_oracle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_postgres.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_sqlite.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_tables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_tidb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/db_utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/models.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/models_boot.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/models_fields.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/models_info_f.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/models_info_m.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/models_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/models_utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm_conds.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm_log.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm_object.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm_querym2m.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm_queryset.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm_raw.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/orm_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/qb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/qb_mysql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/qb_tidb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/types.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/orm/utils_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/parser.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/apiauth/apiauth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/apiauth/apiauth_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/auth/basic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/authz/authz.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/authz/authz_model.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/authz/authz_policy.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/authz/authz_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/cors/cors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/plugins/cors/cors_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/policy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/router_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/couchbase/sess_couchbase.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/ledis/ledis_session.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/memcache/sess_memcache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/mysql/sess_mysql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/postgres/sess_postgresql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/redis/sess_redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/redis_cluster/redis_cluster.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/redis_sentinel/sess_redis_sentinel.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/redis_sentinel/sess_redis_sentinel_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/sess_cookie.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/sess_cookie_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/sess_file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/sess_mem.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/sess_mem_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/sess_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/sess_utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/session.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/session/ssdb/sess_ssdb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/staticfile.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/staticfile_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/swagger/swagger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/template.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/template_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/templatefunc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/templatefunc_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/testdata/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/testdata/bindata.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/testdata/views/blocks/block.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/testdata/views/header.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/testdata/views/index.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/testing/assertions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/testing/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/toolbox/healthcheck.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/toolbox/profile.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/toolbox/profile_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/toolbox/statistics.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/toolbox/statistics_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/toolbox/task.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/toolbox/task_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/tree.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/tree_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/unregroute_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/caller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/caller_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/captcha/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/captcha/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/captcha/captcha.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/captcha/image.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/captcha/image_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/captcha/siprng.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/captcha/siprng_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/debug.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/debug_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/file_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/mail.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/mail_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/pagination/controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/pagination/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/pagination/paginator.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/pagination/utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/rand.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/rand_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/safemap.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/safemap_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/slice.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/slice_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/testdata/grepe.test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/utils/utils_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/validation/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/validation/util.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/validation/util_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/validation/validation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/validation/validation_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/validation/validators.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/PATENTS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/acme.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/autocert/autocert.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/autocert/cache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/autocert/listener.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/autocert/renewal.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/http.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/jws.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/acme/types.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/golang.org/x/crypto/pbkdf2/pbkdf2.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/LICENSE.libyaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/NOTICE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/apic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/decode.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/emitterc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/encode.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/parserc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/readerc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/resolve.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/scannerc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/sorter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/writerc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/yaml.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/yamlh.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/gopkg.in/yaml.v2/yamlprivateh.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/vendor/vendor.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/.github/ISSUE_TEMPLATE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/.github/PULL_REQUEST_TEMPLATE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/bench_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/data_source.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/deprecated.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/file_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/helper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/helper_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/ini.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/ini_internal_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/ini_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/key.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/key_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/parser.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/parser_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/section.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/section_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/struct.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/struct_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/testdata/TestFile_WriteTo.golden" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/testdata/UTF-16-BE-BOM.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/testdata/UTF-16-LE-BOM.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/testdata/UTF-8-BOM.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/testdata/full.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/go-ini/ini/testdata/minimal.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/mapstructure.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/mapstructure_benchmark_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/mapstructure_bugs_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/mapstructure_examples_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/goinggo/mapstructure/mapstructure_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/.travis.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/TESTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/array.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/array_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/bench_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/buf.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/certs/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/certs/bogus_root.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/certs/postgresql.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/certs/postgresql.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/certs/root.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/certs/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/certs/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/conn.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/conn_go18.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/conn_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/connector.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/connector_example_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/connector_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/copy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/copy_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/encode.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/encode_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/example/listen/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/go18_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/hstore/hstore.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/hstore/hstore_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/issues_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/notify.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/notify_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/oid/doc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/oid/gen.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/oid/types.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/rows.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/rows_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/ssl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/ssl_permissions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/ssl_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/ssl_windows.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/url.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/url_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/user_posix.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/user_windows.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/uuid.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/uuid_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/Server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/close.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/correct.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/default.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/exit.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/gopher.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/home.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/incorrect.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/assets/img/she.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/conf.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Cookies.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Logs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Objects.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Parse.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Response.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Token.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/common/Tool.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/InformationGetting.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/InformationSetting.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/Login.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/Register.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/controllers/upload.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/env/Conf.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/astaxie/beego" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/dgrijalva/jwt-go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/go-ini/ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/lib/pq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/github.com/shiena/ansicolor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/models/Initdb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/models/tb_userAccountInformation.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/go_server/src/models/tb_userPersonalInformation.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/close.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/correct.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/default.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/exit.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/false.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/gopher.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/home.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/incorrect.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/she.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/timg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/assets/img/true.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/es2015-polyfills.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/es2015-polyfills.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es2015.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es2015.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main-es5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/main.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es2015.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es2015.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills-es5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/polyfills.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es2015.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es2015.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime-es5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/runtime.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es2015.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es2015.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles-es5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/styles.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es2015.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es2015.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor-es5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/Client/vendor.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/nginx/conf.d/myconf.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/远程部署 (最好不要中文名)/postgres/init_db/createTables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/sql/表规划.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/0_common/commonConst/常量.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/0_common/commonConst/常量.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/0_common/commonFunction/盐值相关.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/0_common/commonFunction/盐值相关.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/dataCenter.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pstsql/2.Dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/2.Dao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pud/1. 功能层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pud/1. 功能层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/对接_缓存.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/rds/对接_缓存.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/对接_邮件校验器_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/rds/对接_邮件校验器_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/someFunction.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/someFunction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/someNewer.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/someNewer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/table/1.userPersonalInformation.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/table/1.userPersonalInformation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/vc/0. emailSender.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/vc/0. emailSender.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/vc/2. RegisterEmailVrcChecker.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/vc/2. RegisterEmailVrcChecker.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/0.初始化层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/0.初始化层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/0.校验封装函数.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/0.校验封装函数.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/1. 验证码校验器功能层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/1. 验证码校验器功能层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/3. 接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/3. 接口层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/0. 协议层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/0. 协议层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/3. 收发层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/3. 收发层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/4.接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/4.接口层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/conf.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/conf.ini" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,96 +398,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/common/Cookies.go">
+        <entry file="file://$PROJECT_DIR$/Server/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+            <state relative-caret-position="356">
+              <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/src/common/Token.go">
+        <entry file="file://$PROJECT_DIR$/Server/src/4_controls/4.接口层.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/controllers/InformationGetting.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="827">
-              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/parser.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2343">
-              <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/signing_method.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/env/Conf.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2607">
-              <caret line="120" column="1" selection-start-line="9" selection-end-line="120" selection-end-column="1" />
+            <state relative-caret-position="433">
+              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
               <folding>
-                <element signature="e#13#110#0" expanded="true" />
-                <element signature="n#!!block;n#LoadConf#0" />
-                <element signature="e#591#1242#0" />
+                <element signature="e#286#592#0" />
+                <element signature="e#743#1477#0" />
+                <element signature="e#2213#2905#0" />
+                <element signature="e#3450#4175#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/conf.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="17" column="4" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -205,9 +430,9 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Golang\Go" />
+  <component name="GOROOT" path="C:\Language\Go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Server" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -218,12 +443,12 @@
         <option value="$PROJECT_DIR$/Doc/后端/handle.go" />
         <option value="$PROJECT_DIR$/Server/src/controllers/Register.go" />
         <option value="$PROJECT_DIR$/Doc/后端/jwt.go" />
-        <option value="$PROJECT_DIR$/Server/main.go" />
         <option value="$PROJECT_DIR$/Server/src/controllers/Login.go" />
+        <option value="$PROJECT_DIR$/Server/main.go" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="141" />
     <option name="y" value="66" />
     <option name="width" value="1575" />
@@ -235,6 +460,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,27 +484,12 @@
               <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoginSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoginSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="4_controls" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,10 +541,10 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="141" y="66" width="1575" height="978" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20396039" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16684435" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -371,16 +582,6 @@
     <entry file="file://$PROJECT_DIR$/Client/src/app/login/login.component.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!block;n#test#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Client/src/app/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1452">
@@ -401,16 +602,7 @@
     <entry file="file://$PROJECT_DIR$/存在问题.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/models/Initdb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="30" column="5" selection-end-line="44" />
-          <folding>
-            <element signature="e#16#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/models/Initdb.go" />
     <entry file="file://$PROJECT_DIR$/Sql/createUserAccountInformationTable.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -425,27 +617,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/common/Objects.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" selection-start-line="14" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Register.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Golang/Go/src/encoding/json/decode.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5214">
-          <caret line="170" column="22" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Objects.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Register.go" />
+    <entry file="file://C:/Golang/Go/src/encoding/json/decode.go" />
     <entry file="file://$PROJECT_DIR$/Client/src/app/login/login.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -455,98 +629,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Login.go">
+    <entry file="file://$PROJECT_DIR$/Server/src/controllers/Login.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Logs.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Parse.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Cookies.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/controllers/InformationGetting.go" />
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/parser.go" />
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/signing_method.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/env/Conf.go" />
+    <entry file="file://$PROJECT_DIR$/Server/conf.ini" />
+    <entry file="file://$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go" />
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go" />
+    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/common/Token.go" />
+    <entry file="file://$PROJECT_DIR$/Server/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="50" />
+        <state relative-caret-position="356">
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/common/Logs.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/common/Parse.go">
+    <entry file="file://$PROJECT_DIR$/Server/src/4_controls/4.接口层.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        <state relative-caret-position="433">
+          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
           <folding>
-            <element signature="e#16#68#0" expanded="true" />
+            <element signature="e#286#592#0" />
+            <element signature="e#743#1477#0" />
+            <element signature="e#2213#2905#0" />
+            <element signature="e#3450#4175#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/common/Cookies.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/controllers/InformationGetting.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2343">
-          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/signing_method.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/env/Conf.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2607">
-          <caret line="120" column="1" selection-start-line="9" selection-end-line="120" selection-end-column="1" />
-          <folding>
-            <element signature="e#13#110#0" expanded="true" />
-            <element signature="n#!!block;n#LoadConf#0" />
-            <element signature="e#591#1242#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/conf.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="4" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/models/tb_userAccountInformation.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/common/Token.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="25" />
         </state>
       </provider>
     </entry>

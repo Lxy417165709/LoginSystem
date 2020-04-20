@@ -2,6 +2,7 @@ package models
 
 import (
 	"0_common/commonConst"
+	"0_common/commonFunction"
 	"2_models/table"
 	"time"
 )
@@ -9,8 +10,8 @@ import (
 func NewDefaultUai(uid int, email, password string) *table.UserAccountInformation {
 	var saltPassword string
 	var err error
-	salt := CreatSalt()
-	if saltPassword, err = SaltHash(password, salt); err != nil {
+	salt := commonFunction.CreatSalt()
+	if saltPassword, err = commonFunction.SaltHash(password, salt); err != nil {
 		return nil
 	}
 	// 插入账户信息

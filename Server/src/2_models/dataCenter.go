@@ -1,6 +1,7 @@
 package models
 
 import (
+	"0_common/commonFunction"
 	"2_models/table"
 	"fmt"
 	"time"
@@ -13,8 +14,8 @@ func (dbc DataCenter) GetUai(email string) (*table.UserAccountInformation, error
 	if err != nil {
 		return nil, err
 	}
-	if len(uais)==0{
-		return nil,nil
+	if len(uais) == 0 {
+		return nil, nil
 	}
 	uai := uais[0].(*table.UserAccountInformation)
 	return uai, nil
@@ -23,12 +24,12 @@ func (dbc DataCenter) GetUai(email string) (*table.UserAccountInformation, error
 // 获取操作
 func (dbc DataCenter) GetUaiByUid(uid int) (*table.UserAccountInformation, error) {
 	key := fmt.Sprintf("uai:uid:%d", uid)
-	uais,err := dbc.Select(key, &table.UserAccountInformation{}, "where UserId=$1", uid)
+	uais, err := dbc.Select(key, &table.UserAccountInformation{}, "where UserId=$1", uid)
 	if err != nil {
 		return nil, err
 	}
-	if len(uais)==0{
-		return nil,nil
+	if len(uais) == 0 {
+		return nil, nil
 	}
 	uai := uais[0].(*table.UserAccountInformation)
 	return uai, nil
@@ -37,23 +38,24 @@ func (dbc DataCenter) GetUaiByUid(uid int) (*table.UserAccountInformation, error
 // 获取操作
 func (dbc DataCenter) GetUpiByUid(uid int) (*table.UserPersonalInformation, error) {
 	key := fmt.Sprintf("upi:uid:%d", uid)
-	upis,err := dbc.Select(key, &table.UserPersonalInformation{}, "where UserId=$1", uid)
+	upis, err := dbc.Select(key, &table.UserPersonalInformation{}, "where UserId=$1", uid)
 	if err != nil {
 		return nil, err
 	}
-	if len(upis)==0{
-		return nil,nil
+	if len(upis) == 0 {
+		return nil, nil
 	}
 	upi := upis[0].(*table.UserPersonalInformation)
 	return upi, nil
 }
+
 // 更新upi
-// 获取操作
 func (dbc DataCenter) UpdateUpi(upi table.UserPersonalInformation) error {
 	key := fmt.Sprintf("upi:uid:%d", upi.UserId)
 	return dbc.Update(key, &upi, "where UserId=$1", upi.UserId)
 }
 
+// 更新upi
 func (dbc DataCenter) GetUid(email string) (int, error) {
 	uai, err := dbc.GetUai(email)
 	if err != nil {
@@ -66,6 +68,7 @@ func (dbc DataCenter) GetUid(email string) (int, error) {
 }
 
 // 更新操作
+// 更新upi
 func (dbc DataCenter) UpdateLastLoginTime(email string) error {
 	key := fmt.Sprintf("uai:email:%s", email)
 	return dbc.Update(
@@ -76,9 +79,7 @@ func (dbc DataCenter) UpdateLastLoginTime(email string) error {
 	)
 }
 
-
-
-
+// 更新upi (系统错误)
 func (dbc DataCenter) UpdateUserPhotoUrl(userId int, newPhotoUrl string) error {
 	return dbc.Update(
 		fmt.Sprintf("upi:uid:%d", userId),
@@ -87,6 +88,8 @@ func (dbc DataCenter) UpdateUserPhotoUrl(userId int, newPhotoUrl string) error {
 		userId,
 	)
 }
+
+// 更新upi (系统错误)
 func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
 	// 这里的 newPassword 是明文
 	var uai *table.UserAccountInformation
@@ -95,7 +98,7 @@ func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
 		return err
 	}
 	var newHashPassword string
-	if newHashPassword, err = SaltHash(newPassword, uai.Salt); err != nil {
+	if newHashPassword, err = commonFunction.SaltHash(newPassword, uai.Salt); err != nil {
 		return err
 	}
 	uai.UserPassword = newHashPassword
@@ -103,29 +106,7 @@ func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
 	return dbc.Update(key, uai, "where userEmail=$1", email)
 }
 
-// 校验操作
-func (dbc DataCenter) EmailIsExist(email string) (bool, error) {
-	uai, err := dbc.GetUai(email)
-	if err != nil {
-		return false, err
-	}
-	return uai != nil, nil
-}
-func (dbc DataCenter) PasswordIsRight(email, password string) (bool, error) {
-	uai, err := dbc.GetUai(email)
-	if err != nil {
-		return false, err
-	}
-	// 判断是否正确
-	var hashPassword string
-	if hashPassword, err = SaltHash(password, uai.Salt); err != nil {
-		return false, err
-	}
-	return uai.UserPassword == hashPassword, nil
-}
-
-
-// 插入操作
+// 插入操作  (系统错误)
 // 返回uid和error
 func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error) {
 
@@ -147,3 +128,5 @@ func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error
 	}
 	return uid, nil
 }
+
+

@@ -3,6 +3,7 @@ package controls
 import (
 	"0_common/commonConst"
 	"0_common/commonFunction"
+	"0_common/commonStruct"
 	"fmt"
 	"net/http"
 )
@@ -26,26 +27,45 @@ func getTokenFromRequest(r *http.Request) (string, error) {
 	if cookie, err = r.Cookie("token"); err != nil {
 		return "", err
 	}
-
 	return commonFunction.Decode(cookie.Value, commonConst.AESKey)
 }
 
-func SetUidToResponse(w http.ResponseWriter, userId int) error {
+
+
+func SetUidToResponse(w http.ResponseWriter, userId int) *commonStruct.Error {
 	var tokenString string
 	var err error
 	if tokenString, err = CreatTokenString(userId); err != nil {
-		return err
+		return commonStruct.NewError(
+			fmt.Errorf("登录状态保留失败"),
+			err,
+		)
 	}
 	if err := setTokenToResponse(w, tokenString); err != nil {
-		return err
+		return commonStruct.NewError(
+			fmt.Errorf("登录状态保留失败"),
+			err,
+		)
 	}
 	return nil
 }
-func GetUidFromRequest(r *http.Request) (int, error) {
+
+func GetUidFromRequest(r *http.Request) (int,*commonStruct.Error) {
 	var tokenString string
 	var err error
 	if tokenString, err = getTokenFromRequest(r); err != nil {
-		return commonConst.ErrorUserId, err
+		return commonConst.ErrorUserId,commonStruct.NewError(
+			fmt.Errorf("获取用户id失败"),
+			err,
+		)
 	}
-	return GetUserIdFromTokenString(tokenString)
+	var uid int
+	if uid,err = GetUserIdFromTokenString(tokenString) ;err!=nil{
+		return commonConst.ErrorUserId,commonStruct.NewError(
+			fmt.Errorf("获取用户id失败"),
+			err,
+		)
+	}
+
+	return uid,nil
 }

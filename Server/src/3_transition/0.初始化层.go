@@ -14,13 +14,13 @@ var pgsql  = &pstsql.Pgsql{}
 var dataCenter  = &models.DataCenter{}
 
 // 校验器
-var registerVrcChecker *vc.RegisterEmailVrcChecker             // 注册验证码校验器
-var changePasswordVrcChecker *vc.ChangePasswordEmailVrcChecker // 修改密码验证码校验器
+var registerVrcManager *vc.RegisterEmailVrcChecker            // 注册验证码校验器
+var changePasswordVrcManager *vc.ChangePasswordEmailVrcChecker // 修改密码验证码校验器
 
 // 图片上传与查看工具
 var photoUploader *pud.PhotoUploader
 
-// 初始化数据库
+// 初始化
 func Init() error {
 	if err := redis.Init();err!=nil{
 		return err
@@ -31,9 +31,8 @@ func Init() error {
 	}
 
 	dataCenter = models.NewDataCenter(redis,pgsql)
-	registerVrcChecker = vc.NewRegisterEmailVrcChecker(redis)
-	changePasswordVrcChecker = vc.NewChangePasswordEmailVrcChecker(redis)
-
+	registerVrcManager = vc.NewRegisterEmailVrcChecker(redis)
+	changePasswordVrcManager = vc.NewChangePasswordEmailVrcChecker(redis)
 	return nil
 }
 
