@@ -1,7 +1,7 @@
 package transition
 
 import (
-	"2_models"
+	dtc "2_models/dataCenter"
 	"2_models/pstsql"
 	"2_models/pud"
 	"2_models/rds"
@@ -11,11 +11,11 @@ import (
 // 数据库
 var redis = &rds.Redis{}
 var pgsql  = &pstsql.Pgsql{}
-var dataCenter  = &models.DataCenter{}
+var dataCenter  = &dtc.DataCenter{}
 
 // 校验器
 var registerVrcManager *vc.RegisterEmailVrcChecker            // 注册验证码校验器
-var changePasswordVrcManager *vc.ChangePasswordEmailVrcChecker // 修改密码验证码校验器
+//var changePasswordVrcManager *vc.ChangePasswordEmailVrcChecker // 修改密码验证码校验器
 
 // 图片上传与查看工具
 var photoUploader *pud.PhotoUploader
@@ -30,9 +30,9 @@ func Init() error {
 		return err
 	}
 
-	dataCenter = models.NewDataCenter(redis,pgsql)
+	dataCenter = dtc.NewDataCenter(redis,pgsql)
 	registerVrcManager = vc.NewRegisterEmailVrcChecker(redis)
-	changePasswordVrcManager = vc.NewChangePasswordEmailVrcChecker(redis)
+	//changePasswordVrcManager = vc.NewChangePasswordEmailVrcChecker(redis)
 	return nil
 }
 

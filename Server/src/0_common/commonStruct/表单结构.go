@@ -17,12 +17,13 @@ type RegisterData struct {
 
 // 更新用户信息的数据结构
 type UpiData struct {
-	UserName         string `json:"userName" checkType:"email"`
+	UserName         string `json:"userName" checkType:"userName"`
 	UserSex          int    `json:"userSex" checkType:"sex"`
 	UserContactPhone string `json:"userContactPhone" checkType:"phone"`
 	UserContactEmail string `json:"userContactEmail" checkType:"email"`
 	UserBirthday     int    `json:"userBirthday" checkType:"birthday"`
 }
+
 // 修改用户头像数据结构
 type UpdatePhotoData struct {
 	PhotoBase64 string `json:"photoBase64" checkType:"photo"`

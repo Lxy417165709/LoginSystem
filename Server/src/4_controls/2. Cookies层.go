@@ -9,6 +9,7 @@ import (
 )
 
 // 设置token(密文)
+// token(密文) -> 响应
 func setTokenToResponse(w http.ResponseWriter, token string) error {
 	encodeToken, err := commonFunction.Encode(token, commonConst.AESKey)
 	if err != nil {
@@ -22,6 +23,7 @@ func setTokenToResponse(w http.ResponseWriter, token string) error {
 }
 
 // 获取token(明文)
+// 请求 -> token(明文)
 func getTokenFromRequest(r *http.Request) (string, error) {
 	cookie, err := &http.Cookie{}, fmt.Errorf("")
 	if cookie, err = r.Cookie("token"); err != nil {
@@ -31,7 +33,7 @@ func getTokenFromRequest(r *http.Request) (string, error) {
 }
 
 
-
+// uid -> 响应
 func SetUidToResponse(w http.ResponseWriter, userId int) *commonStruct.Error {
 	var tokenString string
 	var err error
@@ -50,6 +52,7 @@ func SetUidToResponse(w http.ResponseWriter, userId int) *commonStruct.Error {
 	return nil
 }
 
+// 请求 -> uid
 func GetUidFromRequest(r *http.Request) (int,*commonStruct.Error) {
 	var tokenString string
 	var err error

@@ -102,6 +102,7 @@ export class CommonService {
 
   // 检查个人用户名格式是否满足要求
   checkPersonalName(personalName: string) {
+    // return true;
     return personalName.length >= 1 && personalName.length <= 10;
   }
 

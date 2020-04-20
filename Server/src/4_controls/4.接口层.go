@@ -2,6 +2,7 @@ package controls
 
 import (
 	"0_common/commonConst"
+	"0_common/commonFunction"
 	"0_common/commonStruct"
 	"2_models/table"
 	"3_transition"
@@ -91,7 +92,13 @@ func UpdateUpi(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// 校验
-	if Err = transition.UpdateUpi(uid, upiData); Err != nil {
+	if Err = checkerManager.Check(upiData);Err!=nil{
+		HandleErr(w, Err)
+		return
+	}
+
+	// 执行
+	if Err = transition.UpdateUpi(uid, upiData.UserName,upiData.UserContactEmail,upiData.UserContactPhone,upiData.UserBirthday,upiData.UserSex); Err != nil {
 		HandleErr(w, Err)
 		return
 	}
@@ -119,7 +126,11 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		HandleErr(w, Err)
 		return
 	}
-
+	// 校验通过就删除验证码
+	if Err := transition.DelRegisterVrc(registerData.Email);Err!=nil{
+		HandleErr(w, Err)
+		return
+	}
 	// 产生新用户 (返回uid和错误)
 	uid, Err := transition.GenerateNewUser(registerData.Email, registerData.Password)
 	if Err != nil {
@@ -281,7 +292,13 @@ func SendRegisterVrc(w http.ResponseWriter, r *http.Request) {
 
 	// 执行发送操作
 	// 发送校验
-	if Err := transition.SendRegisterVrc(evd.Email, commonConst.RegisterExpiredTime); Err != nil {
+	vrc := commonFunction.CreatVrc()
+	if Err := transition.SendRegisterVrc(evd.Email,vrc); Err != nil {
+		HandleErr(w,Err)
+		return
+	}
+	// 保存操作
+	if Err := transition.SetRegisterVrc(evd.Email,vrc,commonConst.RegisterExpiredTime); Err != nil {
 		HandleErr(w,Err)
 		return
 	}

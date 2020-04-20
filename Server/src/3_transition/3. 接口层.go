@@ -1,22 +1,21 @@
 package transition
 
 import (
-	"0_common/commonFunction"
 	"0_common/commonStruct"
 	"2_models/table"
 	"errors"
 	"fmt"
 )
 
-func UpdateUpi(uid int, data commonStruct.UpiData) *commonStruct.Error {
+func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) *commonStruct.Error {
 
 	upi := table.UserPersonalInformation{}
 	upi.UserId = uid
-	upi.UserName = data.UserName
-	upi.UserContactEmail = data.UserContactEmail
-	upi.UserContactPhone = data.UserContactPhone
-	upi.UserBirthday = data.UserBirthday
-	upi.UserSex = data.UserSex
+	upi.UserName = uName
+	upi.UserContactEmail = ucEmail
+	upi.UserContactPhone = ucPhone
+	upi.UserBirthday = uBirthday
+	upi.UserSex = uSex
 	// 校验还没写
 	err := dataCenter.UpdateUpi(upi)
 	if err != nil {
@@ -87,11 +86,6 @@ func GenerateNewUser(email, password string) (int, *commonStruct.Error) {
 	return uid, nil
 }
 
-// 有些冗余
-func RegisterVrcIsRight(email, vrc string) *commonStruct.Error {
-	return registerVrcManager.VrcIsRight(email, vrc)
-}
-
 // 图片信息校验
 func UpdatePhoto(uid int, data commonStruct.UpdatePhotoData) *commonStruct.Error {
 
@@ -128,9 +122,8 @@ func GetPhotoCheck(name string) (string, *commonStruct.Error) {
 }
 
 // 发送注册验证码
-func SendRegisterVrc(email string, expiredTime int) *commonStruct.Error {
-	vrc := commonFunction.CreatVrc()
-	if err := registerVrcManager.SendVrc(email, vrc, expiredTime); err != nil {
+func SendRegisterVrc(email string,vrc string) *commonStruct.Error {
+	if err := registerVrcManager.SendVrc(email, vrc); err != nil {
 		return commonStruct.NewError(
 			errors.New("服务器在发送验证码时发生错误"),
 			err,
@@ -139,6 +132,36 @@ func SendRegisterVrc(email string, expiredTime int) *commonStruct.Error {
 	return nil
 }
 
+// 设置
+func SetRegisterVrc(email string,vrc string,expiredTime int) *commonStruct.Error {
+	if err := registerVrcManager.SetVrc(email,vrc,expiredTime);err!= nil {
+		return commonStruct.NewError(
+			errors.New("服务器在设置验证码时发生错误"),
+			err,
+		)
+	}
+	return  nil
+}
+func GetRegisterVrc(email string) (string, *commonStruct.Error) {
+	vrc, err := registerVrcManager.GetVrc(email)
+	if err != nil {
+		return "", commonStruct.NewError(
+			errors.New("服务器在获取验证码时发生错误"),
+			err,
+		)
+	}
+	return vrc, nil
+}
+func DelRegisterVrc(email string) *commonStruct.Error{
+	if err := registerVrcManager.DelVrc(email);err!=nil{
+		return commonStruct.NewError(
+			errors.New("服务器在删除验证码时发生错误"),
+			err,
+		)
+
+	}
+	return nil
+}
 
 
 

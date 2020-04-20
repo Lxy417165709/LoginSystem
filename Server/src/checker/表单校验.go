@@ -51,8 +51,6 @@ func EmailIsNotExist(email string) *commonStruct.Error {
 	return nil
 }
 
-
-
 // 密码是否正确
 func PasswordIsRight(email, password string) *commonStruct.Error {
 	// 其实可以通过email，直接获取uai
@@ -84,9 +82,27 @@ func PasswordIsRight(email, password string) *commonStruct.Error {
 	return nil
 }
 
-
 // 注册验证码是否正确
-func VrcIsRight(email,vrc string) *commonStruct.Error{
-	return transition.RegisterVrcIsRight(email,vrc)
+func RegisterVrcIsRight(email,vrc string) *commonStruct.Error{
+	rightVrc,Err := transition.GetRegisterVrc(email)
+	//fmt.Println("wwww",rightVrc,Err)
+	if Err != nil{
+		return Err
+	}
+	if rightVrc==""{
+		return commonStruct.NewError(
+			fmt.Errorf("邮箱：%s，验证码未发送或已过期",email),
+			nil,
+		)
+	}
+
+	if rightVrc!=vrc{
+		return commonStruct.NewError(
+			fmt.Errorf("验证码错误"),
+			nil,
+		)
+	}
+	return nil
 }
+
 

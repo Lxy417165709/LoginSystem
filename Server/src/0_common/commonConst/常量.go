@@ -75,8 +75,14 @@ const (
 	Woman
 )
 
-//// 校验器相关
-//const (
-//	RegisterVerificationFlag       = "register"
-//	ChangePasswordVerificationFlag = "changePassword"
-//)
+// 校验器相关
+const(
+	RegisterVrcKeyPrefix = "registerVrc"
+	ChangePasswordVrcKeyPrefix  = "changePasswordVrc"
+)
+
+// 表名
+const (
+	NameOfTableUai = "tb_userAccountInformation"
+	NameOfTableUpi = "tb_userPersonalInformation"
+)

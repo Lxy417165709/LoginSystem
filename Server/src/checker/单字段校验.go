@@ -84,9 +84,8 @@ func phoneCheck(phone string) *commonStruct.Error {
 	return nil
 }
 
-
 // 性别合法性校验
-func sexCheck (sex int) *commonStruct.Error{
+func sexCheck(sex int) *commonStruct.Error {
 	if sex != commonConst.Man && sex != commonConst.Woman {
 		return commonStruct.NewError(
 			errors.New("性别信息设置有误"),
@@ -107,13 +106,11 @@ func birthdayCheck(birthday int) *commonStruct.Error {
 	return nil
 }
 
-
 // 图片合法性校验
-func photoCheck(base64Data string,maxSize int) *commonStruct.Error{
-
+func photoCheck(base64Data string, maxSize int) *commonStruct.Error {
 
 	// 判断文件大小是否合法
-	if len(base64Data)>maxSize{
+	if len(base64Data) > maxSize {
 		return commonStruct.NewError(
 			fmt.Errorf("文件太大了"),
 			nil,
@@ -121,7 +118,7 @@ func photoCheck(base64Data string,maxSize int) *commonStruct.Error{
 	}
 
 	// 转为二进制
-	binarys,err := base64.StdEncoding.DecodeString(base64Data)
+	binarys, err := base64.StdEncoding.DecodeString(base64Data)
 	if err != nil {
 		return commonStruct.NewError(
 			nil,
@@ -148,3 +145,14 @@ func photoCheck(base64Data string,maxSize int) *commonStruct.Error{
 	return nil
 }
 
+// 用户名校验
+func userNameCheck(userName string) *commonStruct.Error {
+	chars := []rune(userName)
+	if len(chars) <= 0 || len(chars) > 10 {
+		return commonStruct.NewError(
+			fmt.Errorf("用户名长度为 1-10 个字符"),
+			nil,
+		)
+	}
+	return nil
+}

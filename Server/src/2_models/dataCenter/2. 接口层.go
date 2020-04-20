@@ -1,16 +1,17 @@
-package models
+package dataCenter
 
 import (
 	"0_common/commonFunction"
 	"2_models/table"
-	"fmt"
 	"time"
 )
 
 // 获取操作
 func (dbc DataCenter) GetUai(email string) (*table.UserAccountInformation, error) {
-	key := fmt.Sprintf("uai:email:%s", email)
-	uais, err := dbc.Select(key, &table.UserAccountInformation{}, "where UserEmail=$1", email)
+	// 暂时不用缓存
+	//key := fmt.Sprintf("uai:email:%s", email)
+
+	uais, err := dbc.mainDb.Select(&table.UserAccountInformation{}, "where UserEmail=$1", email)
 	if err != nil {
 		return nil, err
 	}
@@ -23,8 +24,10 @@ func (dbc DataCenter) GetUai(email string) (*table.UserAccountInformation, error
 
 // 获取操作
 func (dbc DataCenter) GetUaiByUid(uid int) (*table.UserAccountInformation, error) {
-	key := fmt.Sprintf("uai:uid:%d", uid)
-	uais, err := dbc.Select(key, &table.UserAccountInformation{}, "where UserId=$1", uid)
+	// 暂时不用缓存
+	//key := fmt.Sprintf("uai:uid:%d", uid)
+
+	uais, err := dbc.mainDb.Select(&table.UserAccountInformation{}, "where UserId=$1", uid)
 	if err != nil {
 		return nil, err
 	}
@@ -37,8 +40,10 @@ func (dbc DataCenter) GetUaiByUid(uid int) (*table.UserAccountInformation, error
 
 // 获取操作
 func (dbc DataCenter) GetUpiByUid(uid int) (*table.UserPersonalInformation, error) {
-	key := fmt.Sprintf("upi:uid:%d", uid)
-	upis, err := dbc.Select(key, &table.UserPersonalInformation{}, "where UserId=$1", uid)
+	// 暂时不用缓存
+	//key := fmt.Sprintf("upi:uid:%d", uid)
+
+	upis, err := dbc.mainDb.Select(&table.UserPersonalInformation{}, "where UserId=$1", uid)
 	if err != nil {
 		return nil, err
 	}
@@ -51,8 +56,10 @@ func (dbc DataCenter) GetUpiByUid(uid int) (*table.UserPersonalInformation, erro
 
 // 更新upi
 func (dbc DataCenter) UpdateUpi(upi table.UserPersonalInformation) error {
-	key := fmt.Sprintf("upi:uid:%d", upi.UserId)
-	return dbc.Update(key, &upi, "where UserId=$1", upi.UserId)
+	// 暂时不用缓存
+	// key := fmt.Sprintf("upi:uid:%d", upi.UserId)
+
+	return dbc.mainDb.Update(&upi, "where UserId=$1", upi.UserId)
 }
 
 // 更新upi
@@ -68,28 +75,27 @@ func (dbc DataCenter) GetUid(email string) (int, error) {
 }
 
 // 更新操作
-// 更新upi
 func (dbc DataCenter) UpdateLastLoginTime(email string) error {
-	key := fmt.Sprintf("uai:email:%s", email)
-	return dbc.Update(
-		key,
+	// 暂时不用缓存
+	//key := fmt.Sprintf("uai:email:%s", email)
+
+	return dbc.mainDb.Update(
 		&table.UserAccountInformation{UserLastLoginTime: int(time.Now().Unix())},
 		"where UserEmail=$1",
 		email,
 	)
 }
 
-// 更新upi (系统错误)
+// 更新upi
 func (dbc DataCenter) UpdateUserPhotoUrl(userId int, newPhotoUrl string) error {
-	return dbc.Update(
-		fmt.Sprintf("upi:uid:%d", userId),
+	return dbc.mainDb.Update(
 		&table.UserPersonalInformation{UserPhotoUrl: newPhotoUrl},
 		"where UserId=$1",
 		userId,
 	)
 }
 
-// 更新upi (系统错误)
+// 更新upi
 func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
 	// 这里的 newPassword 是明文
 	var uai *table.UserAccountInformation
@@ -102,16 +108,18 @@ func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
 		return err
 	}
 	uai.UserPassword = newHashPassword
-	key := fmt.Sprintf("uai:email:%s", email)
-	return dbc.Update(key, uai, "where userEmail=$1", email)
+
+
+	//key := fmt.Sprintf("uai:email:%s", email)
+	return dbc.mainDb.Update(uai, "where userEmail=$1", email)
 }
 
-// 插入操作  (系统错误)
+// 插入操作
 // 返回uid和error
 func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error) {
 
-	// 这里表示不使用缓存
-	if err := dbc.Insert("unUse", NewDefaultUai(0, email, password), 1); err != nil {
+	// 创建 uai 信息
+	if err := dbc.mainDb.Insert(table.NewDefaultUai(0, email, password)); err != nil {
 		return 0, err
 	}
 
@@ -120,13 +128,10 @@ func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error
 	if err != nil {
 		return 0, err
 	}
-	upiKey := fmt.Sprintf("upi:uid:%d", uid)
 
-	// 插入userPersonalInformation
-	if err := dbc.Insert(upiKey, NewDefaultUpi(uid, email), 60); err != nil {
+	// 创建 upi 信息
+	if err := dbc.mainDb.Insert(table.NewDefaultUpi(uid, email)); err != nil {
 		return 0, err
 	}
 	return uid, nil
 }
-
-

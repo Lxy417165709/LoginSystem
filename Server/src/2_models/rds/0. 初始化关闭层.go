@@ -20,3 +20,5 @@ func (r *Redis) Init() error {
 func (r *Redis) Close() error {
 	return r.Conn.Close()
 }
+
+

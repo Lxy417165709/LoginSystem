@@ -12,39 +12,6 @@ type RegisterData struct {
 }
 
 
-
-// 邮箱发送数据结构
-type EmailData struct {
-	Email string `json:"email"`
-}
-
-// 邮箱验证接口数据结构
-type EmailVerificationData struct {
-	Email string `json:"email"`
-	Vrc   string `json:"vrc"`
-}
-
-// 修改用户头像数据结构
-type UploadPhotoData struct {
-	PhotoBase64 string `json:"photoBase64"`
-}
-
-// 获取图片接口数据结构
-type GetPhotoData struct {
-	PhotoName string `json:"photoName"`
-}
-
-// 图片响应数据结构
-type GetPhotoRspData struct {
-	PhotoBase64 string `json:"photoBase64"`
-}
-
-// 修改密码数据结构
-type ChangePasswordData struct {
-	NewPassword string `json:"newPassword"`
-}
-
-
 func TestChecker_Check(t *testing.T) {
 	ch := GetChecker()
 	testSlice := []RegisterData{

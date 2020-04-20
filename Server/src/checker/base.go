@@ -16,6 +16,28 @@ func GetChecker() *Checker {
 	return checkerInstance
 }
 
+
+func stringfy(dt reflect.Type,dv reflect.Value,fieldIndex int) (string,*commonStruct.Error){
+	value, ok := "", false
+	if value, ok = dv.Field(fieldIndex).Interface().(string); !ok {
+		return "",commonStruct.NewError(
+			nil,
+			fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行 %s 校验", fieldIndex+1, dt.Field(fieldIndex).Tag.Get("checkType"),dt.Field(fieldIndex).Name),
+		)
+	}
+	return value,nil
+}
+func intfy(dt reflect.Type,dv reflect.Value,fieldIndex int) (int,*commonStruct.Error){
+	value, ok := 0, false
+	if value, ok = dv.Field(fieldIndex).Interface().(int); !ok {
+		return 0,commonStruct.NewError(
+			nil,
+			fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行 %s 校验", fieldIndex+1, dt.Field(fieldIndex).Tag.Get("checkType"),dt.Field(fieldIndex).Name),
+		)
+	}
+	return value,nil
+}
+
 func (c *Checker) Check(data interface{}) *commonStruct.Error {
 	dt := reflect.TypeOf(data)
 	dv := reflect.ValueOf(data)
@@ -25,95 +47,85 @@ func (c *Checker) Check(data interface{}) *commonStruct.Error {
 			fmt.Errorf("data 不是一个结构体"),
 		)
 	}
-	// 格式校验
+
+
+	// 单字段校验
 	for i := 0; i < dt.NumField(); i++ {
 		checkTypeTag := dt.Field(i).Tag.Get("checkType")
-
 		switch checkTypeTag {
 
 		case "email":
-			value, ok := "", false
-			if value, ok = dv.Field(i).Interface().(string); !ok {
-				return commonStruct.NewError(
-					nil,
-					fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行邮箱校验", i+1, dt.Field(i).Name),
-				)
+			value,Err := stringfy(dt,dv,i)
+			if Err != nil{
+				return Err
 			}
-			if err := emailCheck(value); err != nil {
-				return err
+			if Err := emailCheck(value); Err != nil {
+				return Err
 			}
 
 		case "password":
-			value, ok := "", false
-			if value, ok = dv.Field(i).Interface().(string); !ok {
-				return commonStruct.NewError(
-					nil,
-					fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行密码校验", i+1, dt.Field(i).Name),
-				)
+			value,Err := stringfy(dt,dv,i)
+			if Err != nil{
+				return Err
 			}
 			if err := passwordCheck(value); err != nil {
 				return err
 			}
 
 		case "vrc":
-			value, ok := "", false
-			if value, ok = dv.Field(i).Interface().(string); !ok {
-				return commonStruct.NewError(
-					nil,
-					fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行验证码校验", i+1, dt.Field(i).Name),
-				)
+			value,Err := stringfy(dt,dv,i)
+			if Err != nil{
+				return Err
 			}
 			if err := vrcCheck(value); err != nil {
 				return err
 			}
 
 		case "birthday":
-			value, ok := 0, false
-			if value, ok = dv.Field(i).Interface().(int); !ok {
-				return commonStruct.NewError(
-					nil,
-					fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行验证码校验", i+1, dt.Field(i).Name),
-				)
+			value,Err := intfy(dt,dv,i)
+			if Err != nil{
+				return Err
 			}
 			if err := birthdayCheck(value); err != nil {
 				return err
 			}
 
 		case "sex":
-			value, ok := 0, false
-			if value, ok = dv.Field(i).Interface().(int); !ok {
-				return commonStruct.NewError(
-					nil,
-					fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行验证码校验", i+1, dt.Field(i).Name),
-				)
+			value,Err := intfy(dt,dv,i)
+			if Err != nil{
+				return Err
 			}
 			if err := sexCheck(value); err != nil {
 				return err
 			}
 
 		case "phone":
-			value, ok := "", false
-			if value, ok = dv.Field(i).Interface().(string); !ok {
-				return commonStruct.NewError(
-					nil,
-					fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行验证码校验", i+1, dt.Field(i).Name),
-				)
+			value,Err := stringfy(dt,dv,i)
+			if Err != nil{
+				return Err
 			}
 			if err := phoneCheck(value); err != nil {
 				return err
 			}
 
 		case "photo":
-			value, ok := "", false
-			if value, ok = dv.Field(i).Interface().(string); !ok {
-				return commonStruct.NewError(
-					nil,
-					fmt.Errorf("data结构，第 %d 个字段(名为：%s)，因类型问题不能进行验证码校验", i+1, dt.Field(i).Name),
-				)
+			value,Err := stringfy(dt,dv,i)
+			if Err != nil{
+				return Err
 			}
 
 			if err := photoCheck(value, 1*commonConst.MB); err != nil {
 				return err
+			}
+
+
+		case "userName":
+			value,Err := stringfy(dt,dv,i)
+			if Err != nil{
+				return Err
+			}
+			if Err := userNameCheck(value);Err!=nil{
+				return Err
 			}
 		default:
 			return commonStruct.NewError(
@@ -134,32 +146,27 @@ func (c *Checker) Check(data interface{}) *commonStruct.Error {
 		if Err := PasswordIsRight(loginData.Email, loginData.Password); Err != nil {
 			return Err
 		}
-		return nil
 	case commonStruct.RegisterData:
 		registerData := data.(commonStruct.RegisterData)
 		if Err := EmailIsNotExist(registerData.Email); Err != nil {
 			return Err
 		}
-		if Err := VrcIsRight(registerData.Email, registerData.Vrc); Err != nil {
+		if Err := RegisterVrcIsRight(registerData.Email, registerData.Vrc); Err != nil {
 			return Err
 		}
-		return nil
 
 	case commonStruct.UpiData:
-		return nil
 	case commonStruct.UpdatePhotoData:
-		return nil
 	case commonStruct.EmailData:
 		emailData := data.(commonStruct.EmailData)
 		if Err := EmailIsNotExist(emailData.Email); Err != nil {
 			return Err
 		}
-		return nil
 	default:
 		return commonStruct.NewError(
 			nil,
 			fmt.Errorf("不支持类型为 %s 的表单验证", dt.Name()),
 		)
 	}
-
+	return nil
 }
