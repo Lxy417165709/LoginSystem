@@ -51,7 +51,12 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	// 校验
 	if Err := checkerManager.Check(loginData); Err != nil {
+		//for i:=3;i<6;i++{
+		//	logs.SetLogFuncCallDepth(i)
+		//	HandleErr(w, Err)
+		//}
 		HandleErr(w, Err)
+		//HandleErr(w, Err)
 		return
 	}
 
@@ -77,38 +82,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 修改用户个人信息接口
-func UpdateUpi(w http.ResponseWriter, r *http.Request) {
-	upiData := commonStruct.UpiData{}
-	if Err := ParseRequestData(r, &upiData); Err != nil {
-		HandleErr(w, Err)
-		return
-	}
-	var uid int
-	var Err *commonStruct.Error
-	if uid, Err = GetUidFromRequest(r); Err != nil {
-		HandleErr(w, Err)
-		return
-	}
-
-	// 校验
-	if Err = checkerManager.Check(upiData);Err!=nil{
-		HandleErr(w, Err)
-		return
-	}
-
-	// 执行
-	if Err = transition.UpdateUpi(uid, upiData.UserName,upiData.UserContactEmail,upiData.UserContactPhone,upiData.UserBirthday,upiData.UserSex); Err != nil {
-		HandleErr(w, Err)
-		return
-	}
-
-	Response(w, &ResponseProto{
-		Status: commonConst.UpiUpdateSuccessFlag,
-		Msg:    "修改成功",
-	})
-}
-
 // 注册接口
 func Register(w http.ResponseWriter, r *http.Request) {
 	// 从请求中获取注册数据
@@ -127,7 +100,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// 校验通过就删除验证码
-	if Err := transition.DelRegisterVrc(registerData.Email);Err!=nil{
+	if Err := transition.DelRegisterVrc(registerData.Email); Err != nil {
 		HandleErr(w, Err)
 		return
 	}
@@ -213,39 +186,6 @@ func GetUpi(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 上传图片
-func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
-	// 数据解析
-	updatePhotoData := commonStruct.UpdatePhotoData{}
-	var Err *commonStruct.Error
-	if Err = ParseRequestData(r, &updatePhotoData); Err != nil {
-		HandleErr(w,Err)
-		return
-	}
-	var uid int
-	if uid, Err = GetUidFromRequest(r); Err != nil {
-		HandleErr(w,Err)
-		return
-	}
-
-	// 校验
-	if Err = checkerManager.Check(updatePhotoData);Err!=nil{
-		HandleErr(w,Err)
-		return
-	}
-
-	// 执行
-	if Err = transition.UpdatePhoto(uid,updatePhotoData); Err != nil {
-		HandleErr(w,Err)
-		return
-	}
-
-	Response(w, &ResponseProto{
-		Status: commonConst.PhotoUploadSuccessFlag,
-		Msg:    "头像更新成功",
-	})
-}
-
 // 获取图片
 func GetPhoto(w http.ResponseWriter, r *http.Request) {
 	getPhotoData := commonStruct.GetPhotoData{}
@@ -276,30 +216,95 @@ func GetPhoto(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+// 修改用户个人信息接口
+func UpdateUpi(w http.ResponseWriter, r *http.Request) {
+	upiData := commonStruct.UpiData{}
+	if Err := ParseRequestData(r, &upiData); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+	var uid int
+	var Err *commonStruct.Error
+	if uid, Err = GetUidFromRequest(r); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+
+	// 校验
+	if Err = checkerManager.Check(upiData); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+
+	// 执行
+	if Err = transition.UpdateUpi(uid, upiData.UserName, upiData.UserContactEmail, upiData.UserContactPhone, upiData.UserBirthday, upiData.UserSex); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+
+	Response(w, &ResponseProto{
+		Status: commonConst.UpiUpdateSuccessFlag,
+		Msg:    "修改成功",
+	})
+}
+
+// 修改用户头像
+func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
+	// 数据解析
+	updatePhotoData := commonStruct.UpdatePhotoData{}
+	var Err *commonStruct.Error
+	if Err = ParseRequestData(r, &updatePhotoData); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+	var uid int
+	if uid, Err = GetUidFromRequest(r); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+
+	// 校验
+	if Err = checkerManager.Check(updatePhotoData); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+
+	// 执行
+	if Err = transition.UpdatePhoto(uid, updatePhotoData); Err != nil {
+		HandleErr(w, Err)
+		return
+	}
+
+	Response(w, &ResponseProto{
+		Status: commonConst.PhotoUploadSuccessFlag,
+		Msg:    "头像更新成功",
+	})
+}
+
 // 发送注册验证码
 func SendRegisterVrc(w http.ResponseWriter, r *http.Request) {
 	evd := commonStruct.EmailData{}
 	if Err := ParseRequestData(r, &evd); Err != nil {
-		HandleErr(w,Err)
+		HandleErr(w, Err)
 		return
 	}
 
 	// 校验
 	if Err := checkerManager.Check(evd); Err != nil {
-		HandleErr(w,Err)
+		HandleErr(w, Err)
 		return
 	}
 
 	// 执行发送操作
 	// 发送校验
 	vrc := commonFunction.CreatVrc()
-	if Err := transition.SendRegisterVrc(evd.Email,vrc); Err != nil {
-		HandleErr(w,Err)
+	if Err := transition.SendRegisterVrc(evd.Email, vrc); Err != nil {
+		HandleErr(w, Err)
 		return
 	}
 	// 保存操作
-	if Err := transition.SetRegisterVrc(evd.Email,vrc,commonConst.RegisterExpiredTime); Err != nil {
-		HandleErr(w,Err)
+	if Err := transition.SetRegisterVrc(evd.Email, vrc, commonConst.RegisterExpiredTime); Err != nil {
+		HandleErr(w, Err)
 		return
 	}
 
@@ -308,12 +313,6 @@ func SendRegisterVrc(w http.ResponseWriter, r *http.Request) {
 		Msg:    "注册验证码发送成功",
 	})
 }
-
-
-
-
-
-
 
 // 发送修改密码链接
 //func SendChangePasswordLink(w http.ResponseWriter, r *http.Request) {

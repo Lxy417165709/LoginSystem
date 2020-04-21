@@ -12,7 +12,7 @@ import (
 
 func AllInit() error {
 	// 初始化日志器
-	logs.SetLogFuncCallDepth(3)
+	logs.SetLogFuncCallDepth(4)
 	logs.EnableFuncCallDepth(true)
 
 	// 初始化配置文件

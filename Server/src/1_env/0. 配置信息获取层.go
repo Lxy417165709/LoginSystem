@@ -11,8 +11,6 @@ import (
 
 var Conf = &configure{}
 
-
-
 // 配置结构体
 type configure struct {
 	// 通用信息

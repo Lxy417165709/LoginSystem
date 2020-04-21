@@ -5,11 +5,33 @@ import (
 	"2_models/table"
 	"errors"
 	"fmt"
+	"time"
 )
+
+
+//// 更新upi
+//func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
+//	// 这里的 newPassword 是明文
+//	var uai *table.UserAccountInformation
+//	var err error
+//	if uai, err = dbc.GetUai(email); err != nil {
+//		return err
+//	}
+//	var newHashPassword string
+//	if newHashPassword, err = commonFunction.SaltHash(newPassword, uai.Salt); err != nil {
+//		return err
+//	}
+//	uai.UserPassword = newHashPassword
+//
+//	return dbc.mainDb.Update(uai, "where userEmail=$1", email)
+//}
+//
+
+
 
 func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) *commonStruct.Error {
 
-	upi := table.UserPersonalInformation{}
+	upi := &table.UserPersonalInformation{}
 	upi.UserId = uid
 	upi.UserName = uName
 	upi.UserContactEmail = ucEmail
@@ -28,8 +50,10 @@ func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) *co
 }
 
 func UpdateLastLoginTime(email string) *commonStruct.Error {
-	err := dataCenter.UpdateLastLoginTime(email)
-	if err != nil {
+	uai := &table.UserAccountInformation{UserLastLoginTime: int(time.Now().Unix())}
+	uai.UserEmail = email
+
+	if err := dataCenter.UpdateUai(uai); err != nil {
 		return commonStruct.NewError(
 			fmt.Errorf("用户：%s，最近登录时间更新失败", email),
 			err,
@@ -40,7 +64,7 @@ func UpdateLastLoginTime(email string) *commonStruct.Error {
 
 func GetUai(uid int) (*table.UserAccountInformation, *commonStruct.Error) {
 
-	uai, err := dataCenter.GetUaiByUid(uid)
+	uai, err := dataCenter.GetUai(uid)
 	if err != nil {
 		return uai, commonStruct.NewError(
 			fmt.Errorf("用户账户信息获取失败"),
@@ -54,7 +78,7 @@ func GetUai(uid int) (*table.UserAccountInformation, *commonStruct.Error) {
 
 // 返回upi和error
 func GetUpi(uid int) (*table.UserPersonalInformation, *commonStruct.Error) {
-	upi, err := dataCenter.GetUpiByUid(uid)
+	upi, err := dataCenter.GetUpi(uid)
 	if err != nil {
 		return upi, commonStruct.NewError(
 			fmt.Errorf("用户个人信息获取失败"),
@@ -99,8 +123,11 @@ func UpdatePhoto(uid int, data commonStruct.UpdatePhotoData) *commonStruct.Error
 		)
 	}
 
+
+	upi := &table.UserPersonalInformation{UserPhotoUrl: storeName}
+	upi.UserId = uid
 	// 更新用户的photoUrl
-	if err = dataCenter.UpdateUserPhotoUrl(uid, storeName); err != nil {
+	if err = dataCenter.UpdateUpi(upi); err != nil {
 		return commonStruct.NewError(
 			errors.New("服务器错误，用户头像更新失败"),
 			err,

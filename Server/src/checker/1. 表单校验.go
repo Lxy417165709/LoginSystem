@@ -11,16 +11,11 @@ import (
 func EmailIsExist(email string) *commonStruct.Error {
 	// 其实可以通过email，直接获取uai
 	// 这里走了个弯路，先获得uid
-	uid,Err := transition.GetUid(email)
+	uid, Err := transition.GetUid(email)
 	if Err != nil {
 		return Err
 	}
-	uai, Err := transition.GetUai(uid)
-	if Err != nil {
-		return Err
-	}
-
-	if uai == nil {
+	if uid == 0 {
 		return commonStruct.NewError(
 			fmt.Errorf("邮箱：%s 不存在", email),
 			nil,
@@ -33,16 +28,11 @@ func EmailIsExist(email string) *commonStruct.Error {
 func EmailIsNotExist(email string) *commonStruct.Error {
 	// 其实可以通过email，直接获取uai
 	// 这里走了个弯路，先获得uid
-	uid,Err := transition.GetUid(email)
+	uid, Err := transition.GetUid(email)
 	if Err != nil {
 		return Err
 	}
-	uai, Err := transition.GetUai(uid)
-	if Err != nil {
-		return Err
-	}
-
-	if uai != nil {
+	if uid != 0 {
 		return commonStruct.NewError(
 			fmt.Errorf("邮箱：%s 已存在", email),
 			nil,
@@ -55,7 +45,7 @@ func EmailIsNotExist(email string) *commonStruct.Error {
 func PasswordIsRight(email, password string) *commonStruct.Error {
 	// 其实可以通过email，直接获取uai
 	// 这里走了个弯路，先获得uid
-	uid,Err := transition.GetUid(email)
+	uid, Err := transition.GetUid(email)
 	if Err != nil {
 		return Err
 	}
@@ -73,7 +63,7 @@ func PasswordIsRight(email, password string) *commonStruct.Error {
 			err,
 		)
 	}
-	if uai.UserPassword != hashPassword{
+	if uai.UserPassword != hashPassword {
 		return commonStruct.NewError(
 			fmt.Errorf("密码错误"),
 			err,
@@ -83,20 +73,20 @@ func PasswordIsRight(email, password string) *commonStruct.Error {
 }
 
 // 注册验证码是否正确
-func RegisterVrcIsRight(email,vrc string) *commonStruct.Error{
-	rightVrc,Err := transition.GetRegisterVrc(email)
+func RegisterVrcIsRight(email, vrc string) *commonStruct.Error {
+	rightVrc, Err := transition.GetRegisterVrc(email)
 	//fmt.Println("wwww",rightVrc,Err)
-	if Err != nil{
+	if Err != nil {
 		return Err
 	}
-	if rightVrc==""{
+	if rightVrc == "" {
 		return commonStruct.NewError(
-			fmt.Errorf("邮箱：%s，验证码未发送或已过期",email),
+			fmt.Errorf("邮箱：%s，验证码未发送或已过期", email),
 			nil,
 		)
 	}
 
-	if rightVrc!=vrc{
+	if rightVrc != vrc {
 		return commonStruct.NewError(
 			fmt.Errorf("验证码错误"),
 			nil,
@@ -104,5 +94,3 @@ func RegisterVrcIsRight(email,vrc string) *commonStruct.Error{
 	}
 	return nil
 }
-
-

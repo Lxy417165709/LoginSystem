@@ -1,121 +1,22 @@
 package dataCenter
 
 import (
-	"0_common/commonFunction"
 	"2_models/table"
-	"time"
+	"encoding/json"
+	"fmt"
 )
 
-// 获取操作
-func (dbc DataCenter) GetUai(email string) (*table.UserAccountInformation, error) {
-	// 暂时不用缓存
-	//key := fmt.Sprintf("uai:email:%s", email)
-
-	uais, err := dbc.mainDb.Select(&table.UserAccountInformation{}, "where UserEmail=$1", email)
-	if err != nil {
-		return nil, err
-	}
-	if len(uais) == 0 {
-		return nil, nil
-	}
-	uai := uais[0].(*table.UserAccountInformation)
-	return uai, nil
-}
-
-// 获取操作
-func (dbc DataCenter) GetUaiByUid(uid int) (*table.UserAccountInformation, error) {
-	// 暂时不用缓存
-	//key := fmt.Sprintf("uai:uid:%d", uid)
-
-	uais, err := dbc.mainDb.Select(&table.UserAccountInformation{}, "where UserId=$1", uid)
-	if err != nil {
-		return nil, err
-	}
-	if len(uais) == 0 {
-		return nil, nil
-	}
-	uai := uais[0].(*table.UserAccountInformation)
-	return uai, nil
-}
-
-// 获取操作
-func (dbc DataCenter) GetUpiByUid(uid int) (*table.UserPersonalInformation, error) {
-	// 暂时不用缓存
-	//key := fmt.Sprintf("upi:uid:%d", uid)
-
-	upis, err := dbc.mainDb.Select(&table.UserPersonalInformation{}, "where UserId=$1", uid)
-	if err != nil {
-		return nil, err
-	}
-	if len(upis) == 0 {
-		return nil, nil
-	}
-	upi := upis[0].(*table.UserPersonalInformation)
-	return upi, nil
-}
-
-// 更新upi
-func (dbc DataCenter) UpdateUpi(upi table.UserPersonalInformation) error {
-	// 暂时不用缓存
-	// key := fmt.Sprintf("upi:uid:%d", upi.UserId)
-
-	return dbc.mainDb.Update(&upi, "where UserId=$1", upi.UserId)
-}
-
-// 更新upi
-func (dbc DataCenter) GetUid(email string) (int, error) {
-	uai, err := dbc.GetUai(email)
-	if err != nil {
-		return 0, err
-	}
-	if uai == nil {
-		return 0, nil
-	}
-	return uai.UserId, nil
-}
-
-// 更新操作
-func (dbc DataCenter) UpdateLastLoginTime(email string) error {
-	// 暂时不用缓存
-	//key := fmt.Sprintf("uai:email:%s", email)
-
-	return dbc.mainDb.Update(
-		&table.UserAccountInformation{UserLastLoginTime: int(time.Now().Unix())},
-		"where UserEmail=$1",
-		email,
-	)
-}
-
-// 更新upi
-func (dbc DataCenter) UpdateUserPhotoUrl(userId int, newPhotoUrl string) error {
-	return dbc.mainDb.Update(
-		&table.UserPersonalInformation{UserPhotoUrl: newPhotoUrl},
-		"where UserId=$1",
-		userId,
-	)
-}
-
-// 更新upi
-func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
-	// 这里的 newPassword 是明文
-	var uai *table.UserAccountInformation
-	var err error
-	if uai, err = dbc.GetUai(email); err != nil {
-		return err
-	}
-	var newHashPassword string
-	if newHashPassword, err = commonFunction.SaltHash(newPassword, uai.Salt); err != nil {
-		return err
-	}
-	uai.UserPassword = newHashPassword
-
-
-	//key := fmt.Sprintf("uai:email:%s", email)
-	return dbc.mainDb.Update(uai, "where userEmail=$1", email)
-}
+const (
+	uaiUidKeyFormat = "uai:uid:%d"
+	upiUidKeyFormat = "upi:uid:%d"
+	emailKeyFormat  = "email:%s"
+	expireTime      = 120
+)
 
 // 插入操作
 // 返回uid和error
+// 这里有些BUG的，因为用户信息可能只创建了一半
+// 主数据库 产生新用户
 func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error) {
 
 	// 创建 uai 信息
@@ -128,10 +29,109 @@ func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error
 	if err != nil {
 		return 0, err
 	}
-
 	// 创建 upi 信息
 	if err := dbc.mainDb.Insert(table.NewDefaultUpi(uid, email)); err != nil {
 		return 0, err
 	}
 	return uid, nil
+}
+
+// 主数据库+缓存 -> 通过 email | uid 获取 uai
+func (dbc DataCenter) GetUai(identity interface{}) (*table.UserAccountInformation, error) {
+
+	uai := new(table.UserAccountInformation)
+	uid, err := dbc.GetUid(identity)
+	if err != nil {
+		return nil, err
+	}
+
+	// 缓存
+	key := fmt.Sprintf(uaiUidKeyFormat, uid)
+	uaiBytes, err := dbc.cache.Get(key)
+	if err != nil {
+		return nil, err
+	}
+	if len(uaiBytes) != 0 {
+		if err := json.Unmarshal(uaiBytes, uai); err != nil {
+			return nil, err
+		}
+		// 更新
+		if err = dbc.cache.Set(key, uaiBytes, expireTime); err != nil {
+			return nil, err
+		}
+		return uai, nil
+	}
+
+	// 主数据库
+	if uai, err = dbc.mdbGetUai(identity); err != nil {
+		return nil, err
+	}
+
+	// 缓存
+	if uaiBytes, err = json.Marshal(uai); err != nil {
+		return nil, err
+	}
+	if err = dbc.cache.Set(key, uaiBytes, expireTime); err != nil {
+		return nil, err
+	}
+
+	return uai, nil
+}
+
+// 主数据库+缓存 -> 通过 email | uid 获取 upi
+func (dbc DataCenter) GetUpi(identity interface{}) (*table.UserPersonalInformation, error) {
+	// 缓存
+	upi, err := dbc.cacheGetUpi(identity)
+	if err != nil {
+		return nil, err
+	}
+	// 缓存未命中
+	if upi == nil {
+		// 查询主数据库
+		if upi, err = dbc.mdbGetUpi(identity); err != nil {
+			return nil, err
+		}
+	}
+
+	// 缓存更新
+	if err := dbc.cacheSetUpi(identity, *upi); err != nil {
+		return nil, err
+	}
+
+	return upi, nil
+}
+
+// 主数据库+缓存 -> 更新upi
+func (dbc DataCenter) UpdateUpi(upi *table.UserPersonalInformation) error {
+
+	// 更新数据库
+	if err := dbc.mainDb.Update(upi, "where UserId=$1", upi.UserId); err != nil {
+		return err
+	}
+
+	// 删除缓存 (让下次命中，达到更新的目的 -> 这个方法可能有些慢)
+	key := fmt.Sprintf(upiUidKeyFormat, upi.UserId)
+	return dbc.cache.Del(key)
+
+}
+
+// 主数据库+缓存 -> 更新uai
+func (dbc DataCenter) UpdateUai(uai *table.UserAccountInformation) error {
+	uid, err := uai.UserId, error(nil)
+	if uai.UserId == 0 {
+		uid, err = dbc.GetUid(uai.UserEmail)
+		if err != nil {
+			return err
+		}
+	}
+
+	// 更新数据库
+	if err := dbc.mainDb.Update(uai, "where UserId=$1", uid); err != nil {
+		return err
+	}
+
+	// 删除缓存 (让下次命中，达到更新的目的 -> 这个方法可能有些慢)
+	key := fmt.Sprintf(uaiUidKeyFormat, uid)
+	return dbc.cache.Del(key)
+
 }

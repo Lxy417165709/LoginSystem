@@ -7,6 +7,11 @@ import (
 	"fmt"
 )
 
+const (
+	keyPattern = "email:%s:vrc"
+)
+
+
 type RegisterEmailVrcChecker struct {
 	es      *emailSender
 	storage commonInterface.Cache
@@ -20,7 +25,7 @@ func NewRegisterEmailVrcChecker(storage commonInterface.Cache) *RegisterEmailVrc
 	}
 }
 
-// 发送，不存储
+// 发送验证码
 func (re *RegisterEmailVrcChecker) SendVrc(receiver, vrc string) error {
 	email := &email{
 		re.es.UserEmail,
@@ -38,8 +43,7 @@ func (re *RegisterEmailVrcChecker) SendVrc(receiver, vrc string) error {
 
 // 获取验证码
 func (re *RegisterEmailVrcChecker) GetVrc(email string) (string, error) {
-	key := fmt.Sprintf("email:%s:vrc", email)
-	vrcBytes, err := re.storage.Get(key)
+	vrcBytes, err := re.storage.Get(formatKey(email))
 	if err != nil {
 		return "", err
 	}
@@ -48,13 +52,16 @@ func (re *RegisterEmailVrcChecker) GetVrc(email string) (string, error) {
 
 // 设置验证码
 func (re *RegisterEmailVrcChecker) SetVrc(receiver, vrc string, expiredTime int) error{
-	key := fmt.Sprintf("email:%s:vrc", receiver)
-	return re.storage.Set(key,[]byte(vrc),expiredTime)
+	return re.storage.Set(formatKey(receiver),[]byte(vrc),expiredTime)
 }
 
 // 删除验证码
 func (re *RegisterEmailVrcChecker) DelVrc(receiver string) error{
-	key := fmt.Sprintf("email:%s:vrc", receiver)
-	return re.storage.Del(key)
+	return re.storage.Del(formatKey(receiver))
 }
+
+func formatKey(email string) string{
+	return fmt.Sprintf(keyPattern, email)
+}
+
 
