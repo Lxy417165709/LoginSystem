@@ -6,6 +6,7 @@ import (
 	"2_models/pud"
 	"2_models/rds"
 	"2_models/vc"
+	"github.com/astaxie/beego/logs"
 )
 
 // 数据库
@@ -23,10 +24,12 @@ var photoUploader *pud.PhotoUploader
 // 初始化
 func Init() error {
 	if err := redis.Init();err!=nil{
+		logs.Error(err)
 		return err
 	}
 
 	if err := pgsql.Init(); err != nil {
+		logs.Error(err)
 		return err
 	}
 
@@ -39,9 +42,14 @@ func Init() error {
 // 关闭
 func Close() error {
 	if err := pgsql.Close(); err != nil {
+		logs.Error(err)
 		return err
 	}
-	return redis.Close()
+	if err := redis.Close(); err != nil {
+		logs.Error(err)
+		return err
+	}
+	return nil
 }
 
 

@@ -5,11 +5,12 @@ import (
 	"2_models/table"
 	"errors"
 	"fmt"
+	"github.com/astaxie/beego/logs"
 	"time"
 )
 
 
-//// 更新upi
+//// 更新用户密码
 //func (dbc DataCenter) UpdateUserPassword(email, newPassword string) error {
 //	// 这里的 newPassword 是明文
 //	var uai *table.UserAccountInformation
@@ -25,7 +26,7 @@ import (
 //
 //	return dbc.mainDb.Update(uai, "where userEmail=$1", email)
 //}
-//
+
 
 
 
@@ -63,7 +64,6 @@ func UpdateLastLoginTime(email string) *commonStruct.Error {
 }
 
 func GetUai(uid int) (*table.UserAccountInformation, *commonStruct.Error) {
-
 	uai, err := dataCenter.GetUai(uid)
 	if err != nil {
 		return uai, commonStruct.NewError(
@@ -91,6 +91,7 @@ func GetUpi(uid int) (*table.UserPersonalInformation, *commonStruct.Error) {
 func GetUid(email string) (int, *commonStruct.Error) {
 	uid, err := dataCenter.GetUid(email)
 	if err != nil {
+		logs.Error(err)
 		return uid, commonStruct.NewError(
 			fmt.Errorf("用户：%s, ID获取失败", email),
 			err,
@@ -102,6 +103,7 @@ func GetUid(email string) (int, *commonStruct.Error) {
 func GenerateNewUser(email, password string) (int, *commonStruct.Error) {
 	uid, err := dataCenter.GenerateNewUser(email, password)
 	if err != nil {
+		logs.Error(err)
 		return uid, commonStruct.NewError(
 			fmt.Errorf("用户：%s, 新建失败", email),
 			err,
@@ -117,6 +119,7 @@ func UpdatePhoto(uid int, data commonStruct.UpdatePhotoData) *commonStruct.Error
 	var storeName string
 	var err error
 	if storeName, err = photoUploader.StorePhoto(data.PhotoBase64); err != nil {
+		logs.Error(err)
 		return commonStruct.NewError(
 			errors.New("服务器错误，用户头像更新失败"),
 			err,
@@ -128,6 +131,7 @@ func UpdatePhoto(uid int, data commonStruct.UpdatePhotoData) *commonStruct.Error
 	upi.UserId = uid
 	// 更新用户的photoUrl
 	if err = dataCenter.UpdateUpi(upi); err != nil {
+		logs.Error(err)
 		return commonStruct.NewError(
 			errors.New("服务器错误，用户头像更新失败"),
 			err,
@@ -137,9 +141,10 @@ func UpdatePhoto(uid int, data commonStruct.UpdatePhotoData) *commonStruct.Error
 }
 
 // 获取图片
-func GetPhotoCheck(name string) (string, *commonStruct.Error) {
-	base64Str, err := photoUploader.GetTargetPhotoBase64ByName(name)
+func GetPhoto(photoName string) (string, *commonStruct.Error) {
+	base64Str, err := photoUploader.GetTargetPhotoBase64ByName(photoName)
 	if err != nil {
+		logs.Error(err)
 		return base64Str, commonStruct.NewError(
 			errors.New("图片获取时发生错误"),
 			err,
@@ -151,6 +156,7 @@ func GetPhotoCheck(name string) (string, *commonStruct.Error) {
 // 发送注册验证码
 func SendRegisterVrc(email string,vrc string) *commonStruct.Error {
 	if err := registerVrcManager.SendVrc(email, vrc); err != nil {
+		logs.Error(err)
 		return commonStruct.NewError(
 			errors.New("服务器在发送验证码时发生错误"),
 			err,
@@ -162,6 +168,7 @@ func SendRegisterVrc(email string,vrc string) *commonStruct.Error {
 // 设置
 func SetRegisterVrc(email string,vrc string,expiredTime int) *commonStruct.Error {
 	if err := registerVrcManager.SetVrc(email,vrc,expiredTime);err!= nil {
+		logs.Error(err)
 		return commonStruct.NewError(
 			errors.New("服务器在设置验证码时发生错误"),
 			err,
@@ -172,6 +179,7 @@ func SetRegisterVrc(email string,vrc string,expiredTime int) *commonStruct.Error
 func GetRegisterVrc(email string) (string, *commonStruct.Error) {
 	vrc, err := registerVrcManager.GetVrc(email)
 	if err != nil {
+		logs.Error(err)
 		return "", commonStruct.NewError(
 			errors.New("服务器在获取验证码时发生错误"),
 			err,
@@ -181,6 +189,7 @@ func GetRegisterVrc(email string) (string, *commonStruct.Error) {
 }
 func DelRegisterVrc(email string) *commonStruct.Error{
 	if err := registerVrcManager.DelVrc(email);err!=nil{
+		logs.Error(err)
 		return commonStruct.NewError(
 			errors.New("服务器在删除验证码时发生错误"),
 			err,

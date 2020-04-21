@@ -57,10 +57,12 @@ func LoadConf(confPath string) error {
 	var cfg *ini.File
 	if cfg, err = ini.Load(confPath); err != nil || cfg == nil {
 		err := fmt.Errorf("can not load configure file:%s %s ", commonConst.ConfPath, err)
+		logs.Error(err)
 		return err
 	}
 	//检查并初始化配置结构体
 	if err = initConfigure(cfg); err != nil {
+		logs.Error(err)
 		return err
 	}
 	return nil
@@ -85,16 +87,19 @@ func initConfigure(cfg *ini.File) (err error) {
 			tag := key.Tag.Get("json")           //配置键节名
 			if tag == "" {
 				err = fmt.Errorf("can not found a tag name `json` in struct of [%s].%s", sec, tag)
+				logs.Error(err)
 				return err
 			}
 			if cfg == nil {
 				err = fmt.Errorf("init configure file failed ")
+				logs.Error(err)
 				return err
 			}
 			//读取配置文件初始化结构体
 			value := cfg.Section(sec).Key(tag)
 			if value == nil {
 				err = fmt.Errorf("get key failed [%s].%s %s", sec, tag, remark)
+				logs.Error(err)
 				return err
 			}
 			//根据不同类型初始化
@@ -104,6 +109,7 @@ func initConfigure(cfg *ini.File) (err error) {
 				s := value.String()
 				if s == "" {
 					err = fmt.Errorf("cant not read configure item [%s].%s %s", sec, tag, remark)
+					logs.Error(err)
 					return err
 				}
 				keyValue.SetString(s)
@@ -112,6 +118,7 @@ func initConfigure(cfg *ini.File) (err error) {
 				n, err := value.Int()
 				if err != nil || n < 0 {
 					err = fmt.Errorf("not a valid number [%s].%s %s", sec, tag, remark)
+					logs.Error(err)
 					return err
 				}
 				keyValue.SetInt(int64(n))

@@ -123,7 +123,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 获取用户账号信息
+// 获取用户账号信息接口
 func GetUai(w http.ResponseWriter, r *http.Request) {
 	// 从请求中获取登录数据
 	var uid int
@@ -146,7 +146,7 @@ func GetUai(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 获取用户个人信息
+// 获取用户个人信息接口
 func GetUpi(w http.ResponseWriter, r *http.Request) {
 	// 从请求中获取登录数据
 	var uid int
@@ -186,7 +186,7 @@ func GetUpi(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 获取图片
+// 获取图片接口
 func GetPhoto(w http.ResponseWriter, r *http.Request) {
 	getPhotoData := commonStruct.GetPhotoData{}
 	if Err := ParseRequestData(r, &getPhotoData); Err != nil {
@@ -197,7 +197,7 @@ func GetPhoto(w http.ResponseWriter, r *http.Request) {
 	// 进行校验
 	var base64Data string
 	var Err *commonStruct.Error
-	if base64Data, Err = transition.GetPhotoCheck(getPhotoData.PhotoName); Err != nil {
+	if base64Data, Err = transition.GetPhoto(getPhotoData.PhotoName); Err != nil {
 		HandleErr(w, Err)
 		return
 	}
@@ -248,7 +248,7 @@ func UpdateUpi(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 修改用户头像
+// 修改用户头像接口
 func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
 	// 数据解析
 	updatePhotoData := commonStruct.UpdatePhotoData{}
@@ -281,7 +281,7 @@ func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 发送注册验证码
+// 发送注册验证码接口
 func SendRegisterVrc(w http.ResponseWriter, r *http.Request) {
 	evd := commonStruct.EmailData{}
 	if Err := ParseRequestData(r, &evd); Err != nil {
@@ -314,7 +314,7 @@ func SendRegisterVrc(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// 发送修改密码链接
+// 发送修改密码链接接口
 //func SendChangePasswordLink(w http.ResponseWriter, r *http.Request) {
 //	evd := EmailData{}
 //	if err := ParseRequestData(r, &evd); err != nil {

@@ -6,6 +6,8 @@ type ITable interface {
 	GetTableName() string
 }
 
+
+
 type MainDb interface {
 	Insert(table ITable) error
 	Delete(table ITable, queryStr string, parameters ...interface{}) error

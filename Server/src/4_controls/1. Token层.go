@@ -3,6 +3,7 @@ package controls
 import (
 	"0_common/commonConst"
 	"fmt"
+	"github.com/astaxie/beego/logs"
 	"github.com/dgrijalva/jwt-go"
 	"time"
 )
@@ -41,6 +42,7 @@ func GetUserIdFromTokenString(tokenString string) (int, error) {
 	if token, err = jwt.Parse(tokenString, func(*jwt.Token) (interface{}, error) {
 		return []byte(commonConst.TokenKey), nil
 	}); err != nil {
+		logs.Error(err)
 		return commonConst.ErrorUserId, err
 	}
 	// token结构 -> mapClaims(内含userId)

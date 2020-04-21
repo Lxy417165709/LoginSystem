@@ -12,15 +12,17 @@ import (
 
 func AllInit() error {
 	// 初始化日志器
-	logs.SetLogFuncCallDepth(4)
+	logs.SetLogFuncCallDepth(3)
 	logs.EnableFuncCallDepth(true)
 
 	// 初始化配置文件
 	if err := env.LoadConf(commonConst.ConfPath); err != nil {
+		logs.Error(err)
 		return err
 	}
 	// 初始化数据库、校验器
 	if err := transition.Init(); err != nil {
+		logs.Error(err)
 		return err
 	}
 
@@ -54,7 +56,7 @@ func main() {
 	//http.HandleFunc("/server/changePasswordLink/visit", controls.ChangePasswordLinkVisit)
 
 	if err := http.ListenAndServe(fmt.Sprintf(":%d", env.Conf.Server.Port), nil); err != nil {
-		logs.Error(err.Error())
+		logs.Error(err)
 		return
 	}
 }
