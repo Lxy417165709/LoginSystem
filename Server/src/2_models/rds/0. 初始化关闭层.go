@@ -8,6 +8,7 @@ import (
 
 type Redis struct {
 	db redis.Conn
+	retryTimes int
 }
 
 func (r *Redis) Init() error {
@@ -15,6 +16,7 @@ func (r *Redis) Init() error {
 	if r.db, err = redis.Dial(env.Conf.Redis.Network, fmt.Sprintf("%s:%d", env.Conf.Redis.Host, env.Conf.Redis.Port)); err != nil {
 		return err
 	}
+	r.retryTimes = 3	// 默认为3
 	return nil
 }
 func (r *Redis) Close() error {
