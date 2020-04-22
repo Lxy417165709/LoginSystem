@@ -6,7 +6,7 @@ import (
 	"0_common/commonStruct"
 	"2_models/table"
 	"3_transition"
-	"checker"
+	"0_common/commonInstance/checker"
 	"github.com/astaxie/beego/logs"
 	"net/http"
 	"strings"
@@ -51,16 +51,12 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	// 校验
 	if Err := checkerManager.Check(loginData); Err != nil {
-		//for i:=3;i<6;i++{
-		//	logs.SetLogFuncCallDepth(i)
-		//	HandleErr(w, Err)
-		//}
 		HandleErr(w, Err)
-		//HandleErr(w, Err)
 		return
 	}
 
 	// 执行步骤 (可以单独分块)
+	// 更新操作会使缓存失效.. (正在改进中)
 	if err := transition.UpdateLastLoginTime(loginData.Email); err != nil {
 		logs.Error(err)
 		return
@@ -166,7 +162,7 @@ func GetUpi(w http.ResponseWriter, r *http.Request) {
 	// 获取头像
 	// 进行校验
 	var base64Data string
-	if base64Data, Err = transition.GetPhotoCheck(upi.UserPhotoUrl); Err != nil {
+	if base64Data, Err = transition.GetPhoto(upi.UserPhotoUrl); Err != nil {
 		HandleErr(w, Err)
 		return
 	}

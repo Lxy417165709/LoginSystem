@@ -4,7 +4,7 @@ import (
 	"0_common/commonConst"
 	"1_env"
 	"3_transition"
-	"4_controls"
+	"5_middleware"
 	"fmt"
 	"github.com/astaxie/beego/logs"
 	"net/http"
@@ -37,19 +37,19 @@ func main() {
 
 	logs.Info("init successfully!!!")
 
-	http.HandleFunc("/server/test", controls.Test)
+	http.HandleFunc("/server/test", middleware.Test)
 
 	// 不用表单
-	http.HandleFunc("/server/getPhoto", controls.GetPhoto)
-	http.HandleFunc("/server/getUai", controls.GetUai)
-	http.HandleFunc("/server/getUpi", controls.GetUpi)
+	http.HandleFunc("/server/getPhoto", middleware.GetPhoto)
+	http.HandleFunc("/server/getUai", middleware.GetUai)
+	http.HandleFunc("/server/getUpi", middleware.GetUpi)
 
 	// 要表单
-	http.HandleFunc("/server/login", controls.Login)
-	http.HandleFunc("/server/register", controls.Register)
-	http.HandleFunc("/server/updateUserPersonalInformation", controls.UpdateUpi)
-	http.HandleFunc("/server/updatePhoto", controls.UpdatePhoto)
-	http.HandleFunc("/server/registerVrc/send", controls.SendRegisterVrc)
+	http.HandleFunc("/server/login", middleware.Login)
+	http.HandleFunc("/server/register", middleware.Register)
+	http.HandleFunc("/server/updateUserPersonalInformation", middleware.UpdateUpi)
+	http.HandleFunc("/server/updatePhoto", middleware.UpdatePhoto)
+	http.HandleFunc("/server/registerVrc/send", middleware.SendRegisterVrc)
 
 
 	//http.HandleFunc("/server/changePasswordLink/send", controls.SendChangePasswordLink)
