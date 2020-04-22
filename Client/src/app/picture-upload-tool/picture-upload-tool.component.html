@@ -3,11 +3,10 @@
       <img src="assets/img/close.ico" alt="">
     </div>
     <div class='imgUnit'>
-        <!-- <img [src]="common.getImgSrcPhoto()"  alt="" (click)='openSelectPictureWindow()'> -->
         <img [src]="tmpUrl"  alt="">
     </div>
     <div class='inputUnit'>
-        <input type="file" ng2FileSelect [uploader]="uploader" (change)="listenFileChanged($event)" /> 
+        <input type="file" (change)="listenFileChanged($event)" /> 
         <button (click)="askForChangingUserPhoto()">确定修改</button>
     </div>
   </div>

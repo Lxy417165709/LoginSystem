@@ -6,24 +6,19 @@ import (
 
 func (r *Redis) Set(key string, value []byte, expiredTime int) error {
 	var err error
+	var args []interface{}
 	if expiredTime == 0 {
-		_, err = r.db.Do("SET", key, value)
+		args = []interface{}{key, value}
 	} else {
-		_, err = r.db.Do("SET", key, value, "ex", expiredTime)
+		args = []interface{}{key, value, "ex", expiredTime}
 	}
 
+	_, err = r.db.Do("SET", args...)
 	// 重试
 	if err != nil {
-		if expiredTime == 0 {
-			if _, err = r.retry("SET", key, value); err != nil {
-				return err
-			}
-		} else {
-			if _, err = r.retry("SET", key, value, "ex", expiredTime); err != nil {
-				return err
-			}
+		if _, err = r.db.Do("SET", args...); err != nil {
+			return err
 		}
-
 	}
 
 	return err
@@ -61,11 +56,11 @@ func (r *Redis) retry(commandName string, args ...interface{}) (interface{}, err
 	var rpl interface{}
 	var err error
 	for i := 0; i < r.retryTimes; i++ {
+		logs.Info("%s ->第 %d 次", "重试", i+1)
 		if err = r.Init(); err != nil {
 			continue
 		}
-		rpl, err = r.db.Do(commandName, args...)
-		if err != nil {
+		if rpl, err = r.db.Do(commandName, args...);err != nil {
 			continue
 		}
 	}

@@ -14,25 +14,22 @@ export class PersonalInformationComponent implements OnInit {
 
   constructor(
     private common: CommonService,
-    private router: Router,
     private http: HttpClient,
-    private sanitizer: DomSanitizer,
     private toast: ToastrService,
   ) { }
 
   ngOnInit() {
     // 初始化信息
     this.openState = 0;
-
-    // 检测登录状态
-    if (this.common.loginStateDetection() === false) {
-      this.toast.error('您还没登录', '提示');
-      this.router.navigate(['login']);
-      return;
+    const uai = this.common.getUserAccountInformation();
+    const upi = this.common.getUserPersonalInformation();
+    if (uai !== null && upi !== null) {
+      this.common.userAccountInformation = uai;
+      this.common.userPersonalInformation = upi;
+    } else {
+      this.common.getUai();
+      this.common.getUpi();
     }
-
-    // 获取用户个人信息
-    this.common.userPersonalInformation = this.common.getUserPersonalInformation();
   }
 
   // 打开选择照片的窗口(该窗口是一个组件)
@@ -61,73 +58,43 @@ export class PersonalInformationComponent implements OnInit {
     this.common.userPersonalInformation.userBirthday = new Date(e.target.value).getTime();
   }
 
-  // 返回个人信息表单校验码，0表示正确
+  // 个人信息表单
   personalUserFormIsOK() {
     if (!this.common.checkPersonalName(this.common.userPersonalInformation.userName)) {
-      return -1;
+      return this.common.userNameIncorectFlag;
     }
-    // if (!this.common.checkPersonalSex(this.common.userPersonalInformation.userSex)) {
-    //   return -2;
-    // }
+    if (!this.common.checkPersonalSex(this.common.userPersonalInformation.userSex)) {
+      return this.common.sexIncorectFlag;
+    }
     if (!this.common.checkPersonalBirthday(this.common.userPersonalInformation.userBirthday)) {
-      return -3;
+      return this.common.birthdayIncorectFlag;
     }
     if (!this.common.checkPhone(this.common.userPersonalInformation.userContactPhone)) {
-      return -4;
+      return this.common.phoneIncorectFlag;
     }
     if (!this.common.checkEmail(this.common.userPersonalInformation.userContactEmail)) {
-      return -5;
+      return this.common.emailFormatIncorectFlag;
     }
-    return 0;
-  }
-  // 解析个人信息校验码,返回解析结果
-  getPersonalUserJudgeResult() {
-    let tipStr = '';
-    const resultFlag = this.personalUserFormIsOK();
-    if (resultFlag === 0) {
-      tipStr = '';  // 表示没有错误
-    }
-    if (resultFlag === -1) {
-      tipStr = '您输入的用户名格式有误!';
-    }
-    // if (resultFlag === -2) {
-    //   tipStr = '性别只能填写: 男、女或秘密!';
-    // }
-    if (resultFlag === -3) {
-      tipStr = '您选择的生日信息有误!';
-    }
-    if (resultFlag === -4) {
-      tipStr = '您填写的手机格式有误!';
-    }
-    if (resultFlag === -5) {
-      tipStr = '您填写的邮箱格式有误! ';
-    }
-    return tipStr;
+    return this.common.corectFlag;
   }
 
   changeUserSex(sex) {
     this.common.userPersonalInformation.userSex = sex;
-    console.log(this.common.userPersonalInformation.userSex);
   }
 
-  // 请求修改用户个人信息 (半成品)(还有很多业务逻辑没有完成)
+  // 请求修改用户个人信息
   askForChangingUserPersonalInformation() {
     // 前端信息格式检查
-    const tipStr = this.getPersonalUserJudgeResult();
-    if (tipStr !== '') {
-      this.toast.error(tipStr, '提示');
+    if (this.personalUserFormIsOK() !== this.common.corectFlag) {
+      this.toast.error(this.common.parseFlag(this.personalUserFormIsOK()), '提示');
       return;
     }
 
-    // 发送修改个人信息请求
+    // 构建数据结构
     const header = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
     });
-
-    // 请求头
     const requestHead = { headers: header };
-
-    // 请求协议 (请求体)
     this.common.reqProto = {
       data: {
         userName: this.common.userPersonalInformation.userName,
@@ -135,45 +102,22 @@ export class PersonalInformationComponent implements OnInit {
         userContactPhone: this.common.userPersonalInformation.userContactPhone,
         userContactEmail: this.common.userPersonalInformation.userContactEmail,
         userBirthday: this.common.userPersonalInformation.userBirthday,
-          // 请求数据是用户的所有信息
       },
-      // ---- 下面的字段都没用到
-      orderBy: '',  // 排序要求
-      filter: '',   // 筛选条件
-      page: 0,      // 分页
-      pageSize: 0,  // 分页大小
+      orderBy: '',
+      filter: '',
+      page: 0,
+      pageSize: 0,
     };
-    this.http.post('/server/updateUserPersonalInformation', this.common.reqProto, requestHead).subscribe((res: any) => {
+    this.http.post(this.common.updateUpiUrl, this.common.reqProto, requestHead).subscribe((res: any) => {
+      this.common.replyProto = res;
 
-      // 返回逻辑还有很多没考虑
-      // this.common.replyProto = res;
-      console.log(res);
-      // 根据返回状态执行相应操作
-      if (res.status !== 0) {
-
-        // 这里表示修改失败
-        this.toast.success('修改成功!', '提示');
-        // 用户的头像base64
-        // this.common.userPersonalInformation = res.data.UserPersonalInformation;
-
-        // 获取dataUrl
-        // const dataURL = 'data:image/jpeg;base64,' + res.data.UserPhotoData ;
-
-        // 获取blobURL对象
-        // const blobURLObject = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(this.common.dataURLtoBlob(dataURL)));
-
-        // 获取blobUrl字符串并构成安全链接(不安全会报错)
-        // this.common.userPersonalInformation.userPhotoUrl = blobURLObject;
-
-        // 存储用户个人信息到sessionStorage (成功了)
-        sessionStorage.setItem('userPersonalInformation', JSON.stringify(this.common.userPersonalInformation));
-      } else {
-        // 这里表示修改失败
-        this.toast.warning(res.msg, '提示');
+      if (res.status !==  this.common.updateUpiSuccessFlag) {
+        this.toast.warning(this.common.replyProto.msg, '提示');
+        return;
       }
-      // 获取用户个人信息(从sessionStorage中获取)
-      this.common.userPersonalInformation = this.common.getUserPersonalInformation();
 
+      this.common.storeUserPersonalInformation(this.common.userPersonalInformation);  // 更新localstore
+      this.toast.success(this.common.replyProto.msg, '提示');
     });
   }
 }

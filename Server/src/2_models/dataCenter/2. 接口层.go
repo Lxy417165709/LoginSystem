@@ -120,7 +120,6 @@ func (dbc DataCenter) UpdateUai(uai *table.UserAccountInformation) error {
 		logs.Error(err)
 		return err
 	}
-
 	// 删除缓存 (让下次命中，达到更新的目的 -> 这个方法可能有些慢)
 	key := fmt.Sprintf(uaiUidKeyFormat, uid)
 	return dbc.cache.Del(key)

@@ -41,8 +41,9 @@ func Test(w http.ResponseWriter, r *http.Request) {
 // 登录接口
 func Login(w http.ResponseWriter, r *http.Request) {
 	// 解析请求，获取内部数据
-	loginData := commonStruct.LoginData{}
-	if Err := ParseRequestData(r, &loginData); Err != nil {
+	loginData, Err := commonStruct.LoginData{}, &commonStruct.Error{}
+
+	if Err = ParseRequestData(r, &loginData); Err != nil {
 		HandleErr(w, Err)
 		return
 	}
@@ -50,24 +51,24 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	loginData.Email = strings.ToLower(loginData.Email) // 统一小写
 
 	// 校验
-	if Err := checkerManager.Check(loginData); Err != nil {
+	if Err = checkerManager.Check(loginData); Err != nil {
 		HandleErr(w, Err)
 		return
 	}
 
 	// 执行步骤 (可以单独分块)
 	// 更新操作会使缓存失效.. (正在改进中)
-	if err := transition.UpdateLastLoginTime(loginData.Email); err != nil {
-		logs.Error(err)
+	if Err = transition.UpdateLastLoginTime(loginData.Email); Err != nil {
+		HandleErr(w, Err)
 		return
 	}
-	uid, err := transition.GetUid(loginData.Email)
-	if err != nil {
-		logs.Error(err)
+	uid := 0
+	if uid, Err = transition.GetUid(loginData.Email); Err != nil {
+		HandleErr(w, Err)
 		return
 	}
-	if err := SetUidToResponse(w, uid); err != nil {
-		logs.Error(err)
+	if Err := SetUidToResponse(w, uid); Err != nil {
+		HandleErr(w, Err)
 		return
 	}
 
@@ -284,6 +285,8 @@ func SendRegisterVrc(w http.ResponseWriter, r *http.Request) {
 		HandleErr(w, Err)
 		return
 	}
+	// 处理
+	evd.Email = strings.ToLower(evd.Email)
 
 	// 校验
 	if Err := checkerManager.Check(evd); Err != nil {
@@ -372,5 +375,4 @@ func SendRegisterVrc(w http.ResponseWriter, r *http.Request) {
 //		})
 //		return
 //	}
-//
 //}
