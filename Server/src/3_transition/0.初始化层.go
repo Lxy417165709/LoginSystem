@@ -35,6 +35,7 @@ func Init() error {
 
 	dataCenter = dtc.NewDataCenter(redis,pgsql)
 	registerVrcManager = vc.NewRegisterEmailVrcChecker(redis)
+	photoUploader = pud.NewPhotoUploader(redis)
 	//changePasswordVrcManager = vc.NewChangePasswordEmailVrcChecker(redis)
 	return nil
 }

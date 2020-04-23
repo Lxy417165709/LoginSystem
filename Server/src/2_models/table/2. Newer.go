@@ -17,8 +17,8 @@ func NewDefaultUai(uid int, email, password string) *UserAccountInformation {
 	uai := &UserAccountInformation{
 		UserId:            uid, // 让数据库根据serial获取
 		UserEmail:         email,
-		UserLastLoginTime: int(time.Now().Unix()*commonConst.BirthDayRato),
-		UserRegisterTime:  int(time.Now().Unix()*commonConst.BirthDayRato),
+		UserLastLoginTime: int(time.Now().Unix()*commonConst.TimeRato),
+		UserRegisterTime:  int(time.Now().Unix()*commonConst.TimeRato),
 		UserPassword:      saltPassword,
 		UserType:          commonConst.SmallUser,
 		Salt:              salt,
@@ -35,7 +35,7 @@ func NewDefaultUpi(uid int, contactEmail string) *UserPersonalInformation {
 		commonConst.DefaultUserSex,
 		commonConst.DefaultUserPhone,
 		contactEmail,
-		int(time.Now().Unix()*commonConst.BirthDayRato),
+		int(time.Now().Unix()*commonConst.TimeRato),
 		" ",
 		" ",
 	}

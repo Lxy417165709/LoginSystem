@@ -36,7 +36,7 @@ const (
 	DefaultUserSex   = Man
 	SmallUser        = 1
 	DefaultUserPhone = "18946910438"
-	BirthDayRato     = 1000
+	TimeRato     = 1000
 )
 
 // 盐值相关

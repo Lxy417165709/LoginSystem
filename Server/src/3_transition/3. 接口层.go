@@ -1,6 +1,7 @@
 package transition
 
 import (
+	"0_common/commonConst"
 	"0_common/commonStruct"
 	"2_models/table"
 	"errors"
@@ -40,7 +41,7 @@ func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) *co
 	upi.UserBirthday = uBirthday
 	upi.UserSex = uSex
 	// 校验还没写
-	err := dataCenter.UpdateUpi(upi)
+	err := dataCenter.UpdateUpi(uid,upi)
 	if err != nil {
 		return commonStruct.NewError(
 			fmt.Errorf("服务器端发生错误：信息更新失败"),
@@ -51,10 +52,9 @@ func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) *co
 }
 
 func UpdateLastLoginTime(email string) *commonStruct.Error {
-	uai := &table.UserAccountInformation{UserLastLoginTime: int(time.Now().Unix())}
-	uai.UserEmail = email
+	uai := &table.UserAccountInformation{UserLastLoginTime: int(time.Now().Unix())*commonConst.TimeRato}
 
-	if err := dataCenter.UpdateUai(uai); err != nil {
+	if err := dataCenter.UpdateUai(email,uai); err != nil {
 		return commonStruct.NewError(
 			fmt.Errorf("用户：%s，最近登录时间更新失败", email),
 			err,
@@ -125,12 +125,10 @@ func UpdatePhoto(uid int, data commonStruct.UpdatePhotoData) *commonStruct.Error
 			err,
 		)
 	}
-
-
 	upi := &table.UserPersonalInformation{UserPhotoUrl: storeName}
-	upi.UserId = uid
+
 	// 更新用户的photoUrl
-	if err = dataCenter.UpdateUpi(upi); err != nil {
+	if err = dataCenter.UpdateUpi(uid,upi); err != nil {
 		logs.Error(err)
 		return commonStruct.NewError(
 			errors.New("服务器错误，用户头像更新失败"),

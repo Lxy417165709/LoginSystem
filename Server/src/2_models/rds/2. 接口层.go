@@ -16,7 +16,7 @@ func (r *Redis) Set(key string, value []byte, expiredTime int) error {
 	_, err = r.db.Do("SET", args...)
 	// 重试
 	if err != nil {
-		if _, err = r.db.Do("SET", args...); err != nil {
+		if _, err = r.retry("SET", args...); err != nil {
 			return err
 		}
 	}

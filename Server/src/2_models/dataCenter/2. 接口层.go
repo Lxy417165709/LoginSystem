@@ -1,8 +1,8 @@
 package dataCenter
 
 import (
+	"0_common/commonInterface"
 	"2_models/table"
-	"fmt"
 	"github.com/astaxie/beego/logs"
 )
 
@@ -13,9 +13,59 @@ const (
 	expireTime      = 120
 )
 
+// 第一个参数是标识，第二个参数是表实例
+// 缓存、数据库 --- 通过 uid、email 获取 uai、upi
+func (dbc DataCenter) get(identity interface{}, receiver commonInterface.ITable) (commonInterface.ITable, error) {
+	var info commonInterface.ITable = nil
+	var err error
+
+	// 查缓存
+	if info, err = dbc.cacheGet(identity, receiver); err != nil {
+		logs.Error(err)
+		return nil, err
+	}
+
+	// 缓存未命中，查数据库
+	if info == nil {
+		if info, err = dbc.mdbGet(identity, receiver); err != nil {
+			logs.Error(err)
+			return nil, err
+		}
+		// 数据库不存在，返回空
+		if info == nil {
+			return nil, nil
+		}
+	}
+
+	// 缓存设置
+	if err = dbc.cacheSet(identity, receiver); err != nil {
+		logs.Error(err)
+		return nil, err
+	}
+	return info, nil
+}
+
+// 缓存、数据库 --- 通过 uid、email 更新 uai、upi
+func (dbc DataCenter) update(identity interface{}, result commonInterface.ITable) error {
+
+	var err error
+	// 更新主数据库
+	if err = dbc.mdbUpdate(identity, result); err != nil {
+		logs.Error(err)
+		return err
+	}
+
+	// 更新缓存(让它失效)
+	if err = dbc.cacheUpdate(identity, result); err != nil {
+		logs.Error(err)
+		return err
+	}
+	return nil
+}
+
 // 插入操作
 // 返回uid和error
-// 这里有些BUG的，因为用户信息可能只创建了一半
+// 这里有些BUG的，因为用户信息可能只创建了一半 --> 可以采用事务
 // 主数据库 产生新用户
 func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error) {
 
@@ -41,87 +91,31 @@ func (dbc DataCenter) GenerateNewUser(email string, password string) (int, error
 
 // 主数据库+缓存 -> 通过 email | uid 获取 uai
 func (dbc DataCenter) GetUai(identity interface{}) (*table.UserAccountInformation, error) {
-	uai, err := dbc.cacheGetUai(identity)
+	uai, err := dbc.get(identity, &table.UserAccountInformation{})
 	if err != nil {
 		logs.Error(err)
 		return nil, err
 	}
-	// 缓存未命中
-	if uai == nil {
-		// 查询主数据库
-		if uai, err = dbc.mdbGetUai(identity); err != nil {
-			logs.Error(err)
-			return nil, err
-		}
-	}
 
-	// 缓存更新
-	if err := dbc.cacheSetUai(identity, *uai); err != nil {
-		logs.Error(err)
-		return nil, err
-	}
-
-	return uai, nil
+	return uai.(*table.UserAccountInformation), nil
 }
 
 // 主数据库+缓存 -> 通过 email | uid 获取 upi
 func (dbc DataCenter) GetUpi(identity interface{}) (*table.UserPersonalInformation, error) {
-	// 缓存
-	upi, err := dbc.cacheGetUpi(identity)
+	upi, err := dbc.get(identity, &table.UserPersonalInformation{})
 	if err != nil {
 		logs.Error(err)
 		return nil, err
 	}
-	// 缓存未命中
-	if upi == nil {
-		// 查询主数据库
-		if upi, err = dbc.mdbGetUpi(identity); err != nil {
-			logs.Error(err)
-			return nil, err
-		}
-	}
-
-	// 缓存更新
-	if err := dbc.cacheSetUpi(identity, *upi); err != nil {
-		logs.Error(err)
-		return nil, err
-	}
-
-	return upi, nil
+	return upi.(*table.UserPersonalInformation), nil
 }
 
-// 主数据库+缓存 -> 更新upi
-func (dbc DataCenter) UpdateUpi(upi *table.UserPersonalInformation) error {
-
-	// 更新数据库
-	if err := dbc.mainDb.Update(upi, "where UserId=$1", upi.UserId); err != nil {
-		logs.Error(err)
-		return err
-	}
-
-	// 删除缓存 (让下次命中，达到更新的目的 -> 这个方法可能有些慢)
-	key := fmt.Sprintf(upiUidKeyFormat, upi.UserId)
-	return dbc.cache.Del(key)
+// 主数据库+缓存 -> 通过 email | uid 更新upi
+func (dbc DataCenter) UpdateUpi(identity interface{}, upi *table.UserPersonalInformation) error {
+	return dbc.update(identity, upi)
 }
 
-// 主数据库+缓存 -> 更新uai
-func (dbc DataCenter) UpdateUai(uai *table.UserAccountInformation) error {
-
-	uid, err := uai.UserId, error(nil)
-	if uai.UserId == 0 {
-		if uid, err = dbc.GetUid(uai.UserEmail);err != nil{
-			logs.Error(err)
-			return err
-		}
-	}
-
-	// 更新数据库
-	if err := dbc.mainDb.Update(uai, "where UserId=$1", uid); err != nil {
-		logs.Error(err)
-		return err
-	}
-	// 删除缓存 (让下次命中，达到更新的目的 -> 这个方法可能有些慢)
-	key := fmt.Sprintf(uaiUidKeyFormat, uid)
-	return dbc.cache.Del(key)
-
+// 主数据库+缓存 -> 通过 email | uid 更新uai
+func (dbc DataCenter) UpdateUai(identity interface{}, uai *table.UserAccountInformation) error {
+	return dbc.update(identity, uai)
 }

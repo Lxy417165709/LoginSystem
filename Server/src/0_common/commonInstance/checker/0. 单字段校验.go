@@ -97,7 +97,7 @@ func sexCheck(sex int) *commonStruct.Error {
 
 // 生日合法性校验
 func birthdayCheck(birthday int) *commonStruct.Error {
-	if birthday <= 0 || birthday > int(time.Now().Unix()*commonConst.BirthDayRato) {
+	if birthday <= 0 || birthday > int(time.Now().Unix()*commonConst.TimeRato) {
 		return commonStruct.NewError(
 			errors.New("生日信息设置有误"),
 			nil,
