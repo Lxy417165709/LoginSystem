@@ -14,7 +14,10 @@ import (
 // 主、缓存， email,uid -> uid
 func (dbc DataCenter) GetUid(identify interface{}) (int, error) {
 	uid, err := 0, error(nil)
-
+	if err != nil{
+		logs.Error(err)
+		return 0,err
+	}
 	switch identify.(type) {
 	case int:
 		uid = identify.(int)

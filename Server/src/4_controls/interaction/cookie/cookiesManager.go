@@ -1,12 +1,22 @@
-package controls
+package cookie
 
 import (
 	"0_common/commonConst"
 	"0_common/commonFunction"
-	"0_common/commonStruct"
+	"4_controls/interaction/cookie/token"
 	"fmt"
+	"github.com/astaxie/beego/logs"
 	"net/http"
 )
+
+
+type cookieManager struct {
+	tokenManager *token.TokenManager
+}
+var ckm = &cookieManager{token.GetTokenManager()}
+func GetCookieManager() *cookieManager{
+	return  ckm
+}
 
 // 设置token(密文)
 // token(密文) -> 响应
@@ -19,6 +29,7 @@ func setTokenToResponse(w http.ResponseWriter, token string) error {
 		Name:  "token",
 		Value: encodeToken,
 	})
+
 	return nil
 }
 
@@ -32,43 +43,34 @@ func getTokenFromRequest(r *http.Request) (string, error) {
 	return commonFunction.Decode(cookie.Value, commonConst.AESKey)
 }
 
-
 // uid -> 响应
-func SetUidToResponse(w http.ResponseWriter, userId int) *commonStruct.Error {
+func (cm *cookieManager) SetUid(w http.ResponseWriter, userId int) error {
 	var tokenString string
 	var err error
-	if tokenString, err = CreatTokenString(userId); err != nil {
-		return commonStruct.NewError(
-			fmt.Errorf("登录状态保留失败"),
-			err,
-		)
+	if tokenString, err = cm.tokenManager.GetToken(userId); err != nil {
+		logs.Error(err)
+		return err
 	}
-	if err := setTokenToResponse(w, tokenString); err != nil {
-		return commonStruct.NewError(
-			fmt.Errorf("登录状态保留失败"),
-			err,
-		)
+	if err = setTokenToResponse(w, tokenString); err != nil {
+		logs.Error(err)
+		return err
 	}
 	return nil
 }
 
 // 请求 -> uid
-func GetUidFromRequest(r *http.Request) (int,*commonStruct.Error) {
+func (cm *cookieManager) GetUid(r *http.Request) (int, error) {
 	var tokenString string
 	var err error
 	if tokenString, err = getTokenFromRequest(r); err != nil {
-		return commonConst.ErrorUserId,commonStruct.NewError(
-			fmt.Errorf("获取用户id失败"),
-			err,
-		)
+		logs.Info(err)
+		return 0, err
 	}
 	var uid int
-	if uid,err = GetUserIdFromTokenString(tokenString) ;err!=nil{
-		return commonConst.ErrorUserId,commonStruct.NewError(
-			fmt.Errorf("获取用户id失败"),
-			err,
-		)
+	if uid, err = cm.tokenManager.ParseToken(tokenString); err != nil {
+		logs.Info(err)
+		return 0,err
 	}
 
-	return uid,nil
+	return uid, nil
 }

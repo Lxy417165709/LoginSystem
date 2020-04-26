@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f9489385-f2bc-4c27-9136-b4f29037b604" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/0_common/commonFunction/验证码相关.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/0_common/commonInstance/checker/0. 单字段校验.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/0_common/commonInstance/checker/1. 表单校验.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/0_common/commonInstance/checker/接口层.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/0_common/commonInstance/checker/接口层_test.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/0_common/commonInterface/接口.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/0_common/commonStruct/Error.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/0_common/commonStruct/表单结构.go" afterDir="false" />
@@ -22,6 +18,15 @@
       <change afterPath="$PROJECT_DIR$/src/2_models/rds/2. 接口层.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/2_models/table/2. Newer.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/4_controls/5.接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/checker/0. 单字段校验.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/checker/1. 表单校验.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/checker/接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/checker/接口层_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/checker/标志常量.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/cookie/cookiesManager.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/cookie/token/tokenManager.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/dataStruct.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/4_controls/interaction/interactionManager.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/5_middleware/0. middlewares.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/5_middleware/1. handler.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/5_middleware/2. 接口层.go" afterDir="false" />
@@ -378,13 +383,19 @@
       <change afterPath="$PROJECT_DIR$/src/github.com/lib/pq/uuid_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/遇到的问题.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/遇到的问题.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql/表规划.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/0_common/commonConst/常量.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/0_common/commonConst/常量.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/0_common/commonFunction/盐值相关.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/0_common/commonFunction/盐值相关.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/0_common/commonInstance/checker/0. 单字段校验.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/0_common/commonInstance/checker/1. 表单校验.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/0_common/commonInstance/checker/接口层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/0_common/commonInstance/checker/接口层_test.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/1_env/0. 配置信息获取层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/1_env/0. 配置信息获取层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/cache.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/dataCenter.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/2_models/dataCenter/1. 底层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/2_models/dataCenter/1. 底层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/mainDb.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/pstsql/2.Dao.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/pstsql/3.pgsql.go" beforeDir="false" />
@@ -392,10 +403,12 @@
       <change beforePath="$PROJECT_DIR$/src/2_models/pud/0. 结构层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/2_models/pud/0. 结构层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/pud/1. 功能层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/2_models/pud/通用函数.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/pud/2. 校验层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/2_models/pud/接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/2_models/pud/接口层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/rds/0. 初始化关闭层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/2_models/rds/0. 初始化关闭层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/rds/1. uai功能层.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/rds/1. upi功能层.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/rds/2. 多表功能层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/2_models/rds/2. 接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/2_models/rds/2. 接口层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/rds/对接_缓存.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/rds/对接_邮件校验器.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/2_models/rds/对接_邮件校验器_test.go" beforeDir="false" />
@@ -418,11 +431,13 @@
       <change beforePath="$PROJECT_DIR$/src/3_transition/2. 校验函数层.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/3_transition/3. 接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/3_transition/3. 接口层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/3_transition/3. 接口层_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/4_controls/0. 协议层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/4_controls/0. 协议层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/4_controls/1. Token层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/4_controls/1. Token层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/4_controls/2. Cookies层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/4_controls/2. Cookies层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/4_controls/3. 收发层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/4_controls/3. 收发层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/4_controls/0. 协议层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/4_controls/1. Token层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/4_controls/2. Cookies层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/4_controls/3. 收发层.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/4_controls/4.接口层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/5_middleware/0. middlewares.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/5_middleware/0. middlewares.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/5_middleware/2. 接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/5_middleware/2. 接口层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/conf.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/conf.ini" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -451,56 +466,68 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/2. 接口层.go">
+        <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/接口层.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="607">
+              <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
               <folding>
-                <element signature="n#!!block;n#get#0" />
-                <element signature="n#!!block;n#update#0" />
-                <element signature="n#!!block;n#GenerateNewUser#0" />
-                <element signature="n#!!block;n#GetUai#0" />
-                <element signature="n#!!block;n#GetUpi#0" />
-                <element signature="n#!!block;n#UpdateUpi#0" />
-                <element signature="n#!!block;n#UpdateUai#0" />
+                <element signature="n#!!block;n#beString#0" />
+                <element signature="n#!!block;n#beInt#0" />
+                <element signature="n#!!block;n#Check#0" />
+                <element signature="n#!!block;n#GetResult#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/2_models/pstsql/1. 初始化关闭层.go">
+        <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/0. 单字段校验.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state relative-caret-position="33">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
-                <element signature="n#!!block;n#Init#0" />
+                <element signature="n#!!block;n#emailCheck#0" />
+                <element signature="n#!!block;n#passwordCheck#0" />
+                <element signature="n#!!block;n#vrcCheck#0" />
+                <element signature="n#!!block;n#phoneCheck#0" />
+                <element signature="n#!!block;n#sexCheck#0" />
+                <element signature="n#!!block;n#birthdayCheck#0" />
+                <element signature="n#!!block;n#photoCheck#0" />
+                <element signature="n#!!block;n#userNameCheck#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/2_models/pstsql/2. 接口层.go">
+        <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/标志常量.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="244">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/4_controls/5.接口层.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="64" column="52" lean-forward="true" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
               <folding>
-                <element signature="e#16#87#0" expanded="true" />
-                <element signature="n#!!block;n#Insert#0" />
-                <element signature="n#!!block;n#Delete#0" />
-                <element signature="n#!!block;n#Update#0" />
-                <element signature="n#!!block;n#Select#0" />
+                <element signature="e#500#842#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/2_models/pud/接口层.go">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/cookie/cookiesManager.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="422">
+              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+              <folding>
+                <element signature="n#!!block;n#setTokenToResponse#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -508,8 +535,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/3_transition/0.初始化层.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="40" />
+            <state relative-caret-position="-66">
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
               <folding>
                 <element signature="n#!!block;n#Close#0" />
               </folding>
@@ -518,66 +545,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/2_models/pud/通用函数.go">
+        <entry file="file://$PROJECT_DIR$/src/3_transition/3. 接口层.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="19" />
+            <state relative-caret-position="488">
+              <caret line="106" column="56" lean-forward="true" selection-start-line="106" selection-start-column="56" selection-end-line="106" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/1. 表单校验.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
               <folding>
-                <element signature="e#13#86#0" expanded="true" />
-                <element signature="n#!!block;n#getTargetPhotoBase64#0" />
-                <element signature="n#!!block;n#getImageFileSuffix#0" />
+                <element signature="n#!!block;n#PasswordIsRight#0" />
+                <element signature="n#!!block;n#RegisterVrcIsRight#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/2_models/pud/0. 结构层.go">
+        <entry file="file://$PROJECT_DIR$/src/0_common/commonConst/常量.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+            <state relative-caret-position="179">
+              <caret line="73" column="7" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/interactionManager.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="587">
+              <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
               <folding>
-                <element signature="e#13#85#0" expanded="true" />
+                <element signature="n#!!block;n#Response#0" />
+                <element signature="n#!!block;n#parseRequest#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/1. 底层.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
-              <folding>
-                <element signature="n#!!block;n#GetUid#0" />
-                <element signature="n#!!block;n#mdbGetUid#0" />
-                <element signature="n#!!block;n#setEmailToUid#0" />
-                <element signature="n#!!block;n#emailToUid#0" />
-                <element signature="n#!!block;n#mdbGet#0" />
-                <element signature="e#2413#2415#0" />
-                <element signature="n#!!block;n#cacheUpdate#0" />
-                <element signature="n#!!block;n#cacheGet#0" />
-                <element signature="n#!!block;n#cacheSet#0" />
-                <element signature="n#!!block;n#getKey#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/0.  结构层.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="12" column="92" selection-start-line="12" selection-start-column="92" selection-end-line="12" selection-end-column="92" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -600,11 +606,15 @@
       <find>Do</find>
       <find>ITable</find>
       <find>Get</find>
+      <find>*commonStruct.Error</find>
     </findStrings>
     <replaceStrings>
       <replace>commonInterface.ITable</replace>
       <replace>get</replace>
       <replace>identify</replace>
+      <replace>interaction.</replace>
+      <replace>(bool,error)</replace>
+      <replace>error</replace>
     </replaceStrings>
   </component>
   <component name="GOROOT" path="C:\Language\Go" />
@@ -621,23 +631,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/2_models/rds/对接_邮件校验器.go" />
-        <option value="$PROJECT_DIR$/src/2_models/table/someNewer.go" />
-        <option value="$PROJECT_DIR$/src/2_models/table/2. 语句获取_test.go" />
-        <option value="$PROJECT_DIR$/src/2_models/table/0.ITable.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/ITable.go" />
-        <option value="$PROJECT_DIR$/src/2_models/table/2. 语句获取.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/0. ITable_test.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/2.Dao.go" />
-        <option value="$PROJECT_DIR$/src/2_models/mainDb.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/0. ITable.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/3.pgsql.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/mainDb.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/sql语句层.go" />
-        <option value="$PROJECT_DIR$/src/2_models/cache.go" />
-        <option value="$PROJECT_DIR$/src/2_models/dataCenter.go" />
-        <option value="$PROJECT_DIR$/src/2_models/dataCenter_base.go" />
-        <option value="$PROJECT_DIR$/src/2_models/pstsql/2. 接口层.go" />
         <option value="$PROJECT_DIR$/src/2_models/dataCenter/dataCenter_base.go" />
         <option value="$PROJECT_DIR$/src/checker/base.go" />
         <option value="$PROJECT_DIR$/src/2_models/vc/0. emailSender.go" />
@@ -648,7 +641,6 @@
         <option value="$PROJECT_DIR$/src/2_models/vc/2. RegisterEmailVrcChecker.go" />
         <option value="$PROJECT_DIR$/src/1_env/0. 配置信息获取层.go" />
         <option value="$PROJECT_DIR$/src/4_controls/4.接口层.go" />
-        <option value="$PROJECT_DIR$/src/4_controls/1. Token层.go" />
         <option value="$PROJECT_DIR$/src/2_models/dataCenter/0.  结构层.go" />
         <option value="$PROJECT_DIR$/src/2_models/pstsql/1. 初始化关闭层.go" />
         <option value="$PROJECT_DIR$/src/0_common/commonInterface/接口.go" />
@@ -657,29 +649,46 @@
         <option value="$PROJECT_DIR$/src/5_middleware/接口层.go" />
         <option value="$PROJECT_DIR$/src/5_middleware/handler.go" />
         <option value="$PROJECT_DIR$/src/2_models/rds/0. 初始化关闭层.go" />
-        <option value="$PROJECT_DIR$/src/5_middleware/2. 接口层.go" />
-        <option value="$PROJECT_DIR$/src/5_middleware/0. middlewares.go" />
-        <option value="$PROJECT_DIR$/src/4_controls/5.接口层.go" />
-        <option value="$PROJECT_DIR$/src/3_transition/3. 接口层.go" />
         <option value="$PROJECT_DIR$/src/0_common/commonConst/常量.go" />
         <option value="$PROJECT_DIR$/src/2_models/table/2. Newer.go" />
         <option value="$PROJECT_DIR$/src/0_common/commonInstance/checker/0. 单字段校验.go" />
         <option value="$PROJECT_DIR$/src/2_models/table/1.userAccountInformation.go" />
         <option value="$PROJECT_DIR$/src/2_models/table/1.userPersonalInformation.go" />
-        <option value="$PROJECT_DIR$/src/2_models/rds/2. 接口层.go" />
         <option value="$PROJECT_DIR$/src/2_models/dataCenter/2. 接口层.go" />
-        <option value="$PROJECT_DIR$/src/2_models/dataCenter/1. 底层.go" />
         <option value="$PROJECT_DIR$/src/3_transition/0.初始化层.go" />
         <option value="$PROJECT_DIR$/src/2_models/pud/0. 结构层.go" />
         <option value="$PROJECT_DIR$/src/2_models/pud/接口层.go" />
+        <option value="$PROJECT_DIR$/src/2_models/dataCenter/1. 底层.go" />
+        <option value="$PROJECT_DIR$/src/2_models/rds/2. 接口层.go" />
+        <option value="$PROJECT_DIR$/src/5_middleware/2. 接口层.go" />
+        <option value="$PROJECT_DIR$/src/0_common/commonFunction/加密解密.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/1. Token层.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/2. Cookies层.go" />
+        <option value="$PROJECT_DIR$/src/cookie/cookiesManager.go" />
+        <option value="$PROJECT_DIR$/src/token/tokenManager.go" />
+        <option value="$PROJECT_DIR$/src/interaction/dataStruct.go" />
+        <option value="$PROJECT_DIR$/src/0_common/commonStruct/表单结构.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/3. 收发层.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/0. 协议层.go" />
+        <option value="$PROJECT_DIR$/src/5_middleware/0. middlewares.go" />
+        <option value="$PROJECT_DIR$/src/interaction/interactionManager.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/interaction/dataStruct.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/cookie/cookiesManager.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/interaction/checker/0. 单字段校验.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/interaction/checker/标志常量.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/interaction/interactionManager.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/interaction/checker/接口层.go" />
+        <option value="$PROJECT_DIR$/src/3_transition/3. 接口层.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/interaction/cookie/cookiesManager.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/5.接口层.go" />
+        <option value="$PROJECT_DIR$/src/4_controls/interaction/checker/1. 表单校验.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="86" />
-    <option name="y" value="220" />
-    <option name="width" value="1932" />
-    <option name="height" value="988" />
+    <option name="x" value="-7" />
+    <option name="width" value="1336" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -687,7 +696,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -710,14 +718,8 @@
               <item name="Server" type="b2602c69:ProjectViewProjectNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="2_models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="2_models" type="462c0819:PsiDirectoryNode" />
-              <item name="pud" type="462c0819:PsiDirectoryNode" />
+              <item name="0_common" type="462c0819:PsiDirectoryNode" />
+              <item name="commonConst" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Server" type="b2602c69:ProjectViewProjectNode" />
@@ -725,10 +727,32 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="3_transition" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="4_controls" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="4_controls" type="462c0819:PsiDirectoryNode" />
+              <item name="interaction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="4_controls" type="462c0819:PsiDirectoryNode" />
+              <item name="interaction" type="462c0819:PsiDirectoryNode" />
+              <item name="checker" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -747,19 +771,19 @@
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\4_controls\interaction" />
+      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\4_controls\cookie" />
+      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\4_controls" />
+      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\0_common\commonInstance" />
+      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\2_models\pstsql" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\2_models\rds" />
       <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\2_models\table" />
       <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\2_models\pud" />
       <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\3_transition" />
       <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\checker" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\0_common\commonInstance" />
-      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\2_models\pstsql" />
-      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\2_models\dataCenter" />
-      <recent name="C:\Users\hasee\Desktop\LoginSystem\Server\src\2_models\table" />
-      <recent name="C:\Users\hasee\Desktop\Go_Project\Server\src\github.com" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -897,10 +921,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.16791044" side_tool="true" weight="0.2563966" />
       <window_info id="Favorites" order="1" sideWeight="0.1670282" side_tool="true" weight="0.3379531" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.8329718" visible="true" weight="0.21748401" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8329718" visible="true" weight="0.19509594" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.89712155" weight="0.28524947" />
@@ -911,8 +936,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.7899787" visible="true" weight="0.54121476" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.21002132" side_tool="true" weight="0.3167028" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.7889126" visible="true" weight="0.17570499" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.21108742" side_tool="true" weight="0.81453365" />
       <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32886723" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -948,24 +973,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/2_models/pstsql/mainDb.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/rds/对接_缓存_test.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/rds/对接_邮件校验器_test.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/rds/对接_邮件校验器.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/cache.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/vc/0. IVrcStorage.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/vc/1. IVrcChecker.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/pstsql/1. 初始化关闭层_test.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/rds/对接_缓存.go" />
-    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/2. 接口层_test.go" />
-    <entry file="file://$PROJECT_DIR$/src/github.com/garyburd/redigo/redis/reply.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/缓存.go" />
     <entry file="file://$PROJECT_DIR$/src/1_env/0. 配置信息获取层.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -985,16 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/conf.ini">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/github.com/garyburd/redigo/redis/redis.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="35" column="78" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/2_models/rds/0. 初始化关闭层.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -1009,79 +1006,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/4_controls/3. 收发层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="n#!!block;n#Response#0" />
-            <element signature="n#!!block;n#ResponseError#0" />
-            <element signature="n#!!block;n#ParseRequest#0" />
-            <element signature="n#!!block;n#ParseRequestData#0" />
-            <element signature="n#!!block;n#FormatPhotoRspData#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/2_models/vc/3. ChangePasswordEmailVrcChecker.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/4_controls/0. 协议层.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/4_controls/1. Token层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="n#!!block;n#CreatTokenString#0" />
-            <element signature="n#!!block;n#GetUserIdFromTokenString#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/5_middleware/0. middlewares.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="n#!!block;n#TimeCounter#0" />
-            <element signature="n#!!block;n#TimesCounter#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/4_controls/2. Cookies层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!block;n#setTokenToResponse#0" />
-            <element signature="n#!!block;n#getTokenFromRequest#0" />
-            <element signature="n#!!block;n#GetUidFromRequest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/5_middleware/2. 接口层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/5_middleware/1. handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="n#!!block;n#NewHandler#0" />
-            <element signature="n#!!block;n#Format#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1106,17 +1034,6 @@
           <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding>
             <element signature="n#!!block;n#TestSql#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/4_controls/5.接口层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11154">
-          <caret line="367" column="33" selection-start-line="367" selection-start-column="33" selection-end-line="367" selection-end-column="33" />
-          <folding>
-            <element signature="e#337#643#0" />
-            <element signature="e#703#732#0" />
           </folding>
         </state>
       </provider>
@@ -1159,132 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/0_common/commonConst/常量.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/0_common/commonInterface/接口.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/2_models/rds/2. 接口层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/0_common/commonInstance/checker/接口层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="n#!!block;n#GetChecker#0" />
-            <element signature="n#!!block;n#stringfy#0" />
-            <element signature="n#!!block;n#intfy#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/0_common/commonInstance/checker/接口层_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/0_common/commonInstance/checker/1. 表单校验.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#17#102#0" expanded="true" />
-            <element signature="n#!!block;n#EmailIsExist#0" />
-            <element signature="n#!!block;n#EmailIsNotExist#0" />
-            <element signature="n#!!block;n#PasswordIsRight#0" />
-            <element signature="n#!!block;n#RegisterVrcIsRight#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/0_common/commonInstance/checker/0. 单字段校验.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!block;n#emailCheck#0" />
-            <element signature="n#!!block;n#passwordCheck#0" />
-            <element signature="n#!!block;n#vrcCheck#0" />
-            <element signature="n#!!block;n#phoneCheck#0" />
-            <element signature="n#!!block;n#sexCheck#0" />
-            <element signature="n#!!block;n#photoCheck#0" />
-            <element signature="n#!!block;n#userNameCheck#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/3_transition/3. 接口层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1914">
-          <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/0.  结构层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="12" column="92" selection-start-line="12" selection-start-column="92" selection-end-line="12" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/1. 底层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-          <folding>
-            <element signature="n#!!block;n#GetUid#0" />
-            <element signature="n#!!block;n#mdbGetUid#0" />
-            <element signature="n#!!block;n#setEmailToUid#0" />
-            <element signature="n#!!block;n#emailToUid#0" />
-            <element signature="n#!!block;n#mdbGet#0" />
-            <element signature="e#2413#2415#0" />
-            <element signature="n#!!block;n#cacheUpdate#0" />
-            <element signature="n#!!block;n#cacheGet#0" />
-            <element signature="n#!!block;n#cacheSet#0" />
-            <element signature="n#!!block;n#getKey#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/2. 接口层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="n#!!block;n#get#0" />
-            <element signature="n#!!block;n#update#0" />
-            <element signature="n#!!block;n#GenerateNewUser#0" />
-            <element signature="n#!!block;n#GetUai#0" />
-            <element signature="n#!!block;n#GetUpi#0" />
-            <element signature="n#!!block;n#UpdateUpi#0" />
-            <element signature="n#!!block;n#UpdateUai#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/2_models/pstsql/1. 初始化关闭层.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1297,7 +1088,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/2_models/pstsql/2. 接口层.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="165">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
             <element signature="e#16#87#0" expanded="true" />
@@ -1309,30 +1100,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/3_transition/0.初始化层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="40" />
-          <folding>
-            <element signature="n#!!block;n#Close#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/2_models/pud/0. 结构层.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-          <folding>
-            <element signature="e#13#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/2_models/pud/通用函数.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="19" />
+        <state relative-caret-position="198">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="19" />
           <folding>
             <element signature="e#13#86#0" expanded="true" />
             <element signature="n#!!block;n#getTargetPhotoBase64#0" />
@@ -1341,10 +1112,307 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/2_models/pud/0. 结构层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/2_models/pud/接口层.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
+        <state relative-caret-position="462">
           <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="n#!!block;n#StorePhoto#0" />
+            <element signature="n#!!block;n#GetTargetPhotoBase64ByName#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/0_common/commonInterface/接口.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Language/Go/src/net/http/request.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="405" column="18" selection-start-line="405" selection-start-column="18" selection-end-line="405" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/2_models/rds/2. 接口层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/garyburd/redigo/redis/conn.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="667" column="29" selection-start-line="667" selection-start-column="29" selection-end-line="667" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/github.com/garyburd/redigo/redis/redis.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2461">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/2. 接口层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+          <folding>
+            <element signature="n#!!block;n#get#0" />
+            <element signature="n#!!block;n#GenerateNewUser#0" />
+            <element signature="n#!!block;n#GetUai#0" />
+            <element signature="n#!!block;n#GetUpi#0" />
+            <element signature="n#!!block;n#UpdateUpi#0" />
+            <element signature="n#!!block;n#UpdateUai#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/0.  结构层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="12" column="92" selection-start-line="12" selection-start-column="92" selection-end-line="12" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/conf.ini">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/2_models/dataCenter/1. 底层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-952">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!block;n#mdbGetUid#0" />
+            <element signature="n#!!block;n#setEmailToUid#0" />
+            <element signature="n#!!block;n#emailToUid#0" />
+            <element signature="n#!!block;n#mdbGet#0" />
+            <element signature="n#!!block;n#mdbUpdate#0" />
+            <element signature="n#!!block;n#cacheUpdate#0" />
+            <element signature="n#!!block;n#cacheGet#0" />
+            <element signature="n#!!block;n#cacheSet#0" />
+            <element signature="n#!!block;n#getKey#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Language/Go/src/io/io.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2904">
+          <caret line="90" column="4" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/0_common/commonFunction/验证码相关.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/0_common/commonFunction/盐值相关.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/0_common/commonFunction/加密解密.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="n#!!block;n#Encode#0" />
+            <element signature="n#!!block;n#Decode#0" />
+            <element signature="n#!!block;n#padding#0" />
+            <element signature="n#!!block;n#unPadding#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/1. Token层.go" />
+    <entry file="file://$PROJECT_DIR$/src/4_controls/2. Cookies层.go" />
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/cookie/token/tokenManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#15#123#0" expanded="true" />
+            <element signature="n#!!block;n#GetTokenManager#0" />
+            <element signature="n#!!block;n#GetToken#0" />
+            <element signature="n#!!block;n#GetUserIdFromTokenString#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/0. 协议层.go" />
+    <entry file="file://$PROJECT_DIR$/src/4_controls/3. 收发层.go" />
+    <entry file="file://$PROJECT_DIR$/src/0_common/commonStruct/表单结构.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1716">
+          <caret line="52" column="1" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/5_middleware/2. 接口层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/5_middleware/1. handler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="n#!!block;n#NewHandler#0" />
+            <element signature="n#!!block;n#Format#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/5_middleware/0. middlewares.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#TimeCounter#0" />
+            <element signature="n#!!block;n#TimesCounter#0" />
+            <element signature="n#!!block;n#Limit#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/接口层_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="830">
+          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/dataStruct.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3_transition/0.初始化层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!block;n#Close#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/0_common/commonConst/常量.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="73" column="7" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/interactionManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#Response#0" />
+            <element signature="n#!!block;n#parseRequest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3_transition/3. 接口层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="106" column="56" lean-forward="true" selection-start-line="106" selection-start-column="56" selection-end-line="106" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/cookie/cookiesManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#setTokenToResponse#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/5.接口层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="64" column="52" lean-forward="true" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+          <folding>
+            <element signature="e#500#842#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/标志常量.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/0. 单字段校验.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="n#!!block;n#emailCheck#0" />
+            <element signature="n#!!block;n#passwordCheck#0" />
+            <element signature="n#!!block;n#vrcCheck#0" />
+            <element signature="n#!!block;n#phoneCheck#0" />
+            <element signature="n#!!block;n#sexCheck#0" />
+            <element signature="n#!!block;n#birthdayCheck#0" />
+            <element signature="n#!!block;n#photoCheck#0" />
+            <element signature="n#!!block;n#userNameCheck#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/接口层.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!block;n#beString#0" />
+            <element signature="n#!!block;n#beInt#0" />
+            <element signature="n#!!block;n#Check#0" />
+            <element signature="n#!!block;n#GetResult#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/4_controls/interaction/checker/1. 表单校验.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!block;n#PasswordIsRight#0" />
+            <element signature="n#!!block;n#RegisterVrcIsRight#0" />
+          </folding>
         </state>
       </provider>
     </entry>

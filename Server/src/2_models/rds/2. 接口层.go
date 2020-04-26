@@ -25,14 +25,13 @@ func (r *Redis) Set(key string, value []byte, expiredTime int) error {
 }
 func (r *Redis) Del(key string) error {
 	_, err := r.db.Do("Del", key)
-
 	// 重试
 	if err != nil {
 		if _, err = r.retry("Del", key); err != nil {
 			return err
 		}
 	}
-	return err
+	return nil
 }
 func (r *Redis) Get(key string) ([]byte, error) {
 
@@ -40,6 +39,7 @@ func (r *Redis) Get(key string) ([]byte, error) {
 
 	// 重试操作
 	if err != nil {
+		logs.Error(err)
 		if rpl, err = r.retry("get", key); err != nil {
 			return []byte{}, err
 		}

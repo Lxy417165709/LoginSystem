@@ -2,10 +2,7 @@ package transition
 
 import (
 	"0_common/commonConst"
-	"0_common/commonStruct"
 	"2_models/table"
-	"errors"
-	"fmt"
 	"github.com/astaxie/beego/logs"
 	"time"
 )
@@ -31,7 +28,7 @@ import (
 
 
 
-func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) *commonStruct.Error {
+func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) error {
 
 	upi := &table.UserPersonalInformation{}
 	upi.UserId = uid
@@ -43,33 +40,24 @@ func UpdateUpi(uid int, uName, ucEmail, ucPhone string, uBirthday, uSex int) *co
 	// 校验还没写
 	err := dataCenter.UpdateUpi(uid,upi)
 	if err != nil {
-		return commonStruct.NewError(
-			fmt.Errorf("服务器端发生错误：信息更新失败"),
-			err,
-		)
+		return err
 	}
 	return nil
 }
 
-func UpdateLastLoginTime(email string) *commonStruct.Error {
+func UpdateLastLoginTime(email string) error {
 	uai := &table.UserAccountInformation{UserLastLoginTime: int(time.Now().Unix())*commonConst.TimeRato}
 
 	if err := dataCenter.UpdateUai(email,uai); err != nil {
-		return commonStruct.NewError(
-			fmt.Errorf("用户：%s，最近登录时间更新失败", email),
-			err,
-		)
+		return err
 	}
 	return nil
 }
 
-func GetUai(uid int) (*table.UserAccountInformation, *commonStruct.Error) {
+func GetUai(uid int) (*table.UserAccountInformation, error) {
 	uai, err := dataCenter.GetUai(uid)
 	if err != nil {
-		return uai, commonStruct.NewError(
-			fmt.Errorf("用户账户信息获取失败"),
-			err,
-		)
+		return nil,err
 	}
 
 	// 返回用户信息
@@ -77,122 +65,91 @@ func GetUai(uid int) (*table.UserAccountInformation, *commonStruct.Error) {
 }
 
 // 返回upi和error
-func GetUpi(uid int) (*table.UserPersonalInformation, *commonStruct.Error) {
+func GetUpi(uid int) (*table.UserPersonalInformation, error) {
 	upi, err := dataCenter.GetUpi(uid)
 	if err != nil {
-		return upi, commonStruct.NewError(
-			fmt.Errorf("用户个人信息获取失败"),
-			err,
-		)
+		return nil, err
 	}
 	return upi, nil
 }
 
-func GetUid(email string) (int, *commonStruct.Error) {
+func GetUid(email string) (int, error) {
 	uid, err := dataCenter.GetUid(email)
 	if err != nil {
 		logs.Error(err)
-		return uid, commonStruct.NewError(
-			fmt.Errorf("用户：%s, ID获取失败", email),
-			err,
-		)
+		return 0,err
 	}
 	return uid, nil
 }
 
-func GenerateNewUser(email, password string) (int, *commonStruct.Error) {
+func GenerateNewUser(email, password string) (int, error) {
 	uid, err := dataCenter.GenerateNewUser(email, password)
 	if err != nil {
 		logs.Error(err)
-		return uid, commonStruct.NewError(
-			fmt.Errorf("用户：%s, 新建失败", email),
-			err,
-		)
+		return 0,err
 	}
 	return uid, nil
 }
 
 // 图片信息校验
-func UpdatePhoto(uid int, data commonStruct.UpdatePhotoData) *commonStruct.Error {
+func UpdatePhoto(uid int, photoBase64 string) error {
 
 	// 存储图片
 	var storeName string
 	var err error
-	if storeName, err = photoUploader.StorePhoto(data.PhotoBase64); err != nil {
+	if storeName, err = photoUploader.StorePhoto(photoBase64); err != nil {
 		logs.Error(err)
-		return commonStruct.NewError(
-			errors.New("服务器错误，用户头像更新失败"),
-			err,
-		)
+		return err
 	}
 	upi := &table.UserPersonalInformation{UserPhotoUrl: storeName}
 
 	// 更新用户的photoUrl
 	if err = dataCenter.UpdateUpi(uid,upi); err != nil {
 		logs.Error(err)
-		return commonStruct.NewError(
-			errors.New("服务器错误，用户头像更新失败"),
-			err,
-		)
+		return err
 	}
 	return nil
 }
 
 // 获取图片
-func GetPhoto(photoName string) (string, *commonStruct.Error) {
-	base64Str, err := photoUploader.GetTargetPhotoBase64ByName(photoName)
+func GetPhoto(photoName string) (string, error) {
+	base64Str, err := photoUploader.GetPhoto(photoName)
 	if err != nil {
 		logs.Error(err)
-		return base64Str, commonStruct.NewError(
-			errors.New("图片获取时发生错误"),
-			err,
-		)
+		return base64Str,err
 	}
 	return base64Str, nil
 }
 
 // 发送注册验证码
-func SendRegisterVrc(email string,vrc string) *commonStruct.Error {
+func SendRegisterVrc(email string,vrc string) error {
 	if err := registerVrcManager.SendVrc(email, vrc); err != nil {
 		logs.Error(err)
-		return commonStruct.NewError(
-			errors.New("服务器在发送验证码时发生错误"),
-			err,
-		)
+		return err
 	}
 	return nil
 }
 
 // 设置
-func SetRegisterVrc(email string,vrc string,expiredTime int) *commonStruct.Error {
+func SetRegisterVrc(email string,vrc string,expiredTime int) error {
 	if err := registerVrcManager.SetVrc(email,vrc,expiredTime);err!= nil {
 		logs.Error(err)
-		return commonStruct.NewError(
-			errors.New("服务器在设置验证码时发生错误"),
-			err,
-		)
+		return err
 	}
 	return  nil
 }
-func GetRegisterVrc(email string) (string, *commonStruct.Error) {
+func GetRegisterVrc(email string) (string, error) {
 	vrc, err := registerVrcManager.GetVrc(email)
 	if err != nil {
 		logs.Error(err)
-		return "", commonStruct.NewError(
-			errors.New("服务器在获取验证码时发生错误"),
-			err,
-		)
+		return "", err
 	}
 	return vrc, nil
 }
-func DelRegisterVrc(email string) *commonStruct.Error{
+func DelRegisterVrc(email string) error{
 	if err := registerVrcManager.DelVrc(email);err!=nil{
 		logs.Error(err)
-		return commonStruct.NewError(
-			errors.New("服务器在删除验证码时发生错误"),
-			err,
-		)
-
+		return err
 	}
 	return nil
 }

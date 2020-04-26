@@ -35,7 +35,7 @@ func (p *PhotoUploader) StorePhoto(base64Data string) (string, error) {
 
 // 通过文件名获取服务器图片文件夹中的图片BASE64
 // 图片名 -> base64编码
-func (p *PhotoUploader) GetTargetPhotoBase64ByName(name string) (string, error) {
+func (p *PhotoUploader) GetPhoto(name string) (string, error) {
 	var bytes []byte
 	var err error
 
