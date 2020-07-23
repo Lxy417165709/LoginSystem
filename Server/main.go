@@ -7,33 +7,34 @@ import (
 	"5_middleware"
 	"fmt"
 	"github.com/astaxie/beego/logs"
+	"github.com/gorilla/websocket"
 	"net/http"
+	"time"
 )
 
-func AllInit() error {
+func AllInit() {
 	// 初始化日志器
 	logs.SetLogFuncCallDepth(3)
 	logs.EnableFuncCallDepth(true)
 
 	// 初始化配置文件
-	if err := env.LoadConf(commonConst.ConfPath); err != nil {
-		logs.Error(err)
-		return err
-	}
+	env.LoadConf(commonConst.ConfPath)
+
 	// 初始化数据库、校验器
 	if err := transition.Init(); err != nil {
-		logs.Error(err)
-		return err
+		logs.Info("初始化失败: " + err.Error())
 	}
+}
 
-	return nil
+func AllClose() {
+	transition.Close()
 }
 
 func main() {
-	if err := AllInit(); err != nil {
-		logs.Error(err)
-		return
-	}
+	AllInit()
+	defer func() {
+		AllClose()
+	}()
 
 	logs.Info("init successfully!!!")
 
@@ -51,12 +52,24 @@ func main() {
 	http.HandleFunc("/server/updatePhoto", middleware.UpdatePhoto)
 	http.HandleFunc("/server/registerVrc/send", middleware.SendRegisterVrc)
 
-
-	//http.HandleFunc("/server/changePasswordLink/send", controls.SendChangePasswordLink)
-	//http.HandleFunc("/server/changePasswordLink/visit", controls.ChangePasswordLinkVisit)
+	// 测试websocket
+	http.HandleFunc("/server/wbsk", wbsk)
 
 	if err := http.ListenAndServe(fmt.Sprintf(":%d", env.Conf.Server.Port), nil); err != nil {
 		logs.Error(err)
 		return
+	}
+}
+
+func wbsk(w http.ResponseWriter, r *http.Request) {
+	conn, err := (&websocket.Upgrader{CheckOrigin: func(r *http.Request) bool { return true }}).Upgrade(w, r, nil)
+	if err != nil {
+		panic(err)
+	}
+	for {
+		if err := conn.WriteMessage(websocket.TextMessage, []byte("hello")); err != nil {
+			panic(err)
+		}
+		time.Sleep(5 * time.Second)
 	}
 }

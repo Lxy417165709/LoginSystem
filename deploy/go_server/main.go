@@ -1,73 +1,75 @@
 package main
 
 import (
-	"common"
-	"controllers"
-	"env"
+	"0_common/commonConst"
+	"1_env"
+	"3_transition"
+	"5_middleware"
 	"fmt"
 	"github.com/astaxie/beego/logs"
-	"log"
-	"models"
+	"github.com/gorilla/websocket"
 	"net/http"
+	"time"
 )
 
-// 服务器测试接口
-func test(w http.ResponseWriter, r *http.Request) {
-	_, err := w.Write([]byte("You have been connecting!"))
+func AllInit() {
+	// 初始化日志器
+	logs.SetLogFuncCallDepth(3)
+	logs.EnableFuncCallDepth(true)
 
-	if err != nil {
-		log.Fatal(err)
+	// 初始化配置文件
+	env.LoadConf(commonConst.ConfPath)
+
+	// 初始化数据库、校验器
+	if err := transition.Init(); err != nil {
+		logs.Info("初始化失败: " + err.Error())
 	}
 }
 
-// 测试代码 (测试成功)
-func testSql(){
-	logs.Info(models.GetUserAccountInformation(1))
-}
-
-// 系统初始化
-func systemInitial() error {
-	// 环境初始化
-	err := env.LoadConf("conf.ini")
-	if err != nil {
-		return err
-	}
-
-	// 数据库初始化
-	err = models.Initdb()
-	if err != nil {
-		return err
-	}
-
-	// 日志初始化
-	err = common.InitLogs()
-	if err != nil {
-		return err
-	}
-	return nil
+func AllClose() {
+	transition.Close()
 }
 
 func main() {
-	err := systemInitial()
-	if err != nil {
-		log.Fatal(err)
+	AllInit()
+	defer func() {
+		AllClose()
+	}()
+
+	logs.Info("init successfully!!!")
+
+	http.HandleFunc("/server/test", middleware.Test)
+
+	// 不用表单
+	http.HandleFunc("/server/getPhoto", middleware.GetPhoto)
+	http.HandleFunc("/server/getUai", middleware.GetUai)
+	http.HandleFunc("/server/getUpi", middleware.GetUpi)
+
+	// 要表单
+	http.HandleFunc("/server/login", middleware.Login)
+	http.HandleFunc("/server/register", middleware.Register)
+	http.HandleFunc("/server/updateUserPersonalInformation", middleware.UpdateUpi)
+	http.HandleFunc("/server/updatePhoto", middleware.UpdatePhoto)
+	http.HandleFunc("/server/registerVrc/send", middleware.SendRegisterVrc)
+
+	// 测试websocket
+	http.HandleFunc("/server/wbsk", wbsk)
+
+	if err := http.ListenAndServe(fmt.Sprintf(":%d", env.Conf.Server.Port), nil); err != nil {
+		logs.Error(err)
 		return
 	}
-	logs.Info("Init Success!")
+}
 
-	// 服务器设置
-	http.HandleFunc("/server/test", test)
-	http.HandleFunc("/server/register", controllers.Register)
-	http.HandleFunc("/server/login", controllers.Login)
-	http.HandleFunc("/server/getPersonalInformation", controllers.GetPersonalInformation)
-	http.HandleFunc("/server/updateUserPersonalInformation",controllers.UpdateUserPersonalInformation)
-	http.HandleFunc("/server/uploadPhoto",controllers.UploadPhoto)
-	//addr := fmt.Sprintf(": 8080", env.Conf.Server.Port)		// 监听地址
-	addr := fmt.Sprintf(":%d", env.Conf.Server.Port)		// 监听地址
-	err = http.ListenAndServe(addr, nil)
-
+func wbsk(w http.ResponseWriter, r *http.Request) {
+	conn, err := (&websocket.Upgrader{CheckOrigin: func(r *http.Request) bool { return true }}).Upgrade(w, r, nil)
 	if err != nil {
-		logs.Alert(err)
+		panic(err)
 	}
-
+	for {
+		if err := conn.WriteMessage(websocket.TextMessage, []byte("hello")); err != nil {
+			panic(err)
+		}
+		time.Sleep(5 * time.Second)
+	}
 }

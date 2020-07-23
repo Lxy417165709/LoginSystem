@@ -3,13 +3,32 @@
   <component name="ChangeListManager">
     <list default="true" id="2c77242d-aa64-4e95-a1ec-1d34107faf18" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonFunction/验证码相关.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonStruct/Error.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonStruct/表单结构.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter_base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/checker/base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/checker/base_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/checker/格式校验.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/checker/表单校验.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonInterface/接口.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/0_common/commonTemplate/email.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter/0.  结构层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter/1. 底层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter/2. 接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/0. sql语句层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/0. sql语句层_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/1. 初始化关闭层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/2. 接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/pud/接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/rds/2. 接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/2_models/table/2. Newer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/5.接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/checker/0.标志常量.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/checker/0.结构层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/checker/1.单字段校验.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/checker/1.表单校验.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/checker/2.接口层.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/checker/2.接口层_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/cookie/cookiesManager.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/cookie/token/tokenManager.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/dataStruct.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/interactionManager.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/5_middleware/0. middlewares.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/5_middleware/1. handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/5_middleware/2. 接口层.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/.github/ISSUE_TEMPLATE" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/src/github.com/astaxie/beego/.travis.yml" afterDir="false" />
@@ -361,32 +380,73 @@
       <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/user_windows.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/uuid.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/src/github.com/lib/pq/uuid_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/doc/步骤.md" beforeDir="false" afterPath="$PROJECT_DIR$/Server/doc/步骤.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/sql/表规划.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/0_common/commonConst/常量.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/0_common/commonConst/常量.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/0_common/commonFunction/盐值相关.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/0_common/commonFunction/盐值相关.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/cache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/dataCenter.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pstsql/2.Dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/2.Dao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pud/1. 功能层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pud/1. 功能层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/对接_缓存.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/rds/对接_缓存.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/对接_邮件校验器_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/rds/对接_邮件校验器_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/someFunction.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/someFunction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/2_models/someNewer.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/someNewer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/0_common/commonInterface/接口.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/0_common/commonInterface/接口.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/0_common/commonStruct/Error.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/0_common/commonStruct/表单结构.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/1_env/0. 配置信息获取层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/1_env/0. 配置信息获取层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/cache.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/dataCenter.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/dataCenter/0.  结构层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/dataCenter/0.  结构层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/mainDb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pstsql/0. sql语句层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/0. sql语句层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pstsql/1. 初始化关闭层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pstsql/1. 初始化关闭层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pstsql/2.Dao.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pstsql/3.pgsql.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pstsql/3.pgsql_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pud/0. 结构层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pud/0. 结构层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pud/1. 功能层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/pud/通用函数.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/pud/2. 校验层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/0. 初始化关闭层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/rds/0. 初始化关闭层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/1. uai功能层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/1. upi功能层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/2. 多表功能层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/2. 接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/rds/2. 接口层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/对接_缓存.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/对接_邮件校验器.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/rds/对接_邮件校验器_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/someFunction.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/someNewer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/table/0.ITable.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/table/1.userAccountInformation.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/table/1.userAccountInformation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/table/1.userAccountInformation_test.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/2_models/table/1.userPersonalInformation.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/table/1.userPersonalInformation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/vc/0. IVrcStorage.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/2_models/vc/0. emailSender.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/vc/0. emailSender.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/vc/1. IVrcChecker.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/2_models/vc/2. RegisterEmailVrcChecker.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/vc/2. RegisterEmailVrcChecker.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/2_models/vc/3. ChangePasswordEmailVrcChecker.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/2_models/vc/3. ChangePasswordEmailVrcChecker.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/3_transition/0.初始化层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/0.初始化层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/0.校验封装函数.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/0.校验封装函数.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/1. 验证码校验器功能层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/1. 验证码校验器功能层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/0.校验封装函数.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/1. 图片上传器功能层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/1. 数据库功能层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/1. 验证码校验器功能层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/2. 校验函数层.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/3_transition/3. 接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/3_transition/3. 接口层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/0. 协议层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/0. 协议层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/3. 收发层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/3. 收发层.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/4.接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/4.接口层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/3_transition/3. 接口层_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/0. 协议层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/1. Token层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/2. Cookies层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/3. 收发层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/4.接口层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/5.接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/5.接口层.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/checker/0. 单字段校验.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/checker/1. 表单校验.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/checker/接口层.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/checker/接口层_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/checker/标志常量.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/cookie/cookiesManager.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/cookie/cookiesManager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/cookie/token/tokenManager.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/cookie/token/tokenManager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/dataStruct.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/dataStruct.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/4_controls/interaction/interactionManager.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/4_controls/interaction/interactionManager.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/5_middleware/2. 接口层.go" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/5_middleware/2. 接口层.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/conf.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/conf.ini" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -398,25 +458,71 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/main.go">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Objects.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+            <state relative-caret-position="396">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Parse.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/InformationGetting.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/InformationSetting.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/Login.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/Register.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/upload.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/models/Initdb.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/src/models/tb_userAccountInformation.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="891">
+              <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/src/4_controls/4.接口层.go">
+        <entry file="file://$PROJECT_DIR$/deploy/go_server/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
-              <folding>
-                <element signature="e#286#592#0" />
-                <element signature="e#743#1477#0" />
-                <element signature="e#2213#2905#0" />
-                <element signature="e#3450#4175#0" />
-              </folding>
+            <state relative-caret-position="344">
+              <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -432,7 +538,7 @@
   </component>
   <component name="GOROOT" path="C:\Language\Go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Server" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -449,10 +555,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="141" />
-    <option name="y" value="66" />
-    <option name="width" value="1575" />
-    <option name="height" value="978" />
+    <option name="x" value="-101" />
+    <option name="y" value="57" />
+    <option name="width" value="1713" />
+    <option name="height" value="865" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -471,20 +577,26 @@
             <path>
               <item name="LoginSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LoginSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="go_server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LoginSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="4_controls" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="nginx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LoginSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LoginSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+              <item name="nginx" type="462c0819:PsiDirectoryNode" />
+              <item name="conf.d" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -542,9 +654,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16684435" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1716418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -599,24 +710,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/存在问题.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/存在问题.txt" />
     <entry file="file://$PROJECT_DIR$/Server/src/models/Initdb.go" />
-    <entry file="file://$PROJECT_DIR$/Sql/createUserAccountInformationTable.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sql/createUserPersonalInformationTable - 副本.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Doc/接口设计文档.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Sql/createUserAccountInformationTable.txt" />
+    <entry file="file://$PROJECT_DIR$/Sql/createUserPersonalInformationTable - 副本.txt" />
+    <entry file="file://$PROJECT_DIR$/Doc/接口设计文档.md" />
     <entry file="file://$PROJECT_DIR$/Server/src/common/Objects.go" />
     <entry file="file://$PROJECT_DIR$/Server/src/controllers/Register.go" />
     <entry file="file://C:/Golang/Go/src/encoding/json/decode.go" />
@@ -642,23 +740,81 @@
     <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/claims.go" />
     <entry file="file://C:/Golang/GoProjects/src/github.com/dgrijalva/jwt-go/token.go" />
     <entry file="file://$PROJECT_DIR$/Server/src/common/Token.go" />
+    <entry file="file://$PROJECT_DIR$/Server/src/4_controls/4.接口层.go" />
     <entry file="file://$PROJECT_DIR$/Server/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+        <state relative-caret-position="627">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/src/4_controls/4.接口层.go">
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Token.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
-          <folding>
-            <element signature="e#286#592#0" />
-            <element signature="e#743#1477#0" />
-            <element signature="e#2213#2905#0" />
-            <element signature="e#3450#4175#0" />
-          </folding>
+        <state relative-caret-position="2805">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Response.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Cookies.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Logs.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Objects.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/common/Parse.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/InformationGetting.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/InformationSetting.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/Login.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/Register.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/controllers/upload.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/models/Initdb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/src/models/tb_userAccountInformation.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/go_server/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="60" column="48" lean-forward="true" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
         </state>
       </provider>
     </entry>

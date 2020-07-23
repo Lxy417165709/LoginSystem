@@ -39,7 +39,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("\n\n\n<div class='divNavigateBar'>\n  <div class='left'></div>\n  <div class='right'>\n    <div class='selfInfo'>\n        <img [src] = \"common.userPersonalInformation.userPhotoUrl===undefined?'assets/img/default.jpg':common.userPersonalInformation.userPhotoUrl\" alt=\"\" class='picture' routerLink=\"/personalInformation\">\n        <span class='name'>{{common.userPersonalInformation.userName}}</span>\n    </div>\n    <div class='option'>\n        <img src=\"assets/img/exit.ico\" alt=\"\" class='exit' (click)='exit()'>\n    </div>\n  </div>\n</div>\n\n<!-- 背景 -->\n<div class='divBackground' ></div>\n\n\n<div class='divContent'>\n\n  <div class='center'>\n    <div class='showImg'>\n        <img src=\"/assets/img/she.jpg\" alt=\"\">\n        <p>回眸一笑百魅生，六宫粉黛无颜色。</p>\n    </div>\n  </div>\n\n</div>\n\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("\n\n\n<div class='divNavigateBar'>\n  <div class='left'></div>\n  <div class='right'>\n    <div class='selfInfo'>\n        <img [src] = \"common.getImgSrcPhoto()\" alt=\"\" class='picture' routerLink=\"/personalInformation\">\n        <span class='name'>{{common.userPersonalInformation.userName}}</span>\n    </div>\n    <div class='option'>\n        <img src=\"assets/img/exit.ico\" alt=\"\" class='exit' (click)='exit()'>\n    </div>\n  </div>\n</div>\n\n<!-- 背景 -->\n<div class='divBackground' ></div>\n\n\n<div class='divContent'>\n\n  <div class='center'>\n    <div class='showImg'>\n        <img src=\"/assets/img/she.jpg\" alt=\"\">\n        <p>回眸一笑百魅生，六宫粉黛无颜色。</p>\n    </div>\n  </div>\n\n</div>\n\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html": 
@@ -50,7 +50,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("      \n<div class=\"background\"></div>\n<div class=\"windowLogin\">\n  <div class='imgUnit'>\n      <img src=\"assets/img/default.jpg\"  alt=\"\">  \n      <!-- <img [src]=\"assets/img/default.jpg\"  alt=\"\">   原来是这样的，但是会报错--> \n      <!-- 这 /assets/img 应该可以提取出来做为一个常量，表示图片文件夹的默认路径 -->\n  </div>\n  <div class='inputUnit'>\n    <input type=\"text\" placeholder=\"账号\" class=\"inputUsername\" [(ngModel)]='loginForm.loginUsername'/>\n    <img [src]=\"common.getIcoUrl(common.checkUsername(loginForm.loginUsername))\" alt=\"\">\n  </div>\n  <div class='inputUnit'>\n    <input type=\"password\" placeholder=\"密码\" class=\"inputPassword\" [(ngModel)]='loginForm.loginPassword'/>\n    <img [src]=\"common.getIcoUrl(common.checkPassword(loginForm.loginPassword))\" alt=\"\">\n  </div>\n  <button class=\"buttonLogin\" (click)='askForLogin()'>登 录</button>\n  <button class=\"buttonGoToRegister\" routerLink=\"/register\">我还没有账号~</button>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("      \n<div class=\"background\"></div>\n<div class=\"windowLogin\">\n  <div class='imgUnit'>\n      <img [src]=\"common.defaultImgPath\"  alt=\"\">  \n  </div>\n  <div class='inputUnit'>\n    <input type=\"text\" placeholder=\"账号\" class=\"inputUsername\" [(ngModel)]='loginForm.email'/>\n    <img [src]=\"common.getIcoUrl(common.checkUsername(loginForm.email))\" alt=\"\">\n  </div>\n  <div class='inputUnit'>\n    <input type=\"password\" placeholder=\"密码\" class=\"inputPassword\" [(ngModel)]='loginForm.password'/>\n    <img [src]=\"common.getIcoUrl(common.checkPassword(loginForm.password))\" alt=\"\">\n  </div>\n  <button class=\"buttonLogin\" (click)='askForLogin()'>登 录</button>\n  <button class=\"buttonGoToRegister\" routerLink=\"/register\">我还没有账号~</button>\n</div>\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/personal-information/personal-information.component.html": 
@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class='selfInfoWindow' [style.display]=\"isSelectingPicture?'none':'flex'\">\n    <div class='close'>\n      <img src='assets/img/close.ico' alt=\"\" routerLink=\"/home\">\n    </div>\n    <!-- <button nz-button [nzType]=\"'primary'\">测试按钮</button> -->\n    <div class='imgItem'>\n        <div class='imgUnit'>\n            <!-- 头像这还是有问题的，因为这只是巧合(存储在服务器的路径和Angular的路径是一样的) -->\n            <img [src]=\"common.userPersonalInformation.userPhotoUrl===undefined?'assets/img/default.jpg':common.userPersonalInformation.userPhotoUrl\"  alt=\"\" (click)='openSelectPictureWindow()'>\n        </div>\n    </div>\n    \n    <!-- /*\n    <div class='inputUnit'>\n      <input type=\"text\" placeholder=\"账号\" class=\"inputUsername\" [(ngModel)]='loginForm.loginUsername'/>\n      <img [src]=\"common.getIcoUrl(common.checkUsername(loginForm.loginUsername))\" alt=\"\">\n    </div>\n    */ -->\n    <div class='item'>\n      <div class='tip'>用户名:</div>\n      <input type=\"text\" class='name' [(ngModel)]='common.userPersonalInformation.userName' placeholder=\"用户名\">\n      <img [src]='common.getIcoUrl(common.checkPersonalName(common.userPersonalInformation.userName))' alt=\"\">\n    </div>\n    <div class='item'>\n      <div class='tip'>性别:</div>\n      <input type=\"text\" class='sex' [(ngModel)]='common.userPersonalInformation.userSex'  placeholder=\"性别\" >\n      <img [src]='common.getIcoUrl(common.checkPersonalSex(common.userPersonalInformation.userSex))' alt=\"\">\n    </div>\n    <div class='item'>\n      <div class='tip'>生日:</div>\n      <input type=\"date\" class='birthday' [value]='common.timestampToTimeString(common.userPersonalInformation.userBirthday)' (change)='listenUserBirthdayChanged($event)'>\n      <img [src]='common.getIcoUrl(common.checkPersonalBirthday(common.userPersonalInformation.userBirthday))' alt=\"\">\n    </div>\n    <div class='item'>\n      <div class='tip'>手机:</div>\n      <input type=\"text\" class='phone' [(ngModel)]='common.userPersonalInformation.userContactPhone' placeholder=\"手机\" >\n      <img [src]='common.getIcoUrl(common.checkPhone(common.userPersonalInformation.userContactPhone))' alt=\"\">\n    </div>\n    <div class='item'>\n      <div class='tip'>邮箱:</div>\n      <input type=\"text\" class='email' [(ngModel)]='common.userPersonalInformation.userContactEmail' placeholder=\"邮箱\" >\n      <img [src]='common.getIcoUrl(common.checkEmail(common.userPersonalInformation.userContactEmail))' alt=\"\">\n    </div>\n    <div class='option'>\n      <button (click)='askForChangingUserPersonalInformation()'>修改</button>\n    </div>\n  </div>\n  <!-- 这是子组件，用于上传图片 -->\n  <app-picture-upload-tool (emitter)='getMsgFromSon($event)' [style.display]=\"openState===1?'inherit':'none'\"></app-picture-upload-tool> \n  \n  \n  \n  \n  ");
+            /* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class='selfInfoWindow' [style.display]=\"isSelectingPicture?'none':'flex'\">\n    <div class='close'>\n      <img src='assets/img/close.ico' alt=\"\" routerLink=\"/home\">\n    </div>\n    <!-- <button nz-button [nzType]=\"'primary'\">测试按钮</button> -->\n    <div class='imgItem'>\n        <div class='imgUnit'>\n            <img [src]=\"common.getImgSrcPhoto()\"  alt=\"\" (click)='openSelectPictureWindow()'>\n        </div>\n    </div>\n    \n    <div class='item'>\n      <div class='tip'>用户名:</div>\n      <input type=\"text\" class='name' [(ngModel)]='common.userPersonalInformation.userName' placeholder=\"用户名\">\n      <img [src]='common.getIcoUrl(common.checkPersonalName(common.userPersonalInformation.userName))' alt=\"\">\n    </div>\n    <div class='item'>\n      <div class='tip'>性别:</div>\n      <!-- <input type=\"text\" class='sex' [(ngModel)]='common.userPersonalInformation.userSex'  placeholder=\"性别\" > -->\n      <!-- <img [src]='common.getIcoUrl(common.checkPersonalSex(common.userPersonalInformation.userSex))' alt=\"\"> -->\n      <label><input type=\"radio\" name=\"sex\" (click)=\"changeUserSex(1)\" [checked]=\"common.userPersonalInformation.userSex === 1\" [value]=\"0\">男生</label>\n      <label><input type=\"radio\" name=\"sex\" (click)=\"changeUserSex(2)\" [checked]=\"common.userPersonalInformation.userSex === 2\">女生</label>\n    </div>\n    <div class='item'>\n      <div class='tip'>生日:</div>\n      <input type=\"date\" class='birthday' [value]='common.timestampToTimeString(common.userPersonalInformation.userBirthday)' (change)='listenUserBirthdayChanged($event)'>\n      <img [src]='common.getIcoUrl(common.checkPersonalBirthday(common.userPersonalInformation.userBirthday))' alt=\"\">\n    </div>\n    <div class='item'>\n      <div class='tip'>手机:</div>\n      <input type=\"text\" class='phone' [(ngModel)]='common.userPersonalInformation.userContactPhone' placeholder=\"手机\" >\n      <img [src]='common.getIcoUrl(common.checkPhone(common.userPersonalInformation.userContactPhone))' alt=\"\">\n    </div>\n    <div class='item'>\n      <div class='tip'>邮箱:</div>\n      <input type=\"text\" class='email' [(ngModel)]='common.userPersonalInformation.userContactEmail' placeholder=\"邮箱\" >\n      <img [src]='common.getIcoUrl(common.checkEmail(common.userPersonalInformation.userContactEmail))' alt=\"\">\n    </div>\n    <div class='option'>\n      <button (click)='askForChangingUserPersonalInformation()'>修改</button>\n    </div>\n  </div>\n  <!-- 这是子组件，用于上传图片 -->\n  <app-picture-upload-tool (emitter)='getMsgFromSon($event)' [style.display]=\"openState===1?'inherit':'none'\"></app-picture-upload-tool> \n  \n  \n  \n  \n  ");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/picture-upload-tool/picture-upload-tool.component.html": 
@@ -72,7 +72,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"toolWindow\">\n    <div class='close' (click) = 'callFatherExecClose()'>\n      <img src=\"assets/img/close.ico\" alt=\"\">\n    </div>\n    <div class='imgUnit'>\n        <img [src]=\"tmpUrl===undefined|| tmpUrl==='' ||tmpUrl===null?'assets/img/default.jpg':tmpUrl\"  alt=\"\">\n    </div>\n    <div class='inputUnit'>\n        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" (change)=\"listenFileChanged($event)\" /> \n        <button (click)=\"askForChangingUserPhoto()\">确定修改</button>\n    </div>\n  </div>\n  ");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"toolWindow\">\n    <div class='close' (click) = 'callFatherExecClose()'>\n      <img src=\"assets/img/close.ico\" alt=\"\">\n    </div>\n    <div class='imgUnit'>\n        <img [src]=\"tmpUrl\"  alt=\"\">\n    </div>\n    <div class='inputUnit'>\n        <input type=\"file\" (change)=\"listenFileChanged($event)\" /> \n        <button (click)=\"askForChangingUserPhoto()\">确定修改</button>\n    </div>\n  </div>\n  ");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/register-response/register-response.component.html": 
@@ -94,7 +94,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"registerWindow\">\n    <div class='inputUnit'>\n      <input type=\"text\" class=\"inputPhone\" placeholder=\"手机\" [(ngModel)]='registerInformation.registerPhone' >\n      <img [src]=\"common.getIcoUrl(common.checkPhone(registerInformation.registerPhone))\" alt=\"\">\n    </div>\n    <div class='inputUnit'>\n      <input type=\"text\" class=\"inputEmail\" placeholder=\"邮箱\" [(ngModel)]='registerInformation.registerEmail' >\n      <img [src]=\"common.getIcoUrl(common.checkEmail(registerInformation.registerEmail))\" alt=\"\">\n    </div>\n    <div class='inputUnit'>\n      <input type=\"password\" class=\"inputPassword\" placeholder=\"密码\" [(ngModel)]='registerInformation.registerPassword' >\n      <img [src]=\"common.getIcoUrl(common.checkPassword(registerInformation.registerPassword))\" alt=\"\">\n  </div>\n    <div class='inputUnit'>\n        <input type=\"password\" class=\"inputRepeatPassword\" placeholder=\"重复密码\" [(ngModel)]='registerInformation.registerRepeatPassword' >\n        <img [src]=\"common.getIcoUrl(common.checkPassword(registerInformation.registerRepeatPassword))\" alt=\"\">\n    </div>\n    <button class=\"buttonRegister\" (click)='askForRegister()'>注 册</button>\n    <button class=\"buttonToLogin\" routerLink=\"/login\">我已经有账号了~</button>\n  </div>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"registerWindow\">\n    <div class='inputUnit'>\n      <input type=\"text\" class=\"inputEmail\" placeholder=\"邮箱\" [(ngModel)]='registerInformation.registerEmail' >\n      <img [src]=\"common.getIcoUrl(common.checkEmail(registerInformation.registerEmail))\" alt=\"\">\n    </div>\n    <div class='inputUnit'>\n      <input type=\"text\" class=\"inputVrc\" placeholder=\"验证码\" [(ngModel)]='registerInformation.vrc' >\n      <button class=\"sendVrc\" (click)='sendVrc()'>验证码发送</button>\n      <img [src]=\"common.getIcoUrl(common.checkVrc(registerInformation.vrc))\" alt=\"\">\n    </div>\n    <div class='inputUnit'>\n      <input type=\"password\" class=\"inputPassword\" placeholder=\"密码\" [(ngModel)]='registerInformation.registerPassword' >\n      <img [src]=\"common.getIcoUrl(common.checkPassword(registerInformation.registerPassword))\" alt=\"\">\n  </div>\n    <div class='inputUnit'>\n        <input type=\"password\" class=\"inputRepeatPassword\" placeholder=\"重复密码\" [(ngModel)]='registerInformation.registerRepeatPassword' >\n        <img [src]=\"common.getIcoUrl(common.checkPassword(registerInformation.registerRepeatPassword))\" alt=\"\">\n    </div>\n    <button class=\"buttonRegister\" (click)='askForRegister()'>注 册</button>\n    <button class=\"buttonToLogin\" routerLink=\"/login\">我已经有账号了~</button>\n  </div>");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -498,7 +498,6 @@
             /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
             /* harmony import */ var _common_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./common.service */ "./src/app/common.service.ts");
             /* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/fesm2015/ng2-file-upload.js");
-            // import { FileUploadModule } from 'ng2-file-upload';
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -547,26 +546,23 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommonService", function () { return CommonService; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+            /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+            /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
             var CommonService = /** @class */ (function () {
-                function CommonService(sanitizer) {
-                    this.sanitizer = sanitizer;
+                function CommonService(http, router, toast) {
+                    this.http = http;
+                    this.router = router;
+                    this.toast = toast;
                     // 后端响应数据通信协议
                     this.replyProto = {
                         status: 0,
-                        Msg: '',
+                        msg: '',
                         data: {},
-                        API: '',
-                        method: '',
-                        rowCount: 0,
-                        time: 0,
-                        checkTime: 0,
                     };
                     // 前端请求数据通信协议
                     this.reqProto = {
-                        action: '',
                         data: {},
-                        sets: [],
                         orderBy: '',
                         filter: '',
                         page: 0,
@@ -575,24 +571,134 @@
                     // 用户账户信息结构
                     this.userAccountInformation = {
                         userId: -1,
-                        userPhone: '',
                         userEmail: '',
                         userPassword: '',
                     };
                     // 用户个人信息结构
                     this.userPersonalInformation = {
                         userId: -1,
+                        photoData: '',
                         userPhoto: '',
                         userName: '',
                         userSex: '',
                         userContactPhone: '',
                         userContactEmail: '',
                         userBirthday: 0,
-                        userPhotoUrl: undefined,
                     };
-                    // 关闭图标的url
-                    this.closeIcoUrl = '';
+                    // localstore 存储键映射
+                    this.keyOfUai = 'userAccountInformation';
+                    this.keyOfUpi = 'userPersonalInformation';
+                    // 图标、图片路径
+                    this.incorrectIcoPath = 'assets/img/incorrect.ico';
+                    this.correctIcoPath = 'assets/img/correct.ico';
+                    this.defaultImgPath = 'assets/img/default.jpg'; // 默认图片路径
+                    this.closeIcoUrl = '/assets/img/close.ico';
+                    // 校验正则表达式
+                    this.EmailReg = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
+                    this.phoneReg = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/;
+                    this.passWordReg = /^[a-zA-Z0-9_.]{8,15}$/;
+                    this.vrcReg = /^[0-9]{6}$/;
+                    // 标志
+                    this.loginSuccessFlag = 1;
+                    this.registerSuccessFlag = 1;
+                    this.sendVrcSuccessFlag = 1;
+                    this.updatePhotoSuccessFlag = 1;
+                    this.getUpiSuccessFlag = 1;
+                    this.getUaiSuccessFlag = 1;
+                    this.updateUpiSuccessFlag = 1;
+                    // 校验标志
+                    this.corectFlag = 1;
+                    this.emailFormatIncorectFlag = -1;
+                    this.passwordFormatIncorectFlag = -2;
+                    this.repeatPasswordFormatIncorectFlag = -3;
+                    this.passwordNotConsistFlag = -4;
+                    this.vrcFormatIncorectFlag = -5;
+                    this.phoneIncorectFlag = -6;
+                    this.notPhotoFlag = -7;
+                    this.photoSizeTooBigFlag = -8;
+                    this.photoEmptyFlag = -9;
+                    this.notNewPhotoFlag = -10;
+                    this.birthdayIncorectFlag = -11;
+                    this.sexIncorectFlag = -12;
+                    this.userNameIncorectFlag = -13;
+                    // 图片
+                    this.photoMaxSize = 0.5 * 1024 * 1024; // 0.5M
+                    // 接口
+                    this.loginUrl = '/server/login';
+                    this.registerUrl = '/server/register';
+                    this.sendVrcUrl = '/server/registerVrc/send';
+                    this.updatePhotoUrl = '/server/updatePhoto';
+                    this.getUaiUrl = '/server/getUai';
+                    this.getUpiUrl = '/server/getUpi';
+                    this.updateUpiUrl = '/server/updateUserPersonalInformation';
+                    // 男女标志
+                    this.manFlag = 1;
+                    this.womanFlag = 2;
                 }
+                // 提示位置选项
+                /*
+                toast-top-left  顶端左边
+                toast-top-right    顶端右边
+                toast-top-center  顶端中间
+                toast-top-full-width 顶端，宽度铺满整个屏幕
+                toast-bottom-right
+                toast-bottom-left
+                toast-bottom-center
+                toast-bottom-full-width
+                */
+                // 解析校验标志
+                // 解析校验码
+                CommonService.prototype.parseFlag = function (flag) {
+                    // let tipStr = '';
+                    // const resultFlag = this.registerFormIsOK();
+                    if (flag === this.corectFlag) {
+                        return '';
+                    }
+                    if (flag === this.phoneIncorectFlag) {
+                        return '手机格式有误!';
+                    }
+                    if (flag === this.emailFormatIncorectFlag) {
+                        return '邮箱格式有误!';
+                    }
+                    if (flag === this.passwordFormatIncorectFlag) {
+                        return '密码格式有误!';
+                    }
+                    if (flag === this.repeatPasswordFormatIncorectFlag) {
+                        return '重复密码的格式有误!';
+                    }
+                    if (flag === this.passwordNotConsistFlag) {
+                        return '两次输入的密码不一致';
+                    }
+                    if (flag === this.vrcFormatIncorectFlag) {
+                        return '验证码格式有误';
+                    }
+                    if (flag === this.notPhotoFlag) {
+                        return '该文件不是图片';
+                    }
+                    if (flag === this.photoSizeTooBigFlag) {
+                        return '你选中的图片太大了,图片最大只能为 500KB(0.5MB)';
+                    }
+                    if (flag === this.photoEmptyFlag) {
+                        return '你还没有选择任何图片';
+                    }
+                    if (flag === this.notNewPhotoFlag) {
+                        return '你还没有选择任何新图片';
+                    }
+                    if (flag === this.userNameIncorectFlag) {
+                        return '用户名格式有误!';
+                    }
+                    if (flag === this.sexIncorectFlag) {
+                        return '性别信息错误';
+                    }
+                    if (flag === this.birthdayIncorectFlag) {
+                        return '您选择的生日信息有误!';
+                    }
+                    return '';
+                };
+                // 获取用户头像url
+                CommonService.prototype.getUserPhotoUrl = function () {
+                    return 'data:image/jpg;base64,' + this.userPersonalInformation.photoData;
+                };
                 // 这个是抄别人的，把dataUrl转换为Blob
                 CommonService.prototype.dataURLtoBlob = function (dataurl) {
                     var arr = dataurl.split(',');
@@ -617,30 +723,31 @@
                 };
                 // 检查用户名格式是否合法
                 CommonService.prototype.checkUsername = function (username) {
-                    return this.checkPhone(username) || this.checkEmail(username);
+                    return this.checkEmail(username);
+                };
+                // 检查验证码格式是否合法
+                CommonService.prototype.checkVrc = function (vrc) {
+                    return this.vrcReg.test(vrc);
                 };
                 // 检查登录密码格式是否合法
                 CommonService.prototype.checkPassword = function (password) {
-                    var passWordReg = /^[a-zA-Z0-9_.]{8,15}$/;
-                    return passWordReg.test(password);
+                    return this.passWordReg.test(password);
+                };
+                // 检查性别是否合法
+                CommonService.prototype.checkPersonalSex = function (sex) {
+                    return sex === this.manFlag || sex === this.womanFlag;
                 };
                 // 检查注册手机格式是否满足要求
                 CommonService.prototype.checkPhone = function (phone) {
-                    var phoneReg = /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/;
-                    return phoneReg.test(phone);
+                    return this.phoneReg.test(phone);
                 };
                 // 检查注册邮箱格式是否满足要求
                 CommonService.prototype.checkEmail = function (email) {
-                    var EmailReg = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
-                    return EmailReg.test(email) && email.length <= 30;
+                    return this.EmailReg.test(email) && email.length <= 30;
                 };
                 // 检查个人用户名格式是否满足要求
                 CommonService.prototype.checkPersonalName = function (personalName) {
                     return personalName.length >= 1 && personalName.length <= 10;
-                };
-                // 检查个人性别是否满足要求
-                CommonService.prototype.checkPersonalSex = function (personalSex) {
-                    return personalSex === '男' || personalSex === '女' || personalSex === '秘密';
                 };
                 // 检查个人生日是否满足要求
                 CommonService.prototype.checkPersonalBirthday = function (personalBirthday) {
@@ -649,10 +756,10 @@
                 // 通过布尔值返回正确or错误的Ico的URL
                 CommonService.prototype.getIcoUrl = function (flag) {
                     if (flag === false) {
-                        return 'assets/img/incorrect.ico';
+                        return this.incorrectIcoPath;
                     }
                     else {
-                        return 'assets/img/correct.ico';
+                        return this.correctIcoPath;
                     }
                 };
                 // 检测登录状态 (false表示没登陆,true表示已登录)
@@ -663,53 +770,38 @@
                         return false;
                     }
                     // 从session storage中解析获取用户账户信息
-                    var information = JSON.parse(sessionStorage.getItem('userAccountInformation'));
-                    if (information === null) {
-                        return false;
-                    }
-                    return true;
+                    return this.getUserAccountInformation() !== null;
                 };
                 // 从session storage中解析中用户账户信息
                 CommonService.prototype.getUserAccountInformation = function () {
-                    var information = JSON.parse(sessionStorage.getItem('userAccountInformation'));
-                    return information;
+                    return JSON.parse(sessionStorage.getItem(this.keyOfUai));
                 };
                 // 从session storage中解析中用户个人信息 (包括了头像的安全链接获取)
                 CommonService.prototype.getUserPersonalInformation = function () {
-                    var information = JSON.parse(sessionStorage.getItem('userPersonalInformation'));
-                    // 判断information是否为null,为null则返回一个空信息
-                    if (information === null) {
-                        information = {
-                            userId: -1,
-                            userPhoto: '',
-                            userName: '',
-                            userSex: '',
-                            userContactPhone: '',
-                            userContactEmail: '',
-                            userBirthday: 0,
-                            userPhotoUrl: undefined,
-                        };
-                        return information;
+                    return JSON.parse(sessionStorage.getItem(this.keyOfUpi));
+                };
+                CommonService.prototype.getImgSrcPhoto = function () {
+                    if (this.userPersonalInformation.photoData === '') {
+                        return this.defaultImgPath;
                     }
-                    // 构建安全链接
-                    if (information.userPhotoUrl === undefined) {
-                        information.userPhotoUrl = 'assets/img/default.jpg';
-                    }
-                    else {
-                        var urlKey = 'changingThisBreaksApplicationSecurity';
-                        information.userPhotoUrl = this.sanitizer.bypassSecurityTrustUrl(information.userPhotoUrl[urlKey]);
-                    }
-                    return information;
+                    return 'data:image/jpg;base64,' + this.userPersonalInformation.photoData;
+                };
+                // 获得纯净的base64编码(不要 'data:image/jpg;base64,')
+                CommonService.prototype.getPureBase64 = function (notPureBase64) {
+                    return notPureBase64.substr(notPureBase64.indexOf(',') + 1);
                 };
                 // 将用户账户信息存储到session storage中
                 CommonService.prototype.storeUserAccountInformation = function (userAccountInformation) {
-                    sessionStorage.setItem('userAccountInformation', JSON.stringify(userAccountInformation));
+                    sessionStorage.setItem(this.keyOfUai, JSON.stringify(userAccountInformation));
+                };
+                CommonService.prototype.storeUserPersonalInformation = function (userPersonalInformation) {
+                    sessionStorage.setItem(this.keyOfUpi, JSON.stringify(userPersonalInformation));
                 };
                 // 删除用户信息 (包括用户个人信息和用户账户信息)
                 CommonService.prototype.clearUserInformation = function () {
                     sessionStorage.clear();
                 };
-                // 将时间戳转换为对应的时间字符串 (单位 unixnano)
+                // 将时间戳转换为对应的时间字符串 (单位 unix *1e3)
                 CommonService.prototype.timestampToTimeString = function (transTime) {
                     var date = new Date(transTime);
                     var year = date.getFullYear();
@@ -725,13 +817,58 @@
                     }
                     return year + '-' + mString + '-' + dString;
                 };
+                CommonService.prototype.getUpi = function () {
+                    var _this = this;
+                    // 数据结构构建
+                    var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    });
+                    var requestHead = { headers: header };
+                    // 通过token 获取用户信息
+                    this.http.post(this.getUpiUrl, this.reqProto, requestHead).subscribe(function (res) {
+                        console.log(res);
+                        _this.replyProto = res;
+                        if (res.status !== _this.getUpiSuccessFlag) {
+                            _this.toast.warning(_this.replyProto.msg, '提示');
+                            _this.router.navigate(['login']);
+                            return;
+                        }
+                        // 存储用户账户信息
+                        _this.userPersonalInformation = res.data;
+                        _this.storeUserPersonalInformation(_this.userPersonalInformation);
+                        _this.toast.success(_this.replyProto.msg, '提示', { positionClass: 'toast-bottom-right' });
+                    });
+                };
+                CommonService.prototype.getUai = function () {
+                    var _this = this;
+                    // 数据结构构建
+                    var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    });
+                    var requestHead = { headers: header };
+                    // 通过token 获取用户信息
+                    this.http.post(this.getUaiUrl, this.reqProto, requestHead).subscribe(function (res) {
+                        console.log(res);
+                        _this.replyProto = res;
+                        if (res.status !== _this.getUaiSuccessFlag) {
+                            _this.toast.warning(_this.replyProto.msg, '提示');
+                            _this.router.navigate(['login']);
+                            return;
+                        }
+                        // 存储用户账户信息
+                        _this.userAccountInformation = res.data;
+                        _this.storeUserAccountInformation(_this.userAccountInformation);
+                        _this.toast.success(_this.replyProto.msg, '提示', { positionClass: 'toast-bottom-right' });
+                    });
+                };
                 CommonService.prototype.OnInit = function () {
-                    this.closeIcoUrl = '/assets/img/close.ico';
                 };
                 return CommonService;
             }());
             CommonService.ctorParameters = function () { return [
-                { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"] }
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
+                { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+                { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] }
             ]; };
             CommonService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -765,77 +902,32 @@
             /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
             /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
             /* harmony import */ var _common_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common.service */ "./src/app/common.service.ts");
-            /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-            /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+            /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
             var HomeComponent = /** @class */ (function () {
-                function HomeComponent(http, router, common, sanitizer, toast) {
+                function HomeComponent(http, router, common, toast) {
                     this.http = http;
                     this.router = router;
                     this.common = common;
-                    this.sanitizer = sanitizer;
                     this.toast = toast;
                 }
                 HomeComponent.prototype.ngOnInit = function () {
-                    // 检测登录状态
-                    if (this.common.loginStateDetection() === false) {
-                        this.toast.error('您还没登录', '提示');
-                        this.router.navigate(['login']);
-                        return;
+                    var uai = this.common.getUserAccountInformation();
+                    var upi = this.common.getUserPersonalInformation();
+                    if (uai !== null && upi !== null) {
+                        this.common.userAccountInformation = uai;
+                        this.common.userPersonalInformation = upi;
                     }
-                    // 用户账户信息更新
-                    this.common.userAccountInformation = this.common.getUserAccountInformation();
-                    // 这样异步也能修改用户个人信息了
-                    this.askForPersonalInformation();
+                    else {
+                        this.common.getUai();
+                        this.common.getUpi();
+                    }
                 };
                 // 退出
                 HomeComponent.prototype.exit = function () {
+                    this.common.storeUserPersonalInformation(null);
+                    this.common.storeUserAccountInformation(null);
                     this.toast.success('退出成功!', '提示', { positionClass: 'toast-bottom-right' });
                     this.router.navigate(['login']);
-                };
-                // 用这种没有返回值的获取用户个人信息吧
-                HomeComponent.prototype.askForPersonalInformation = function () {
-                    var _this = this;
-                    var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                    });
-                    // 请求头
-                    var requestHead = { headers: header };
-                    // 请求协议 (请求体)
-                    this.common.reqProto = {
-                        action: 'POST',
-                        data: {
-                            userId: this.common.userAccountInformation.userId // 请求数据只需要用户id
-                        },
-                        // ---- 下面的字段都没用到
-                        sets: [],
-                        orderBy: '',
-                        filter: '',
-                        page: 0,
-                        pageSize: 0,
-                    };
-                    this.http.post('/server/getPersonalInformation', this.common.reqProto, requestHead).subscribe(function (res) {
-                        // 返回逻辑还有很多没考虑
-                        _this.common.replyProto = res;
-                        // 根据返回状态执行相应操作 (0 表示成功)
-                        if (_this.common.replyProto.status === 0) {
-                            // 用户的头像base64
-                            _this.common.userPersonalInformation = res.data.UserPersonalInformation;
-                            // 获取dataUrl
-                            var dataURL = 'data:image/jpeg;base64,' + res.data.UserPhotoData;
-                            // 获取blobURL对象
-                            var blobURLObject = _this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(_this.common.dataURLtoBlob(dataURL)));
-                            // 获取blobUrl字符串并构成安全链接(不安全会报错)
-                            _this.common.userPersonalInformation.userPhotoUrl = blobURLObject;
-                            // 存储用户个人信息到sessionStorage (成功了)
-                            sessionStorage.setItem('userPersonalInformation', JSON.stringify(_this.common.userPersonalInformation));
-                        }
-                        else {
-                            // 这里表示出错
-                            _this.toast.error(res.msg, '提示');
-                            _this.router.navigate(['login']);
-                        }
-                        // console.log(this.common.replyProto);
-                    });
                 };
                 return HomeComponent;
             }());
@@ -843,8 +935,7 @@
                 { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
                 { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
                 { type: _common_service__WEBPACK_IMPORTED_MODULE_4__["CommonService"] },
-                { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] },
-                { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] }
+                { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"] }
             ]; };
             HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -887,102 +978,57 @@
                     this.router = router;
                     this.common = common;
                     this.toast = toast;
+                    // 登录表单
                     this.loginForm = {
-                        loginUsername: '',
-                        loginPassword: '',
+                        email: '',
+                        password: '',
                     };
                 }
                 LoginComponent.prototype.ngOnInit = function () {
-                    /*
-                    toast-top-left  顶端左边
-                    toast-top-right    顶端右边
-                    toast-top-center  顶端中间
-                    toast-top-full-width 顶端，宽度铺满整个屏幕
-                    toast-bottom-right
-                    toast-bottom-left
-                    toast-bottom-center
-                    toast-bottom-full-width
-                    */
                     this.toast.info('欢迎登陆', '小提示');
-                    // 清空用户信息
-                    this.common.clearUserInformation();
-                    this.loginForm = {
-                        loginUsername: '',
-                        loginPassword: '',
-                    };
                 };
                 // 返回登录表单校验码，0表示正确
-                LoginComponent.prototype.loginFormIsOK = function () {
-                    if (!this.common.checkUsername(this.loginForm.loginUsername)) {
-                        return -1;
+                LoginComponent.prototype.loginFormCheck = function () {
+                    if (!this.common.checkEmail(this.loginForm.email)) {
+                        return this.common.emailFormatIncorectFlag;
                     }
-                    if (!this.common.checkPassword(this.loginForm.loginPassword)) {
-                        return -2;
+                    if (!this.common.checkPassword(this.loginForm.password)) {
+                        return this.common.passwordFormatIncorectFlag;
                     }
-                    return 0;
+                    return this.common.corectFlag;
                 };
-                // 解析登录表校验码,返回解析结果
-                LoginComponent.prototype.getLoginFormJudgeResult = function () {
-                    var tipStr = '';
-                    var resultFlag = this.loginFormIsOK();
-                    if (resultFlag === 0) {
-                        tipStr = ''; // 表示没有错误
-                    }
-                    if (resultFlag === -1) {
-                        tipStr = '您输入的用户名格式有误!';
-                    }
-                    if (resultFlag === -2) {
-                        tipStr = '您输入的密码格式有误!';
-                    }
-                    return tipStr;
-                };
-                // 发送Http登录请求 (半成品) (业务逻辑还没写)
+                // 发送Http登录请求
                 LoginComponent.prototype.askForLogin = function () {
                     var _this = this;
-                    // 前端检测登录表单格式是否正确
-                    var tipStr = this.getLoginFormJudgeResult();
-                    if (tipStr !== '') {
-                        this.toast.error(tipStr, '错误提示');
+                    // 检测表单信息
+                    if (this.loginFormCheck() !== this.common.corectFlag) {
+                        this.toast.error(this.common.parseFlag(this.loginFormCheck()), '错误提示');
                         return;
                     }
-                    // 检测通过后就可以发送HTTP请求了
+                    // 数据结构构建
                     var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     });
-                    // 请求头
                     var requestHead = { headers: header };
-                    // 请求协议 (请求体)
                     this.common.reqProto = {
-                        action: 'POST',
-                        data: {
-                            loginPhone: this.loginForm.loginUsername,
-                            loginEmail: this.loginForm.loginUsername,
-                            loginPassword: this.loginForm.loginPassword,
-                        },
-                        // ---- 下面的字段都没用到
-                        sets: [],
+                        data: this.loginForm,
                         orderBy: '',
                         filter: '',
                         page: 0,
                         pageSize: 0,
                     };
-                    this.http.post('/server/login', this.common.reqProto, requestHead).subscribe(function (res) {
-                        // 返回逻辑还没写
+                    // 发送请求
+                    this.http.post(this.common.loginUrl, this.common.reqProto, requestHead).subscribe(function (res) {
                         _this.common.replyProto = res;
-                        // console.log(this.common.replyProto);
-                        // 根据登录结果相应操作
-                        if (_this.common.replyProto.status === 0) {
-                            // 存储用户账户信息
-                            _this.common.storeUserAccountInformation(_this.common.replyProto.data);
-                            _this.toast.success('登录成功!', '登录提示', { positionClass: 'toast-bottom-right' });
-                            // 路由到主页
-                            _this.router.navigate(['home']);
-                            // this.toastr.success('Hello world!', 'Toastr fun!', {timeOut: 3000});
+                        if (_this.common.replyProto.status !== _this.common.loginSuccessFlag) {
+                            _this.toast.warning(_this.common.replyProto.msg, '登录提示');
+                            return;
                         }
-                        else {
-                            // 登录失败时的提示
-                            _this.toast.warning(res.msg, '登录提示');
-                        }
+                        // 清空缓存
+                        _this.common.storeUserPersonalInformation(null);
+                        _this.common.storeUserAccountInformation(null);
+                        _this.router.navigate(['home']);
+                        _this.toast.success(_this.common.replyProto.msg, '登录提示', { positionClass: 'toast-bottom-right' });
                     });
                 };
                 return LoginComponent;
@@ -1024,31 +1070,29 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PersonalInformationComponent", function () { return PersonalInformationComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-            /* harmony import */ var _common_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common.service */ "./src/app/common.service.ts");
-            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-            /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-            /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+            /* harmony import */ var _common_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common.service */ "./src/app/common.service.ts");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
             var PersonalInformationComponent = /** @class */ (function () {
-                function PersonalInformationComponent(common, router, http, sanitizer, toast) {
+                function PersonalInformationComponent(common, http, toast) {
                     this.common = common;
-                    this.router = router;
                     this.http = http;
-                    this.sanitizer = sanitizer;
                     this.toast = toast;
                     this.openState = 0; // 用于显示选择照片子组件   0表示隐藏子组件,1表示打开
                 }
                 PersonalInformationComponent.prototype.ngOnInit = function () {
                     // 初始化信息
                     this.openState = 0;
-                    // 检测登录状态
-                    if (this.common.loginStateDetection() === false) {
-                        this.toast.error('您还没登录', '提示');
-                        this.router.navigate(['login']);
-                        return;
+                    var uai = this.common.getUserAccountInformation();
+                    var upi = this.common.getUserPersonalInformation();
+                    if (uai !== null && upi !== null) {
+                        this.common.userAccountInformation = uai;
+                        this.common.userPersonalInformation = upi;
                     }
-                    // 获取用户个人信息
-                    this.common.userPersonalInformation = this.common.getUserPersonalInformation();
+                    else {
+                        this.common.getUai();
+                        this.common.getUpi();
+                    }
                 };
                 // 打开选择照片的窗口(该窗口是一个组件)
                 PersonalInformationComponent.prototype.openSelectPictureWindow = function () {
@@ -1072,117 +1116,70 @@
                 PersonalInformationComponent.prototype.listenUserBirthdayChanged = function (e) {
                     this.common.userPersonalInformation.userBirthday = new Date(e.target.value).getTime();
                 };
-                // 返回个人信息表单校验码，0表示正确
+                // 个人信息表单
                 PersonalInformationComponent.prototype.personalUserFormIsOK = function () {
                     if (!this.common.checkPersonalName(this.common.userPersonalInformation.userName)) {
-                        return -1;
+                        return this.common.userNameIncorectFlag;
                     }
                     if (!this.common.checkPersonalSex(this.common.userPersonalInformation.userSex)) {
-                        return -2;
+                        return this.common.sexIncorectFlag;
                     }
                     if (!this.common.checkPersonalBirthday(this.common.userPersonalInformation.userBirthday)) {
-                        return -3;
+                        return this.common.birthdayIncorectFlag;
                     }
                     if (!this.common.checkPhone(this.common.userPersonalInformation.userContactPhone)) {
-                        return -4;
+                        return this.common.phoneIncorectFlag;
                     }
                     if (!this.common.checkEmail(this.common.userPersonalInformation.userContactEmail)) {
-                        return -5;
+                        return this.common.emailFormatIncorectFlag;
                     }
-                    return 0;
+                    return this.common.corectFlag;
                 };
-                // 解析个人信息校验码,返回解析结果
-                PersonalInformationComponent.prototype.getPersonalUserJudgeResult = function () {
-                    var tipStr = '';
-                    var resultFlag = this.personalUserFormIsOK();
-                    if (resultFlag === 0) {
-                        tipStr = ''; // 表示没有错误
-                    }
-                    if (resultFlag === -1) {
-                        tipStr = '您输入的用户名格式有误!';
-                    }
-                    if (resultFlag === -2) {
-                        tipStr = '性别只能填写: 男、女或秘密!';
-                    }
-                    if (resultFlag === -3) {
-                        tipStr = '您选择的生日信息有误!';
-                    }
-                    if (resultFlag === -4) {
-                        tipStr = '您填写的手机格式有误!';
-                    }
-                    if (resultFlag === -5) {
-                        tipStr = '您填写的邮箱格式有误! ';
-                    }
-                    return tipStr;
+                PersonalInformationComponent.prototype.changeUserSex = function (sex) {
+                    this.common.userPersonalInformation.userSex = sex;
                 };
-                // 请求修改用户个人信息 (半成品)(还有很多业务逻辑没有完成)
+                // 请求修改用户个人信息
                 PersonalInformationComponent.prototype.askForChangingUserPersonalInformation = function () {
                     var _this = this;
                     // 前端信息格式检查
-                    var tipStr = this.getPersonalUserJudgeResult();
-                    if (tipStr !== '') {
-                        this.toast.error(tipStr, '提示');
+                    if (this.personalUserFormIsOK() !== this.common.corectFlag) {
+                        this.toast.error(this.common.parseFlag(this.personalUserFormIsOK()), '提示');
                         return;
                     }
-                    // 发送修改个人信息请求
-                    var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
+                    // 构建数据结构
+                    var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
                         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     });
-                    // 请求头
                     var requestHead = { headers: header };
-                    // 请求协议 (请求体)
                     this.common.reqProto = {
-                        action: 'POST',
                         data: {
-                            userId: this.common.userPersonalInformation.userId,
-                            userPhoto: this.common.userPersonalInformation.userPhoto,
                             userName: this.common.userPersonalInformation.userName,
                             userSex: this.common.userPersonalInformation.userSex,
                             userContactPhone: this.common.userPersonalInformation.userContactPhone,
                             userContactEmail: this.common.userPersonalInformation.userContactEmail,
                             userBirthday: this.common.userPersonalInformation.userBirthday,
                         },
-                        // ---- 下面的字段都没用到
-                        sets: [],
                         orderBy: '',
                         filter: '',
                         page: 0,
                         pageSize: 0,
                     };
-                    this.http.post('/server/updateUserPersonalInformation', this.common.reqProto, requestHead).subscribe(function (res) {
-                        // 返回逻辑还有很多没考虑
+                    this.http.post(this.common.updateUpiUrl, this.common.reqProto, requestHead).subscribe(function (res) {
                         _this.common.replyProto = res;
-                        // 根据返回状态执行相应操作 (0 表示成功)
-                        if (_this.common.replyProto.status === 0) {
-                            // 这里表示修改失败
-                            _this.toast.success('修改成功!', '提示');
-                            // 用户的头像base64
-                            _this.common.userPersonalInformation = res.data.UserPersonalInformation;
-                            // 获取dataUrl
-                            var dataURL = 'data:image/jpeg;base64,' + res.data.UserPhotoData;
-                            // 获取blobURL对象
-                            var blobURLObject = _this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(_this.common.dataURLtoBlob(dataURL)));
-                            // 获取blobUrl字符串并构成安全链接(不安全会报错)
-                            _this.common.userPersonalInformation.userPhotoUrl = blobURLObject;
-                            // 存储用户个人信息到sessionStorage (成功了)
-                            sessionStorage.setItem('userPersonalInformation', JSON.stringify(_this.common.userPersonalInformation));
+                        if (res.status !== _this.common.updateUpiSuccessFlag) {
+                            _this.toast.warning(_this.common.replyProto.msg, '提示');
+                            return;
                         }
-                        else {
-                            // 这里表示修改失败
-                            _this.toast.warning(res.msg, '提示');
-                        }
-                        // 获取用户个人信息(从sessionStorage中获取)
-                        _this.common.userPersonalInformation = _this.common.getUserPersonalInformation();
+                        _this.common.storeUserPersonalInformation(_this.common.userPersonalInformation); // 更新localstore
+                        _this.toast.success(_this.common.replyProto.msg, '提示');
                     });
                 };
                 return PersonalInformationComponent;
             }());
             PersonalInformationComponent.ctorParameters = function () { return [
-                { type: _common_service__WEBPACK_IMPORTED_MODULE_3__["CommonService"] },
-                { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
-                { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] },
-                { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] }
+                { type: _common_service__WEBPACK_IMPORTED_MODULE_2__["CommonService"] },
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
+                { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] }
             ]; };
             PersonalInformationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1216,28 +1213,21 @@
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _common_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common.service */ "./src/app/common.service.ts");
-            /* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/fesm2015/ng2-file-upload.js");
-            /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-            /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+            /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
             var PictureUploadToolComponent = /** @class */ (function () {
-                function PictureUploadToolComponent(common, sanitizer, toast) {
+                function PictureUploadToolComponent(common, toast, http) {
                     this.common = common;
-                    this.sanitizer = sanitizer;
                     this.toast = toast;
+                    this.http = http;
+                    this.loadSuccessMsg = '新头像载入成功!';
                     // 一个传值器，用于通知父组件关闭该子组件
                     this.emitter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-                    // 头像上传器
-                    this.uploader = new ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__["FileUploader"]({
-                        url: '/server/uploadPhoto',
-                        method: 'POST',
-                        itemAlias: 'file'
-                    });
                 }
                 PictureUploadToolComponent.prototype.ngOnInit = function () {
-                    // this.userPersonalInformation 在这里现在好像没啥用
                     this.common.userAccountInformation = this.common.getUserAccountInformation();
                     this.common.userPersonalInformation = this.common.getUserPersonalInformation();
-                    this.tmpUrl = this.common.userPersonalInformation.userPhotoUrl;
+                    this.tmpUrl = this.common.getUserPhotoUrl();
                 };
                 // 向父组件传值，通知父组件关闭该子组件 (传送0: 表示关闭该子组件)
                 PictureUploadToolComponent.prototype.callFatherExecClose = function () {
@@ -1248,89 +1238,86 @@
                 };
                 // 向父组件传值，通知父组件修改用户个人信息
                 PictureUploadToolComponent.prototype.callFatherExecChange = function () {
-                    this.common.userPersonalInformation.userPhotoUrl = this.tmpUrl;
                     this.emitter.emit({
                         type: 1,
                         data: this.common.userPersonalInformation,
                     });
                 };
-                // 选择图片发生错误时执行的操作提示
-                // 第一个参数是提示语，第二个是图片选择器主体
-                PictureUploadToolComponent.prototype.selectError = function (tipStr, input) {
-                    this.tmpUrl = this.common.userPersonalInformation.userPhotoUrl;
-                    this.toast.error(tipStr, '提示');
-                    input.value = null;
-                    this.uploader.queue = [];
+                PictureUploadToolComponent.prototype.selectCheck = function (file) {
+                    if (file === undefined) {
+                        return this.common.photoEmptyFlag;
+                    }
+                    if (!this.common.isPhotoFile(file)) {
+                        return this.common.notPhotoFlag;
+                    }
+                    if (file.size > this.common.photoMaxSize) {
+                        return this.common.photoSizeTooBigFlag;
+                    }
+                    return this.common.corectFlag;
                 };
-                // 选择图片后的操作
+                PictureUploadToolComponent.prototype.photoCheck = function (photo) {
+                    if (this.tmpUrl === this.common.getUserPhotoUrl()) {
+                        return this.common.notNewPhotoFlag;
+                    }
+                    return this.common.corectFlag;
+                };
+                // 监听图片选择
                 PictureUploadToolComponent.prototype.listenFileChanged = function (e) {
-                    // 当上传器有照片时，我们要去除第一个
-                    if (this.uploader.queue.length === 2) {
-                        var wannaElement = this.uploader.queue[1];
-                        this.uploader.queue = [];
-                        this.uploader.queue.push(wannaElement);
-                    }
-                    if (e.target.files[0] === undefined) {
-                        this.selectError('您还没有选择头像!', e.target);
+                    var _this = this;
+                    if (this.selectCheck(e.target.files[0]) !== this.common.corectFlag) {
+                        this.toast.error(this.common.parseFlag(this.selectCheck(e.target.files[0])), '提示');
+                        e.value = null;
                         return;
                     }
-                    // 判断是否是图片
-                    var isPhoto = this.common.isPhotoFile(e.target.files[0]);
-                    if (!isPhoto) {
-                        this.selectError('您选择的文件不是一个图片文件!', e.target);
-                        return;
-                    }
-                    // 判断图片文件大小,限制图片大小只能在500KB内
-                    var size = e.target.files[0].size;
-                    if (size > 0.6 * 1024 * 1024) {
-                        this.selectError('图片大小只能在500KB(0.5MB)范围内!', e.target);
-                        return;
-                    }
-                    var url = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(e.target.files[0]));
-                    this.tmpUrl = url;
-                    this.toast.success('新头像载入成功!', '提示');
+                    var reader = new FileReader();
+                    reader.readAsDataURL(e.target.files[0]);
+                    reader.onloadend = function (en) {
+                        _this.tmpUrl = en.target.result.toString();
+                    };
+                    this.toast.success(this.loadSuccessMsg, '提示');
                 };
-                // 上传图片 (成功了!)
                 // 该函数的作用是改变用户头像
                 PictureUploadToolComponent.prototype.askForChangingUserPhoto = function () {
                     var _this = this;
-                    // 用户没有文件上传时
-                    if (this.uploader.queue[0] === undefined) {
-                        this.toast.error('您还没有选择任何新头像!', '提示');
+                    // 校验
+                    if (this.photoCheck(this.tmpUrl) !== this.common.corectFlag) {
+                        this.toast.error(this.common.parseFlag(this.photoCheck(this.tmpUrl)), '提示');
                         return;
                     }
-                    // 设置上传文件名字 (规定是时间戳)
-                    this.uploader.queue[0].file.name = new Date().getTime() + '_' + this.common.userAccountInformation.userId
-                        + '.' + this.common.getFileSuffix(this.uploader.queue[0].file);
-                    // 开始上传
-                    this.uploader.queue[0].upload();
-                    // 成功回调
-                    this.uploader.queue[0].onSuccess = function (res) {
-                        _this.common.replyProto = JSON.parse(res); // 把返回结果存在this.common.replyProto中
-                        // 这里表示成功了
-                        if (_this.common.replyProto.status === 0) {
-                            _this.toast.success('头像上传成功,即将更改个人信息!', '提示');
-                            // 修改头像名
-                            _this.common.userPersonalInformation.userPhoto = _this.uploader.queue[0].file.name;
-                            // 清空队列
-                            _this.uploader.queue = [];
-                            // 通知父组件修改用户个人信息
-                            _this.callFatherExecChange();
-                            // 通知父组件关闭该子组件
-                            _this.callFatherExecClose();
-                        }
-                        else {
-                            // 上传失败提醒
-                            _this.toast.warning('头像上传失败, 请重试!', '提示');
-                        }
+                    // 数据结构构建
+                    var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    });
+                    var requestHead = { headers: header };
+                    this.common.reqProto = {
+                        data: {
+                            photoBase64: this.common.getPureBase64(this.tmpUrl),
+                        },
+                        orderBy: '',
+                        filter: '',
+                        page: 0,
+                        pageSize: 0,
                     };
+                    // 发送更新头像请求
+                    this.http.post(this.common.updatePhotoUrl, this.common.reqProto, requestHead).subscribe(function (res) {
+                        _this.common.replyProto = res;
+                        if (_this.common.replyProto.status !== _this.common.updatePhotoSuccessFlag) {
+                            _this.toast.warning(_this.common.replyProto.msg, '提示');
+                            return;
+                        }
+                        _this.common.userPersonalInformation.photoData = _this.common.getPureBase64(_this.tmpUrl);
+                        _this.common.storeUserPersonalInformation(_this.common.userPersonalInformation);
+                        _this.toast.success(_this.common.replyProto.msg, '提示', { timeOut: 4000 });
+                        // this.callFatherExecChange();
+                        // this.callFatherExecClose();
+                    });
                 };
                 return PictureUploadToolComponent;
             }());
             PictureUploadToolComponent.ctorParameters = function () { return [
                 { type: _common_service__WEBPACK_IMPORTED_MODULE_2__["CommonService"] },
-                { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"] },
-                { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"] }
+                { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
             ]; };
             tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
@@ -1409,7 +1396,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".registerWindow{\r\n\r\n    height: 50%;\r\n    min-height: 300px;\r\n    width: 30%;\r\n    min-width: 500px;\r\n    background-color: #ffffff;\r\n    position: absolute;\r\n    top:0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    margin: auto;\r\n    display: flex;\r\n    flex-direction: column;\r\n\tjustify-content: center;\t\r\n    align-items: center;\t\r\n    border-radius: 10px;\r\n    box-shadow: black 0 0 10px;\r\n    \r\n\r\n}\r\n\r\n.registerWindow .inputUnit{\r\n    display: flex;\r\n    height: 12%;\r\n    width: 90%;\r\n    flex-direction: row;\r\n    align-items: center;\r\n}\r\n\r\n.registerWindow .inputUnit img{\r\n    \r\n    height: 90%;\r\n}\r\n\r\n.registerWindow .inputUnit input{\r\n    height: 100%;\r\n    flex-grow: 1;\r\n    border: #aaaaaa solid 1px;\r\n    text-indent: 1em;\r\n    box-sizing: border-box;\r\n    font-size: 1.2em;\r\n    \r\n}\r\n\r\n.registerWindow .inputUnit .inputPhone{\r\n    border-radius: 10px 10px 0 0;\r\n    border-bottom: none;\r\n}\r\n\r\n.registerWindow .inputUnit .inputEmail{\r\n    border-bottom: none;\r\n}\r\n\r\n.registerWindow .inputUnit .inputPassword{\r\n    border-bottom: none;\r\n}\r\n\r\n.registerWindow .inputUnit .inputRepeatPassword{\r\n    border-radius: 0 0 10px 10px;\r\n}\r\n\r\n.registerWindow button{\r\n    height: 12%;\r\n    width: 90%;\r\n    border: #aaaaaa solid 1px;\r\n    box-sizing: border-box;\r\n    font-size: 1.5em;\r\n    color: white;\r\n    font-weight: bolder;\r\n    cursor: pointer;\r\n    text-indent: 0;\r\n}\r\n\r\n.registerWindow .buttonRegister{\r\n\r\n    border-radius: 10px 10px 0 0;\r\n    background-color: #3498db;\r\n    \r\n    margin-top: 2%;\r\n    border-bottom: none;\r\n    \r\n}\r\n\r\n.registerWindow .buttonToLogin{\r\n\r\n    border-radius: 0 0 10px 10px;\r\n    background-color: #ff6666;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7SUFFSSxXQUFXO0lBQ1gsaUJBQWlCO0lBQ2pCLFVBQVU7SUFDVixnQkFBZ0I7SUFDaEIseUJBQXlCO0lBQ3pCLGtCQUFrQjtJQUNsQixLQUFLO0lBQ0wsU0FBUztJQUNULE9BQU87SUFDUCxRQUFRO0lBQ1IsWUFBWTtJQUNaLGFBQWE7SUFDYixzQkFBc0I7Q0FDekIsdUJBQXVCO0lBQ3BCLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsMEJBQTBCOzs7QUFHOUI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsV0FBVztJQUNYLFVBQVU7SUFDVixtQkFBbUI7SUFDbkIsbUJBQW1CO0FBQ3ZCOztBQUNBOztJQUVJLFdBQVc7QUFDZjs7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1oseUJBQXlCO0lBQ3pCLGdCQUFnQjtJQUNoQixzQkFBc0I7SUFDdEIsZ0JBQWdCOztBQUVwQjs7QUFJQTtJQUNJLDRCQUE0QjtJQUM1QixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSw0QkFBNEI7QUFDaEM7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsVUFBVTtJQUNWLHlCQUF5QjtJQUN6QixzQkFBc0I7SUFDdEIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixtQkFBbUI7SUFDbkIsZUFBZTtJQUNmLGNBQWM7QUFDbEI7O0FBRUE7O0lBRUksNEJBQTRCO0lBQzVCLHlCQUF5Qjs7SUFFekIsY0FBYztJQUNkLG1CQUFtQjs7QUFFdkI7O0FBRUE7O0lBRUksNEJBQTRCO0lBQzVCLHlCQUF5QjtBQUM3QiIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVnaXN0ZXJXaW5kb3d7XHJcblxyXG4gICAgaGVpZ2h0OiA1MCU7XHJcbiAgICBtaW4taGVpZ2h0OiAzMDBweDtcclxuICAgIHdpZHRoOiAzMCU7XHJcbiAgICBtaW4td2lkdGg6IDUwMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZjtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDowO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIHJpZ2h0OiAwO1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcblx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHRcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHRcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICBib3gtc2hhZG93OiBibGFjayAwIDAgMTBweDtcclxuICAgIFxyXG5cclxufVxyXG5cclxuLnJlZ2lzdGVyV2luZG93IC5pbnB1dFVuaXR7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgaGVpZ2h0OiAxMiU7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuLnJlZ2lzdGVyV2luZG93IC5pbnB1dFVuaXQgaW1ne1xyXG4gICAgXHJcbiAgICBoZWlnaHQ6IDkwJTtcclxufVxyXG4ucmVnaXN0ZXJXaW5kb3cgLmlucHV0VW5pdCBpbnB1dHtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGJvcmRlcjogI2FhYWFhYSBzb2xpZCAxcHg7XHJcbiAgICB0ZXh0LWluZGVudDogMWVtO1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICAgIGZvbnQtc2l6ZTogMS4yZW07XHJcbiAgICBcclxufVxyXG5cclxuXHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgLmlucHV0VW5pdCAuaW5wdXRQaG9uZXtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHggMTBweCAwIDA7XHJcbiAgICBib3JkZXItYm90dG9tOiBub25lO1xyXG59XHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgLmlucHV0VW5pdCAuaW5wdXRFbWFpbHtcclxuICAgIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbi5yZWdpc3RlcldpbmRvdyAuaW5wdXRVbml0IC5pbnB1dFBhc3N3b3Jke1xyXG4gICAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxufVxyXG5cclxuLnJlZ2lzdGVyV2luZG93IC5pbnB1dFVuaXQgLmlucHV0UmVwZWF0UGFzc3dvcmR7XHJcbiAgICBib3JkZXItcmFkaXVzOiAwIDAgMTBweCAxMHB4O1xyXG59XHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgYnV0dG9ue1xyXG4gICAgaGVpZ2h0OiAxMiU7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgYm9yZGVyOiAjYWFhYWFhIHNvbGlkIDFweDtcclxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHRleHQtaW5kZW50OiAwO1xyXG59XHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgLmJ1dHRvblJlZ2lzdGVye1xyXG5cclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHggMTBweCAwIDA7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzQ5OGRiO1xyXG4gICAgXHJcbiAgICBtYXJnaW4tdG9wOiAyJTtcclxuICAgIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbiAgICBcclxufVxyXG5cclxuLnJlZ2lzdGVyV2luZG93IC5idXR0b25Ub0xvZ2lue1xyXG5cclxuICAgIGJvcmRlci1yYWRpdXM6IDAgMCAxMHB4IDEwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY2NjY2O1xyXG59Il19 */");
+            /* harmony default export */ __webpack_exports__["default"] = (".registerWindow{\r\n\r\n    height: 50%;\r\n    min-height: 300px;\r\n    width: 30%;\r\n    min-width: 500px;\r\n    background-color: #ffffff;\r\n    position: absolute;\r\n    top:0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    margin: auto;\r\n    display: flex;\r\n    flex-direction: column;\r\n\tjustify-content: center;\t\r\n    align-items: center;\t\r\n    border-radius: 10px;\r\n    box-shadow: black 0 0 10px;\r\n    \r\n\r\n}\r\n/* .registerWindow .inputUnit .vrc{\r\n    display: flex;\r\n    height: 12%;\r\n    width: 90%;\r\n    flex-direction: column;\r\n    align-items: center;\r\n} */\r\n.registerWindow .inputUnit{\r\n    display: flex;\r\n    height: 12%;\r\n    width: 90%;\r\n    flex-direction: row;\r\n    align-items: center;\r\n}\r\n.registerWindow .inputUnit img{\r\n    \r\n    height: 90%;\r\n}\r\n.registerWindow .inputUnit input{\r\n    height: 100%;\r\n    flex-grow: 1;\r\n    border: #aaaaaa solid 1px;\r\n    text-indent: 1em;\r\n    box-sizing: border-box;\r\n    font-size: 1.2em;\r\n    \r\n}\r\n.registerWindow .inputUnit .inputEmail{\r\n    border-radius: 10px 10px 0 0;\r\n    border-bottom: none;\r\n}\r\n.registerWindow .inputUnit .inputVrc{\r\n    height: 100%;\r\n    border-bottom: none;\r\n}\r\n.registerWindow .inputUnit .sendVrc{\r\n    height: 100%;\r\n    border-bottom: none;\r\n}\r\n.registerWindow .inputUnit .sendVrc{\r\n    border-bottom: none;\r\n}\r\n.registerWindow .inputUnit .inputPassword{\r\n    border-bottom: none;\r\n}\r\n.registerWindow .inputUnit .inputRepeatPassword{\r\n    border-radius: 0 0 10px 10px;\r\n}\r\n.registerWindow button{\r\n    height: 12%;\r\n    width: 90%;\r\n    border: #aaaaaa solid 1px;\r\n    box-sizing: border-box;\r\n    font-size: 1.5em;\r\n    color: white;\r\n    font-weight: bolder;\r\n    cursor: pointer;\r\n    text-indent: 0;\r\n}\r\n.registerWindow .buttonRegister{\r\n\r\n    border-radius: 10px 10px 0 0;\r\n    background-color: #3498db;\r\n    \r\n    margin-top: 2%;\r\n    border-bottom: none;\r\n    \r\n}\r\n.registerWindow .buttonToLogin{\r\n\r\n    border-radius: 0 0 10px 10px;\r\n    background-color: #ff6666;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7SUFFSSxXQUFXO0lBQ1gsaUJBQWlCO0lBQ2pCLFVBQVU7SUFDVixnQkFBZ0I7SUFDaEIseUJBQXlCO0lBQ3pCLGtCQUFrQjtJQUNsQixLQUFLO0lBQ0wsU0FBUztJQUNULE9BQU87SUFDUCxRQUFRO0lBQ1IsWUFBWTtJQUNaLGFBQWE7SUFDYixzQkFBc0I7Q0FDekIsdUJBQXVCO0lBQ3BCLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsMEJBQTBCOzs7QUFHOUI7QUFDQTs7Ozs7O0dBTUc7QUFFSDtJQUNJLGFBQWE7SUFDYixXQUFXO0lBQ1gsVUFBVTtJQUNWLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTs7SUFFSSxXQUFXO0FBQ2Y7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1oseUJBQXlCO0lBQ3pCLGdCQUFnQjtJQUNoQixzQkFBc0I7SUFDdEIsZ0JBQWdCOztBQUVwQjtBQUdBO0lBQ0ksNEJBQTRCO0lBQzVCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLG1CQUFtQjtBQUN2QjtBQUdBO0lBQ0ksWUFBWTtJQUNaLG1CQUFtQjtBQUN2QjtBQUdBO0lBQ0ksbUJBQW1CO0FBQ3ZCO0FBRUE7SUFDSSxtQkFBbUI7QUFDdkI7QUFFQTtJQUNJLDRCQUE0QjtBQUNoQztBQUVBO0lBQ0ksV0FBVztJQUNYLFVBQVU7SUFDVix5QkFBeUI7SUFDekIsc0JBQXNCO0lBQ3RCLGdCQUFnQjtJQUNoQixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixjQUFjO0FBQ2xCO0FBRUE7O0lBRUksNEJBQTRCO0lBQzVCLHlCQUF5Qjs7SUFFekIsY0FBYztJQUNkLG1CQUFtQjs7QUFFdkI7QUFFQTs7SUFFSSw0QkFBNEI7SUFDNUIseUJBQXlCO0FBQzdCIiwiZmlsZSI6InNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZWdpc3RlcldpbmRvd3tcclxuXHJcbiAgICBoZWlnaHQ6IDUwJTtcclxuICAgIG1pbi1oZWlnaHQ6IDMwMHB4O1xyXG4gICAgd2lkdGg6IDMwJTtcclxuICAgIG1pbi13aWR0aDogNTAwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOjA7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgcmlnaHQ6IDA7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuXHRqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcdFxyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcdFxyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICAgIGJveC1zaGFkb3c6IGJsYWNrIDAgMCAxMHB4O1xyXG4gICAgXHJcblxyXG59XHJcbi8qIC5yZWdpc3RlcldpbmRvdyAuaW5wdXRVbml0IC52cmN7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgaGVpZ2h0OiAxMiU7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn0gKi9cclxuXHJcbi5yZWdpc3RlcldpbmRvdyAuaW5wdXRVbml0e1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGhlaWdodDogMTIlO1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcbi5yZWdpc3RlcldpbmRvdyAuaW5wdXRVbml0IGltZ3tcclxuICAgIFxyXG4gICAgaGVpZ2h0OiA5MCU7XHJcbn1cclxuLnJlZ2lzdGVyV2luZG93IC5pbnB1dFVuaXQgaW5wdXR7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbiAgICBib3JkZXI6ICNhYWFhYWEgc29saWQgMXB4O1xyXG4gICAgdGV4dC1pbmRlbnQ6IDFlbTtcclxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgICBmb250LXNpemU6IDEuMmVtO1xyXG4gICAgXHJcbn1cclxuXHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgLmlucHV0VW5pdCAuaW5wdXRFbWFpbHtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHggMTBweCAwIDA7XHJcbiAgICBib3JkZXItYm90dG9tOiBub25lO1xyXG59XHJcbi5yZWdpc3RlcldpbmRvdyAuaW5wdXRVbml0IC5pbnB1dFZyY3tcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgLmlucHV0VW5pdCAuc2VuZFZyY3tcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgLmlucHV0VW5pdCAuc2VuZFZyY3tcclxuICAgIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbi5yZWdpc3RlcldpbmRvdyAuaW5wdXRVbml0IC5pbnB1dFBhc3N3b3Jke1xyXG4gICAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxufVxyXG5cclxuLnJlZ2lzdGVyV2luZG93IC5pbnB1dFVuaXQgLmlucHV0UmVwZWF0UGFzc3dvcmR7XHJcbiAgICBib3JkZXItcmFkaXVzOiAwIDAgMTBweCAxMHB4O1xyXG59XHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgYnV0dG9ue1xyXG4gICAgaGVpZ2h0OiAxMiU7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgYm9yZGVyOiAjYWFhYWFhIHNvbGlkIDFweDtcclxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIHRleHQtaW5kZW50OiAwO1xyXG59XHJcblxyXG4ucmVnaXN0ZXJXaW5kb3cgLmJ1dHRvblJlZ2lzdGVye1xyXG5cclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHggMTBweCAwIDA7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzQ5OGRiO1xyXG4gICAgXHJcbiAgICBtYXJnaW4tdG9wOiAyJTtcclxuICAgIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbiAgICBcclxufVxyXG5cclxuLnJlZ2lzdGVyV2luZG93IC5idXR0b25Ub0xvZ2lue1xyXG5cclxuICAgIGJvcmRlci1yYWRpdXM6IDAgMCAxMHB4IDEwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY2NjY2O1xyXG59Il19 */");
             /***/ 
         }),
         /***/ "./src/app/register/register.component.ts": 
@@ -1434,104 +1421,115 @@
                     this.common = common;
                     this.toast = toast;
                     this.registerInformation = {
-                        registerPhone: '',
                         registerEmail: '',
                         registerPassword: '',
                         registerRepeatPassword: '',
-                        registerType: 0,
-                        registerTime: 0,
-                        lastLoginTime: 0,
+                        vrc: '',
+                    };
+                    this.emailForm = {
+                        email: '',
+                    };
+                    this.registerForm = {
+                        email: '',
+                        password: '',
+                        vrc: ''
                     };
                 }
                 RegisterComponent.prototype.ngOnInit = function () {
                 };
-                // 返回注册表校验码，0表示正确
-                RegisterComponent.prototype.registerFormIsOK = function () {
-                    if (!this.common.checkPhone(this.registerInformation.registerPhone)) {
-                        return -1;
-                    }
+                // 返回注册校验码
+                RegisterComponent.prototype.registerFormCheck = function () {
                     if (!this.common.checkEmail(this.registerInformation.registerEmail)) {
-                        return -2;
+                        return this.common.emailFormatIncorectFlag;
                     }
                     if (!this.common.checkPassword(this.registerInformation.registerPassword)) {
-                        return -3;
+                        return this.common.passwordFormatIncorectFlag;
                     }
                     if (!this.common.checkPassword(this.registerInformation.registerRepeatPassword)) {
-                        return -4;
+                        return this.common.repeatPasswordFormatIncorectFlag;
                     }
                     if (this.registerInformation.registerPassword !== this.registerInformation.registerRepeatPassword) {
-                        return -5;
+                        return this.common.passwordNotConsistFlag;
                     }
-                    return 0;
+                    return this.common.corectFlag;
                 };
-                // 解析注册表校验码
-                RegisterComponent.prototype.getRegisterFormJudgeResult = function () {
-                    var tipStr = '';
-                    var resultFlag = this.registerFormIsOK();
-                    if (resultFlag === 0) {
-                        tipStr = ''; // 表示没有错误
+                // 返回校验码
+                RegisterComponent.prototype.emailFormCheck = function () {
+                    if (!this.common.checkEmail(this.registerInformation.registerEmail)) {
+                        return this.common.emailFormatIncorectFlag;
                     }
-                    if (resultFlag === -1) {
-                        tipStr = '您输入的手机格式有误!';
-                    }
-                    if (resultFlag === -2) {
-                        tipStr = '您输入的邮箱格式有误!';
-                    }
-                    if (resultFlag === -3) {
-                        tipStr = '您输入的密码格式有误!';
-                    }
-                    if (resultFlag === -4) {
-                        tipStr = '您输入的二次密码格式有误!';
-                    }
-                    if (resultFlag === -5) {
-                        tipStr = '您两次输入的密码不一致';
-                    }
-                    return tipStr;
+                    return this.common.corectFlag;
                 };
-                // 发送Http注册请求 (半成品) (业务逻辑还没写)
-                RegisterComponent.prototype.askForRegister = function () {
+                // 发送验证码
+                RegisterComponent.prototype.sendVrc = function () {
                     var _this = this;
-                    // 先在前端进行合法性检测,获取提示信息
-                    var tipStr = this.getRegisterFormJudgeResult();
-                    // 如果提示信息是空，则表示用户填写的格式是正确的
-                    if (tipStr !== '') {
-                        this.toast.error(tipStr, '提示', { timeOut: 4000 });
+                    // 前置校验
+                    if (this.emailFormCheck() !== this.common.corectFlag) {
+                        this.toast.error(this.common.parseFlag(this.emailFormCheck()), '提示', { timeOut: 4000 });
                         return;
                     }
+                    // 数据结构构建
                     var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     });
-                    // 请求头
+                    this.emailForm = {
+                        email: this.registerInformation.registerEmail,
+                    };
                     var requestHead = { headers: header };
-                    // 请求协议
-                    var nowTime = new Date().getTime(); // nowTime是13位的
-                    this.registerInformation.lastLoginTime = nowTime;
-                    this.registerInformation.registerTime = nowTime;
                     this.common.reqProto = {
-                        action: 'POST',
-                        data: this.registerInformation,
-                        // ---- 下面的字段都没用到
-                        sets: [],
+                        data: this.emailForm,
+                        orderBy: '',
+                        filter: '',
+                        page: 0,
+                        pageSize: 0,
+                    };
+                    // 发送邮箱验证码请求
+                    this.http.post(this.common.sendVrcUrl, this.common.reqProto, requestHead).subscribe(function (res) {
+                        _this.common.replyProto = res;
+                        if (res.status !== _this.common.sendVrcSuccessFlag) {
+                            _this.toast.warning(_this.common.replyProto.msg, '提示');
+                            return;
+                        }
+                        _this.toast.success(_this.common.replyProto.msg, '提示', { timeOut: 4000 });
+                    });
+                };
+                // 发送Http注册请求
+                RegisterComponent.prototype.askForRegister = function () {
+                    var _this = this;
+                    // 前置校验
+                    if (this.registerFormCheck() !== this.common.corectFlag) {
+                        this.toast.error(this.common.parseFlag(this.registerFormCheck()), '提示', { timeOut: 4000 });
+                        return;
+                    }
+                    // 数据结构构建
+                    var header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    });
+                    var requestHead = { headers: header };
+                    this.registerForm = {
+                        email: this.registerInformation.registerEmail,
+                        password: this.registerInformation.registerPassword,
+                        vrc: this.registerInformation.vrc,
+                    };
+                    this.common.reqProto = {
+                        data: this.registerForm,
                         orderBy: '',
                         filter: '',
                         page: 0,
                         pageSize: 0,
                     };
                     // 发送注册请求
-                    this.http.post('/server/register', this.common.reqProto, requestHead).subscribe(function (res) {
-                        // 成功了！ 但是这的业务逻辑还有好多
+                    this.http.post(this.common.registerUrl, this.common.reqProto, requestHead).subscribe(function (res) {
                         _this.common.replyProto = res;
-                        // 状态码为0表示成功
-                        if (res.status === 0) {
-                            _this.toast.success('注册成功!', '提示', { timeOut: 4000 });
-                            _this.common.storeUserAccountInformation(_this.common.replyProto.data);
-                            // 页面跳转
-                            _this.router.navigate(['registerResponse']);
+                        if (_this.common.replyProto.status !== _this.common.registerSuccessFlag) {
+                            _this.toast.warning(_this.common.replyProto.msg, '提示');
+                            return;
                         }
-                        else {
-                            // 输出响应信息字段
-                            _this.toast.warning(res.msg, '提示');
-                        }
+                        // 执行操作
+                        _this.common.storeUserPersonalInformation(null);
+                        _this.common.storeUserAccountInformation(null);
+                        _this.router.navigate(['registerResponse']);
+                        _this.toast.success(_this.common.replyProto.msg, '提示', { timeOut: 4000 });
                     });
                 };
                 return RegisterComponent;
@@ -1603,7 +1601,7 @@
           \***************************/
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(/*! C:\Users\hasee\Desktop\个人项目\LoginSystem\Client\src\main.ts */ "./src/main.ts");
+            module.exports = __webpack_require__(/*! C:\Users\hasee\Desktop\LoginSystem\Client\src\main.ts */ "./src/main.ts");
             /***/ 
         })
     }, [[0, "runtime", "vendor"]]]);
