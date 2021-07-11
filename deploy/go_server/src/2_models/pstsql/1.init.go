@@ -7,11 +7,10 @@ import (
 	_ "github.com/lib/pq"
 )
 
-
-
 type Pgsql struct {
 	db *sql.DB
 }
+
 func NewPgsql() *Pgsql{
 	return &Pgsql{&sql.DB{}}
 }

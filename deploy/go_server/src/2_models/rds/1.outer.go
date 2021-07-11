@@ -24,6 +24,7 @@ func (r *Redis) Set(key string, value []byte, expiredTime int) error {
 
 	return err
 }
+
 func (r *Redis) Del(key string) error {
 	_, err := r.db.Do("Del", key)
 	// 重试
@@ -34,6 +35,7 @@ func (r *Redis) Del(key string) error {
 	}
 	return nil
 }
+
 func (r *Redis) Get(key string) ([]byte, error) {
 
 	rpl, err := r.db.Do("get", key)

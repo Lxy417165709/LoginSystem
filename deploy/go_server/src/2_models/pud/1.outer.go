@@ -1,7 +1,6 @@
 package pud
 
 import (
-	"1_env"
 	"encoding/base64"
 	"fmt"
 	"github.com/astaxie/beego/logs"
